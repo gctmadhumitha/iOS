@@ -1,0 +1,644 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B8D9C217B9A96ABAC791D5D693621EB /* Pods-MLSpeechSynthesizer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 074AA35EA247B9641BEA207BD4A7DAC0 /* Pods-MLSpeechSynthesizer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2D4493AB16B0782399264FE884AD843D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		322567018B4B86DF7D977E038E3EECF3 /* Pods-MLSpeechSynthesizerUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB0942D06AEAE38D7F64E2B61D186D /* Pods-MLSpeechSynthesizerUITests-dummy.m */; };
+		5F22CDC96C833470839D3C2870E0B9AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		8FCB2C2313EC26485B3A3EB370AEFFC1 /* Pods-MLSpeechSynthesizer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6993ABAD21C34175AFCE459D5EE8AEE6 /* Pods-MLSpeechSynthesizer-dummy.m */; };
+		9DFED1709D118FFFA003A995EE780CC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		A5773B57ABA5C17B985436C01552AAFB /* Pods-MLSpeechSynthesizerUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BC86AD3679FBE3213354360D30936C /* Pods-MLSpeechSynthesizerUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF67738B53016158FDDFA57C3FA16BE7 /* Pods-MLSpeechSynthesizerTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 52736193B8462A985A04FAC71612F4B8 /* Pods-MLSpeechSynthesizerTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE077876C60BE39A6C5614FF7CEF865E /* Pods-MLSpeechSynthesizerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 276D011B6D928B8EBDB121816B4D977E /* Pods-MLSpeechSynthesizerTests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		014847CB36AF90E7F2F99942BC445224 /* Pods-MLSpeechSynthesizer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLSpeechSynthesizer.modulemap"; sourceTree = "<group>"; };
+		06DF28B259029AA938D69E68F99D111D /* Pods-MLSpeechSynthesizer-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLSpeechSynthesizer-acknowledgements.plist"; sourceTree = "<group>"; };
+		074AA35EA247B9641BEA207BD4A7DAC0 /* Pods-MLSpeechSynthesizer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLSpeechSynthesizer-umbrella.h"; sourceTree = "<group>"; };
+		0A9ED51248EA5FCD165874DFA0EA6E15 /* Pods-MLSpeechSynthesizerTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLSpeechSynthesizerTests.modulemap"; sourceTree = "<group>"; };
+		174DE7431C088929FAB563E0D8813DE0 /* Pods-MLSpeechSynthesizerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		179082BC873A3F68829DF076AE4366A3 /* Pods-MLSpeechSynthesizer-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLSpeechSynthesizer-acknowledgements.markdown"; sourceTree = "<group>"; };
+		276D011B6D928B8EBDB121816B4D977E /* Pods-MLSpeechSynthesizerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLSpeechSynthesizerTests-dummy.m"; sourceTree = "<group>"; };
+		3AAB0942D06AEAE38D7F64E2B61D186D /* Pods-MLSpeechSynthesizerUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLSpeechSynthesizerUITests-dummy.m"; sourceTree = "<group>"; };
+		3FF4F5F71D99DF43448D3E40B44D66D1 /* Pods_MLSpeechSynthesizerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLSpeechSynthesizerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BC71510FB5CA33D97A8D8001098FE36 /* Pods-MLSpeechSynthesizerUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLSpeechSynthesizerUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4E59F360BC10CB7B8F87C2322EE26EA2 /* Pods-MLSpeechSynthesizerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizerTests-frameworks.sh"; sourceTree = "<group>"; };
+		4F3FA937F868CD39EF8B450A2B0AAE4E /* Pods-MLSpeechSynthesizerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizerTests-resources.sh"; sourceTree = "<group>"; };
+		51DFDAE409378314505842781977A646 /* Pods-MLSpeechSynthesizer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizer.debug.xcconfig"; sourceTree = "<group>"; };
+		52736193B8462A985A04FAC71612F4B8 /* Pods-MLSpeechSynthesizerTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLSpeechSynthesizerTests-umbrella.h"; sourceTree = "<group>"; };
+		56E0C703FEEE5E03C3943A44F17CD8B5 /* Pods-MLSpeechSynthesizer-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizer-resources.sh"; sourceTree = "<group>"; };
+		66DE31A89FA6D60BC5670A398AC106DB /* Pods-MLSpeechSynthesizer-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizer-frameworks.sh"; sourceTree = "<group>"; };
+		6993ABAD21C34175AFCE459D5EE8AEE6 /* Pods-MLSpeechSynthesizer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MLSpeechSynthesizer-dummy.m"; sourceTree = "<group>"; };
+		72B33ACD7B5F85F0E9375DBE78559F04 /* Pods_MLSpeechSynthesizer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLSpeechSynthesizer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		75B555359F4DA3A96B55EDE561418CD3 /* Pods-MLSpeechSynthesizerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MLSpeechSynthesizerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9381554BAD622227DA85405707477860 /* Pods_MLSpeechSynthesizerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MLSpeechSynthesizerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		957C1FCDA0C2030B0038F0AEF722B388 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95DEEE704C842433B6363A6EE688E88D /* Pods-MLSpeechSynthesizerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLSpeechSynthesizerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9AF9522B6F6846EEA5FFF56789E3540E /* Pods-MLSpeechSynthesizerUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MLSpeechSynthesizerUITests.modulemap"; sourceTree = "<group>"; };
+		A6BC86AD3679FBE3213354360D30936C /* Pods-MLSpeechSynthesizerUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MLSpeechSynthesizerUITests-umbrella.h"; sourceTree = "<group>"; };
+		A74C732F9FE94277F6B5E4B7D635A8AC /* Pods-MLSpeechSynthesizerUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MLSpeechSynthesizerUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		AC1F4D4D3CB3CFE5E4778898920BDAE0 /* Pods-MLSpeechSynthesizerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CA15617C7CECE951C032E411BB4D2435 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAD2A7078216D85FA155408CD79DDC78 /* Pods-MLSpeechSynthesizerUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizerUITests-frameworks.sh"; sourceTree = "<group>"; };
+		CEBA689EE82EC5A5DF78DC77B5266666 /* Pods-MLSpeechSynthesizerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizerTests.release.xcconfig"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		E22D4646EE111C9C60B8B5F2ECD6C75E /* Pods-MLSpeechSynthesizerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E9E6F1B0F163F940ED6BB21E75239FE9 /* Pods-MLSpeechSynthesizer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MLSpeechSynthesizer.release.xcconfig"; sourceTree = "<group>"; };
+		F00628AEF2F9EE3BDB3EA479B3237490 /* Pods-MLSpeechSynthesizerUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MLSpeechSynthesizerUITests-resources.sh"; sourceTree = "<group>"; };
+		F78D12DB1DCE9288A09BC561D6F4B7AF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		494490242ADC7BA7D03104357773AE61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DFED1709D118FFFA003A995EE780CC7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A892284BCDF4E89E1018E179D83F5382 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D4493AB16B0782399264FE884AD843D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00131D54105787B69ED5655AD790CBD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F22CDC96C833470839D3C2870E0B9AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10A037ABDBC40422529AC71FC7F83C10 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDB78F749771E0202AC3AAE1C6B76DA7 /* Pods-MLSpeechSynthesizer */,
+				28E99133FCD873242DF3DD73290F947D /* Pods-MLSpeechSynthesizerTests */,
+				E0433F88D231EF489E15B9F2C21A5F44 /* Pods-MLSpeechSynthesizerUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		28E99133FCD873242DF3DD73290F947D /* Pods-MLSpeechSynthesizerTests */ = {
+			isa = PBXGroup;
+			children = (
+				CA15617C7CECE951C032E411BB4D2435 /* Info.plist */,
+				0A9ED51248EA5FCD165874DFA0EA6E15 /* Pods-MLSpeechSynthesizerTests.modulemap */,
+				75B555359F4DA3A96B55EDE561418CD3 /* Pods-MLSpeechSynthesizerTests-acknowledgements.markdown */,
+				95DEEE704C842433B6363A6EE688E88D /* Pods-MLSpeechSynthesizerTests-acknowledgements.plist */,
+				276D011B6D928B8EBDB121816B4D977E /* Pods-MLSpeechSynthesizerTests-dummy.m */,
+				4E59F360BC10CB7B8F87C2322EE26EA2 /* Pods-MLSpeechSynthesizerTests-frameworks.sh */,
+				4F3FA937F868CD39EF8B450A2B0AAE4E /* Pods-MLSpeechSynthesizerTests-resources.sh */,
+				52736193B8462A985A04FAC71612F4B8 /* Pods-MLSpeechSynthesizerTests-umbrella.h */,
+				174DE7431C088929FAB563E0D8813DE0 /* Pods-MLSpeechSynthesizerTests.debug.xcconfig */,
+				CEBA689EE82EC5A5DF78DC77B5266666 /* Pods-MLSpeechSynthesizerTests.release.xcconfig */,
+			);
+			name = "Pods-MLSpeechSynthesizerTests";
+			path = "Target Support Files/Pods-MLSpeechSynthesizerTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				C57B65FA3F8CADFAE4287E4D78A6D5B5 /* Products */,
+				10A037ABDBC40422529AC71FC7F83C10 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C57B65FA3F8CADFAE4287E4D78A6D5B5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72B33ACD7B5F85F0E9375DBE78559F04 /* Pods_MLSpeechSynthesizer.framework */,
+				9381554BAD622227DA85405707477860 /* Pods_MLSpeechSynthesizerTests.framework */,
+				3FF4F5F71D99DF43448D3E40B44D66D1 /* Pods_MLSpeechSynthesizerUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0433F88D231EF489E15B9F2C21A5F44 /* Pods-MLSpeechSynthesizerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F78D12DB1DCE9288A09BC561D6F4B7AF /* Info.plist */,
+				9AF9522B6F6846EEA5FFF56789E3540E /* Pods-MLSpeechSynthesizerUITests.modulemap */,
+				4BC71510FB5CA33D97A8D8001098FE36 /* Pods-MLSpeechSynthesizerUITests-acknowledgements.markdown */,
+				A74C732F9FE94277F6B5E4B7D635A8AC /* Pods-MLSpeechSynthesizerUITests-acknowledgements.plist */,
+				3AAB0942D06AEAE38D7F64E2B61D186D /* Pods-MLSpeechSynthesizerUITests-dummy.m */,
+				CAD2A7078216D85FA155408CD79DDC78 /* Pods-MLSpeechSynthesizerUITests-frameworks.sh */,
+				F00628AEF2F9EE3BDB3EA479B3237490 /* Pods-MLSpeechSynthesizerUITests-resources.sh */,
+				A6BC86AD3679FBE3213354360D30936C /* Pods-MLSpeechSynthesizerUITests-umbrella.h */,
+				AC1F4D4D3CB3CFE5E4778898920BDAE0 /* Pods-MLSpeechSynthesizerUITests.debug.xcconfig */,
+				E22D4646EE111C9C60B8B5F2ECD6C75E /* Pods-MLSpeechSynthesizerUITests.release.xcconfig */,
+			);
+			name = "Pods-MLSpeechSynthesizerUITests";
+			path = "Target Support Files/Pods-MLSpeechSynthesizerUITests";
+			sourceTree = "<group>";
+		};
+		EDB78F749771E0202AC3AAE1C6B76DA7 /* Pods-MLSpeechSynthesizer */ = {
+			isa = PBXGroup;
+			children = (
+				957C1FCDA0C2030B0038F0AEF722B388 /* Info.plist */,
+				014847CB36AF90E7F2F99942BC445224 /* Pods-MLSpeechSynthesizer.modulemap */,
+				179082BC873A3F68829DF076AE4366A3 /* Pods-MLSpeechSynthesizer-acknowledgements.markdown */,
+				06DF28B259029AA938D69E68F99D111D /* Pods-MLSpeechSynthesizer-acknowledgements.plist */,
+				6993ABAD21C34175AFCE459D5EE8AEE6 /* Pods-MLSpeechSynthesizer-dummy.m */,
+				66DE31A89FA6D60BC5670A398AC106DB /* Pods-MLSpeechSynthesizer-frameworks.sh */,
+				56E0C703FEEE5E03C3943A44F17CD8B5 /* Pods-MLSpeechSynthesizer-resources.sh */,
+				074AA35EA247B9641BEA207BD4A7DAC0 /* Pods-MLSpeechSynthesizer-umbrella.h */,
+				51DFDAE409378314505842781977A646 /* Pods-MLSpeechSynthesizer.debug.xcconfig */,
+				E9E6F1B0F163F940ED6BB21E75239FE9 /* Pods-MLSpeechSynthesizer.release.xcconfig */,
+			);
+			name = "Pods-MLSpeechSynthesizer";
+			path = "Target Support Files/Pods-MLSpeechSynthesizer";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		13491E235CA30B4A7DE6129846F1A460 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF67738B53016158FDDFA57C3FA16BE7 /* Pods-MLSpeechSynthesizerTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3833DD9EECB424AFB7040514404AACC5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B8D9C217B9A96ABAC791D5D693621EB /* Pods-MLSpeechSynthesizer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		576EA8AC759F02864CBF3C96DF3B61C3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5773B57ABA5C17B985436C01552AAFB /* Pods-MLSpeechSynthesizerUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		434E2434336025B2E5CE99799F2DC6B5 /* Pods-MLSpeechSynthesizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D682777F34BA362E6532AEB574A7A7D2 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizer" */;
+			buildPhases = (
+				E4BEA67A13D4A540CFE2511D6C47EEB9 /* Sources */,
+				494490242ADC7BA7D03104357773AE61 /* Frameworks */,
+				3833DD9EECB424AFB7040514404AACC5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MLSpeechSynthesizer";
+			productName = "Pods-MLSpeechSynthesizer";
+			productReference = 72B33ACD7B5F85F0E9375DBE78559F04 /* Pods_MLSpeechSynthesizer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6E7EA10CB57A9BE04EF78C6D306B9FCE /* Pods-MLSpeechSynthesizerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D606DFAE5F700C0471D29379F436AA1 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizerUITests" */;
+			buildPhases = (
+				35D303F14AB4CA25D44898B47E6B9BBE /* Sources */,
+				F00131D54105787B69ED5655AD790CBD /* Frameworks */,
+				576EA8AC759F02864CBF3C96DF3B61C3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MLSpeechSynthesizerUITests";
+			productName = "Pods-MLSpeechSynthesizerUITests";
+			productReference = 3FF4F5F71D99DF43448D3E40B44D66D1 /* Pods_MLSpeechSynthesizerUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		87A588CE57C641ACE6F52EEA33A60D65 /* Pods-MLSpeechSynthesizerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B120FD1E248F8CA261C2E0C4CFBE4A71 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizerTests" */;
+			buildPhases = (
+				B2E039F50A100C37057E44F44C0F39A0 /* Sources */,
+				A892284BCDF4E89E1018E179D83F5382 /* Frameworks */,
+				13491E235CA30B4A7DE6129846F1A460 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MLSpeechSynthesizerTests";
+			productName = "Pods-MLSpeechSynthesizerTests";
+			productReference = 9381554BAD622227DA85405707477860 /* Pods_MLSpeechSynthesizerTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = C57B65FA3F8CADFAE4287E4D78A6D5B5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				434E2434336025B2E5CE99799F2DC6B5 /* Pods-MLSpeechSynthesizer */,
+				87A588CE57C641ACE6F52EEA33A60D65 /* Pods-MLSpeechSynthesizerTests */,
+				6E7EA10CB57A9BE04EF78C6D306B9FCE /* Pods-MLSpeechSynthesizerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		35D303F14AB4CA25D44898B47E6B9BBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				322567018B4B86DF7D977E038E3EECF3 /* Pods-MLSpeechSynthesizerUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2E039F50A100C37057E44F44C0F39A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE077876C60BE39A6C5614FF7CEF865E /* Pods-MLSpeechSynthesizerTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BEA67A13D4A540CFE2511D6C47EEB9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FCB2C2313EC26485B3A3EB370AEFFC1 /* Pods-MLSpeechSynthesizer-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		42287DDF97330524BA3EF220F0276DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4EDA3D3CECCEAA1E9530123A5A9A7140 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 174DE7431C088929FAB563E0D8813DE0 /* Pods-MLSpeechSynthesizerTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizerTests/Pods-MLSpeechSynthesizerTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizerTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6018A7AE7EA564DE3E270BF9288B2651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51DFDAE409378314505842781977A646 /* Pods-MLSpeechSynthesizer.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizer/Pods-MLSpeechSynthesizer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		60D77F8EE2E0BED7A77A6281134799BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEBA689EE82EC5A5DF78DC77B5266666 /* Pods-MLSpeechSynthesizerTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizerTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizerTests/Pods-MLSpeechSynthesizerTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizerTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AE9439C22469D35336242DD983DB5C5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		B1710D0F97CC0321E9B5BE7BF87F41C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E22D4646EE111C9C60B8B5F2ECD6C75E /* Pods-MLSpeechSynthesizerUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizerUITests/Pods-MLSpeechSynthesizerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B7AD60343A9F9170F31349B3CE997D3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC1F4D4D3CB3CFE5E4778898920BDAE0 /* Pods-MLSpeechSynthesizerUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizerUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizerUITests/Pods-MLSpeechSynthesizerUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizerUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E4F30FBDB5510EA955051239CCA59FAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E6F1B0F163F940ED6BB21E75239FE9 /* Pods-MLSpeechSynthesizer.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MLSpeechSynthesizer/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MLSpeechSynthesizer/Pods-MLSpeechSynthesizer.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MLSpeechSynthesizer;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE9439C22469D35336242DD983DB5C5F /* Debug */,
+				42287DDF97330524BA3EF220F0276DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D606DFAE5F700C0471D29379F436AA1 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7AD60343A9F9170F31349B3CE997D3A /* Debug */,
+				B1710D0F97CC0321E9B5BE7BF87F41C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B120FD1E248F8CA261C2E0C4CFBE4A71 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EDA3D3CECCEAA1E9530123A5A9A7140 /* Debug */,
+				60D77F8EE2E0BED7A77A6281134799BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D682777F34BA362E6532AEB574A7A7D2 /* Build configuration list for PBXNativeTarget "Pods-MLSpeechSynthesizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6018A7AE7EA564DE3E270BF9288B2651 /* Debug */,
+				E4F30FBDB5510EA955051239CCA59FAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

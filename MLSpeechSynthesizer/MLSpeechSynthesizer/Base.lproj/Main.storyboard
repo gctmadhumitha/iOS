@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MLSpeechSynthesizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="nig-9Z-mV6">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc. for iOS, macOS, watchOS, tvOS, and Linux. Swift is designed to work with Apple's Cocoa and Cocoa Touch frameworks and the large body of extant Objective-C code written for Apple products. It is built with the open source LLVM compiler framework and has been included in Xcode since version 6. On platforms other than Linux, it uses the Objective-C runtime library which allows C, Objective-C, C++ and Swift code to run within one program.</mutableString>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="microphone" translatesAutoresizingMaskIntoConstraints="NO" id="NXX-L7-1vq">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NXX-L7-1vq" secondAttribute="height" multiplier="1:1" id="PJh-iV-70i"/>
+                                    <constraint firstAttribute="height" constant="96" id="dQf-XH-eZL"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text to Speech " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ll8-yK-bIP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kDU-YI-xUm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <color key="textColor" red="0.28235294119999998" green="0.71764705880000002" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nig-9Z-mV6" firstAttribute="top" secondItem="ll8-yK-bIP" secondAttribute="bottom" constant="17" id="7wq-fD-5kg"/>
+                            <constraint firstItem="nig-9Z-mV6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="Hdd-pS-IqD"/>
+                            <constraint firstItem="ll8-yK-bIP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="WGf-XQ-foY"/>
+                            <constraint firstAttribute="trailing" secondItem="ll8-yK-bIP" secondAttribute="trailing" constant="20" id="X8n-uW-tWs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nig-9Z-mV6" secondAttribute="trailing" constant="34" id="e5Z-gV-miE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NXX-L7-1vq" secondAttribute="bottom" constant="56" id="eUZ-Ob-UVT"/>
+                            <constraint firstItem="NXX-L7-1vq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzx-5e-E4K"/>
+                            <constraint firstItem="NXX-L7-1vq" firstAttribute="top" secondItem="nig-9Z-mV6" secondAttribute="bottom" constant="21" id="vB0-21-w39"/>
+                            <constraint firstItem="ll8-yK-bIP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="19" id="vvn-FM-qql"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="speakButton" destination="NXX-L7-1vq" id="6r3-mQ-BC3"/>
+                        <outlet property="speakImage" destination="NXX-L7-1vq" id="v7K-kh-jx1"/>
+                        <outlet property="textView" destination="nig-9Z-mV6" id="DPG-F9-Y3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="microphone" width="512" height="512"/>
+    </resources>
+</document>
