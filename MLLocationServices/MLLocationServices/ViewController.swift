@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController {
 
     @IBOutlet var locationTable: UITableView!
     var locationManager:CLLocationManager!
@@ -22,7 +22,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     @IBOutlet var locationText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         locationTable.delegate = self
         locationTable.dataSource = self
         stopButton.isEnabled = false
@@ -36,7 +35,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     @IBAction func OnStart(_ sender: AnyObject) {
         locationManager = CLLocationManager()
@@ -50,12 +48,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
             timer = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.updateTable), userInfo: nil, repeats: true)
              stopButton.isEnabled = true
              startButton.isEnabled = false
-            
         }
-    }
-    
-    func updateTable(){
-        locationTable.reloadData()
     }
     
     @IBAction func onStop(_ sender: AnyObject) {
@@ -65,11 +58,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         startButton.isEnabled = true
     }
     
+    func updateTable(){
+        locationTable.reloadData()
+    }
+    
+}
+
+
+// MARK: CLLocationManagerDelegate implementation
+
+extension ViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-            let currentLocation = locations[0]
-            self.locations.append(currentLocation)
-            locationText.textColor = UIColor.black
-            locationText.text = "\(currentLocation.coordinate.latitude), \(currentLocation.coordinate.longitude)"
+        let currentLocation = locations[0]
+        self.locations.append(currentLocation)
+        locationText.textColor = UIColor.black
+        locationText.text = "\(currentLocation.coordinate.latitude), \(currentLocation.coordinate.longitude)"
     }
     
     
@@ -77,6 +80,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         locationText.text = "Error occured"
     }
     
+}
+
+// MARK: UITableViewDelegate and UITableViewDataSource implementation
+
+extension ViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locations.count
@@ -86,7 +94,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as UITableViewCell!
-
+        
         if cell == nil{
             cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
         }
@@ -97,5 +105,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITableViewDe
         return cell!
         
     }
+
+
+
 }
 
