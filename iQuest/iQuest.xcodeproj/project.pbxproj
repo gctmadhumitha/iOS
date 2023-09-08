@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D652AA7A06300DEDB57 /* AppDelegate.swift */; };
+		C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */; };
+		C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */; };
+		C2183D722AA7A06500DEDB57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2183D702AA7A06500DEDB57 /* LaunchScreen.storyboard */; };
+		C2183D7D2AA7A06500DEDB57 /* iQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D7C2AA7A06500DEDB57 /* iQuestTests.swift */; };
+		C2183D872AA7A06600DEDB57 /* iQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D862AA7A06600DEDB57 /* iQuestUITests.swift */; };
+		C2183D892AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */; };
+		C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */; };
+		C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D962AA7A09500DEDB57 /* Trivia.swift */; };
+		C2183DA32AA7A09500DEDB57 /* Tab2CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */; };
+		C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */; };
+		C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9B2AA7A09500DEDB57 /* Utilities.swift */; };
+		C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9C2AA7A09500DEDB57 /* ViewController.swift */; };
+		C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */; };
+		C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */; };
+		C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB22AA7AF7A00DEDB57 /* APIService.swift */; };
+		C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */; };
+		C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB72AA8DE2300DEDB57 /* ChatView.swift */; };
+		C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */; };
+		C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C2183DF22AA8F5E900DEDB57 /* OpenAIKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C2183D792AA7A06500DEDB57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2183D5A2AA7A06300DEDB57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2183D612AA7A06300DEDB57;
+			remoteInfo = iQuest;
+		};
+		C2183D832AA7A06600DEDB57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2183D5A2AA7A06300DEDB57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2183D612AA7A06300DEDB57;
+			remoteInfo = iQuest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C2183D622AA7A06300DEDB57 /* iQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2183D652AA7A06300DEDB57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C2183D712AA7A06500DEDB57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C2183D732AA7A06500DEDB57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2183D782AA7A06500DEDB57 /* iQuestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2183D7C2AA7A06500DEDB57 /* iQuestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestTests.swift; sourceTree = "<group>"; };
+		C2183D822AA7A06600DEDB57 /* iQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2183D862AA7A06600DEDB57 /* iQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestUITests.swift; sourceTree = "<group>"; };
+		C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
+		C2183D962AA7A09500DEDB57 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
+		C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab2CollectionViewController.swift; sourceTree = "<group>"; };
+		C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C2183D9B2AA7A09500DEDB57 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C2183D9C2AA7A09500DEDB57 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSelectionViewController.swift; sourceTree = "<group>"; };
+		C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C2183DB22AA7AF7A00DEDB57 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponse.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2183D5F2AA7A06300DEDB57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D752AA7A06500DEDB57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D7F2AA7A06600DEDB57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C2183D592AA7A06300DEDB57 = {
+			isa = PBXGroup;
+			children = (
+				C2183D642AA7A06300DEDB57 /* iQuest */,
+				C2183D7B2AA7A06500DEDB57 /* iQuestTests */,
+				C2183D852AA7A06600DEDB57 /* iQuestUITests */,
+				C2183D632AA7A06300DEDB57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C2183D632AA7A06300DEDB57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D622AA7A06300DEDB57 /* iQuest.app */,
+				C2183D782AA7A06500DEDB57 /* iQuestTests.xctest */,
+				C2183D822AA7A06600DEDB57 /* iQuestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2183D642AA7A06300DEDB57 /* iQuest */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D652AA7A06300DEDB57 /* AppDelegate.swift */,
+				C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */,
+				C2183DB12AA7AF4C00DEDB57 /* Models */,
+				C2183DB02AA7AF2B00DEDB57 /* UI */,
+				C2183DB42AA7B2A100DEDB57 /* Utilities */,
+				C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */,
+				C2183D702AA7A06500DEDB57 /* LaunchScreen.storyboard */,
+				C2183D732AA7A06500DEDB57 /* Info.plist */,
+				C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */,
+			);
+			path = iQuest;
+			sourceTree = "<group>";
+		};
+		C2183D7B2AA7A06500DEDB57 /* iQuestTests */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D7C2AA7A06500DEDB57 /* iQuestTests.swift */,
+			);
+			path = iQuestTests;
+			sourceTree = "<group>";
+		};
+		C2183D852AA7A06600DEDB57 /* iQuestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D862AA7A06600DEDB57 /* iQuestUITests.swift */,
+				C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */,
+			);
+			path = iQuestUITests;
+			sourceTree = "<group>";
+		};
+		C2183DB02AA7AF2B00DEDB57 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */,
+				C2183D9C2AA7A09500DEDB57 /* ViewController.swift */,
+				C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */,
+				C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */,
+				C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */,
+				C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */,
+				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
+				C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		C2183DB12AA7AF4C00DEDB57 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D962AA7A09500DEDB57 /* Trivia.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2183DB42AA7B2A100DEDB57 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D9B2AA7A09500DEDB57 /* Utilities.swift */,
+				C2183DB22AA7AF7A00DEDB57 /* APIService.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C2183D612AA7A06300DEDB57 /* iQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2183D8C2AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuest" */;
+			buildPhases = (
+				C2183D5E2AA7A06300DEDB57 /* Sources */,
+				C2183D5F2AA7A06300DEDB57 /* Frameworks */,
+				C2183D602AA7A06300DEDB57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iQuest;
+			packageProductDependencies = (
+				C2183DF22AA8F5E900DEDB57 /* OpenAIKit */,
+			);
+			productName = iQuest;
+			productReference = C2183D622AA7A06300DEDB57 /* iQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C2183D772AA7A06500DEDB57 /* iQuestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2183D8F2AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuestTests" */;
+			buildPhases = (
+				C2183D742AA7A06500DEDB57 /* Sources */,
+				C2183D752AA7A06500DEDB57 /* Frameworks */,
+				C2183D762AA7A06500DEDB57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2183D7A2AA7A06500DEDB57 /* PBXTargetDependency */,
+			);
+			name = iQuestTests;
+			productName = iQuestTests;
+			productReference = C2183D782AA7A06500DEDB57 /* iQuestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C2183D812AA7A06600DEDB57 /* iQuestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2183D922AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuestUITests" */;
+			buildPhases = (
+				C2183D7E2AA7A06600DEDB57 /* Sources */,
+				C2183D7F2AA7A06600DEDB57 /* Frameworks */,
+				C2183D802AA7A06600DEDB57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C2183D842AA7A06600DEDB57 /* PBXTargetDependency */,
+			);
+			name = iQuestUITests;
+			productName = iQuestUITests;
+			productReference = C2183D822AA7A06600DEDB57 /* iQuestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2183D5A2AA7A06300DEDB57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C2183D612AA7A06300DEDB57 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					C2183D772AA7A06500DEDB57 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C2183D612AA7A06300DEDB57;
+					};
+					C2183D812AA7A06600DEDB57 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = C2183D612AA7A06300DEDB57;
+					};
+				};
+			};
+			buildConfigurationList = C2183D5D2AA7A06300DEDB57 /* Build configuration list for PBXProject "iQuest" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C2183D592AA7A06300DEDB57;
+			packageReferences = (
+				C2183DF12AA8F5E900DEDB57 /* XCRemoteSwiftPackageReference "OpenAI" */,
+			);
+			productRefGroup = C2183D632AA7A06300DEDB57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C2183D612AA7A06300DEDB57 /* iQuest */,
+				C2183D772AA7A06500DEDB57 /* iQuestTests */,
+				C2183D812AA7A06600DEDB57 /* iQuestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2183D602AA7A06300DEDB57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2183D722AA7A06500DEDB57 /* LaunchScreen.storyboard in Resources */,
+				C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D762AA7A06500DEDB57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D802AA7A06600DEDB57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2183D5E2AA7A06300DEDB57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
+				C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */,
+				C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */,
+				C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */,
+				C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */,
+				C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */,
+				C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */,
+				C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */,
+				C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */,
+				C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */,
+				C2183DA32AA7A09500DEDB57 /* Tab2CollectionViewController.swift in Sources */,
+				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
+				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
+				C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D742AA7A06500DEDB57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2183D7D2AA7A06500DEDB57 /* iQuestTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2183D7E2AA7A06600DEDB57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2183D872AA7A06600DEDB57 /* iQuestUITests.swift in Sources */,
+				C2183D892AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C2183D7A2AA7A06500DEDB57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2183D612AA7A06300DEDB57 /* iQuest */;
+			targetProxy = C2183D792AA7A06500DEDB57 /* PBXContainerItemProxy */;
+		};
+		C2183D842AA7A06600DEDB57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2183D612AA7A06300DEDB57 /* iQuest */;
+			targetProxy = C2183D832AA7A06600DEDB57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C2183D702AA7A06500DEDB57 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2183D712AA7A06500DEDB57 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C2183D8A2AA7A06600DEDB57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C2183D8B2AA7A06600DEDB57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2183D8D2AA7A06600DEDB57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iQuest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2183D8E2AA7A06600DEDB57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = iQuest/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C2183D902AA7A06600DEDB57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iQuest";
+			};
+			name = Debug;
+		};
+		C2183D912AA7A06600DEDB57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iQuest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iQuest";
+			};
+			name = Release;
+		};
+		C2183D932AA7A06600DEDB57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iQuest;
+			};
+			name = Debug;
+		};
+		C2183D942AA7A06600DEDB57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.projects.iQuestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = iQuest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2183D5D2AA7A06300DEDB57 /* Build configuration list for PBXProject "iQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2183D8A2AA7A06600DEDB57 /* Debug */,
+				C2183D8B2AA7A06600DEDB57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2183D8C2AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2183D8D2AA7A06600DEDB57 /* Debug */,
+				C2183D8E2AA7A06600DEDB57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2183D8F2AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2183D902AA7A06600DEDB57 /* Debug */,
+				C2183D912AA7A06600DEDB57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2183D922AA7A06600DEDB57 /* Build configuration list for PBXNativeTarget "iQuestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2183D932AA7A06600DEDB57 /* Debug */,
+				C2183D942AA7A06600DEDB57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C2183DF12AA8F5E900DEDB57 /* XCRemoteSwiftPackageReference "OpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FuturraGroup/OpenAI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C2183DF22AA8F5E900DEDB57 /* OpenAIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2183DF12AA8F5E900DEDB57 /* XCRemoteSwiftPackageReference "OpenAI" */;
+			productName = OpenAIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = C2183D5A2AA7A06300DEDB57 /* Project object */;
+}
