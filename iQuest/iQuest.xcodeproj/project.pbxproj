@@ -27,6 +27,7 @@
 		C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB72AA8DE2300DEDB57 /* ChatView.swift */; };
 		C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */; };
 		C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C2183DF22AA8F5E900DEDB57 /* OpenAIKit */; };
+		C2625D182AABF1990006CFF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D172AABF1990006CFF1 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponse.swift; sourceTree = "<group>"; };
+		C2625D172AABF1990006CFF1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */,
 				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
 				C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */,
+				C2625D172AABF1990006CFF1 /* Colors.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
+				C2625D182AABF1990006CFF1 /* Colors.swift in Sources */,
 				C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */,
 				C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */,
 				C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */,
