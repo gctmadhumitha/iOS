@@ -69,10 +69,17 @@ class CategoryTableViewCell: UITableViewCell {
         addSubview(categoryNameLabel)
         addSubview(categoryDescLabel)
         
+        self.layer.cornerRadius = 10
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 2
+        self.layer.shadowColor = AppColors.shadowColor?.cgColor ?? UIColor.lightGray.cgColor
+        self.layer.borderWidth = 1
+        self.layer.borderColor = AppColors.primaryAppColor.cgColor
+        self.backgroundColor = UIColor.systemBackground
+        
+        
         categoryImage.translatesAutoresizingMaskIntoConstraints = false
-        categoryImage.layer.borderWidth = 1
         categoryImage.layer.masksToBounds = false
-        categoryImage.layer.borderColor = UIColor.black.cgColor
         categoryImage.layer.cornerRadius = categoryImage.frame.height/2
         categoryImage.clipsToBounds = true
         
@@ -91,6 +98,7 @@ class CategoryTableViewCell: UITableViewCell {
     func setupConstraints(){
         
         NSLayoutConstraint.activate([
+            
             categoryImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             categoryImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             categoryImage.heightAnchor.constraint(equalToConstant: 80),

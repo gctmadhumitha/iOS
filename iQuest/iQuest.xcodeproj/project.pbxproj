@@ -16,7 +16,7 @@
 		C2183D892AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */; };
 		C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */; };
 		C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D962AA7A09500DEDB57 /* Trivia.swift */; };
-		C2183DA32AA7A09500DEDB57 /* Tab2CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */; };
+		C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D992AA7A09500DEDB57 /* FactsViewController.swift */; };
 		C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */; };
 		C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9B2AA7A09500DEDB57 /* Utilities.swift */; };
 		C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9C2AA7A09500DEDB57 /* ViewController.swift */; };
@@ -27,7 +27,10 @@
 		C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB72AA8DE2300DEDB57 /* ChatView.swift */; };
 		C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */; };
 		C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C2183DF22AA8F5E900DEDB57 /* OpenAIKit */; };
-		C2625D182AABF1990006CFF1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D172AABF1990006CFF1 /* Colors.swift */; };
+		C2625D182AABF1990006CFF1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D172AABF1990006CFF1 /* UIColor.swift */; };
+		C2625D2E2AAFB9EA0006CFF1 /* NOTEPAD.md in Resources */ = {isa = PBXBuildFile; fileRef = C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */; };
+		C2625D302AAFE2670006CFF1 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D2F2AAFE2670006CFF1 /* UIFont.swift */; };
+		C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D312AAFE27E0006CFF1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,7 @@
 		C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
 		C2183D962AA7A09500DEDB57 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
-		C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab2CollectionViewController.swift; sourceTree = "<group>"; };
+		C2183D992AA7A09500DEDB57 /* FactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 		C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C2183D9B2AA7A09500DEDB57 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C2183D9C2AA7A09500DEDB57 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +74,10 @@
 		C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponse.swift; sourceTree = "<group>"; };
-		C2625D172AABF1990006CFF1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C2625D172AABF1990006CFF1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NOTEPAD.md; sourceTree = "<group>"; };
+		C2625D2F2AAFE2670006CFF1 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		C2625D312AAFE27E0006CFF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,7 @@
 		C2183D592AA7A06300DEDB57 = {
 			isa = PBXGroup;
 			children = (
+				C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */,
 				C2183D642AA7A06300DEDB57 /* iQuest */,
 				C2183D7B2AA7A06500DEDB57 /* iQuestTests */,
 				C2183D852AA7A06600DEDB57 /* iQuestUITests */,
@@ -126,12 +133,12 @@
 				C2183D652AA7A06300DEDB57 /* AppDelegate.swift */,
 				C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */,
 				C2183DB12AA7AF4C00DEDB57 /* Models */,
+				C2625D332AAFE2B10006CFF1 /* Extensions */,
 				C2183DB02AA7AF2B00DEDB57 /* UI */,
 				C2183DB42AA7B2A100DEDB57 /* Utilities */,
 				C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */,
 				C2183D702AA7A06500DEDB57 /* LaunchScreen.storyboard */,
 				C2183D732AA7A06500DEDB57 /* Info.plist */,
-				C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */,
 			);
 			path = iQuest;
 			sourceTree = "<group>";
@@ -157,14 +164,15 @@
 			isa = PBXGroup;
 			children = (
 				C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */,
-				C2183D9C2AA7A09500DEDB57 /* ViewController.swift */,
 				C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */,
-				C2183D992AA7A09500DEDB57 /* Tab2CollectionViewController.swift */,
+				C2183D992AA7A09500DEDB57 /* FactsViewController.swift */,
 				C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */,
 				C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */,
 				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
 				C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */,
-				C2625D172AABF1990006CFF1 /* Colors.swift */,
+				C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */,
+				C2183D9C2AA7A09500DEDB57 /* ViewController.swift */,
+				C2625D312AAFE27E0006CFF1 /* Constants.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -184,6 +192,15 @@
 				C2183DB22AA7AF7A00DEDB57 /* APIService.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C2625D332AAFE2B10006CFF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2625D172AABF1990006CFF1 /* UIColor.swift */,
+				C2625D2F2AAFE2670006CFF1 /* UIFont.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2625D2E2AAFB9EA0006CFF1 /* NOTEPAD.md in Resources */,
 				C2183D722AA7A06500DEDB57 /* LaunchScreen.storyboard in Resources */,
 				C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */,
 			);
@@ -323,7 +341,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
-				C2625D182AABF1990006CFF1 /* Colors.swift in Sources */,
+				C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */,
+				C2625D182AABF1990006CFF1 /* UIColor.swift in Sources */,
 				C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */,
 				C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */,
 				C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */,
@@ -333,7 +352,8 @@
 				C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */,
 				C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */,
 				C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */,
-				C2183DA32AA7A09500DEDB57 /* Tab2CollectionViewController.swift in Sources */,
+				C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */,
+				C2625D302AAFE2670006CFF1 /* UIFont.swift in Sources */,
 				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
 				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
 				C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */,
