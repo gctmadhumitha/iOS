@@ -37,7 +37,6 @@ final class TriviaViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setupUI()
         setupConstraints()
-        
         Task {
             await setupData()
         }

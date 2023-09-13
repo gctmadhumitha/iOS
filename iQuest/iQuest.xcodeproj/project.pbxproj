@@ -19,7 +19,6 @@
 		C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D992AA7A09500DEDB57 /* FactsViewController.swift */; };
 		C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */; };
 		C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9B2AA7A09500DEDB57 /* Utilities.swift */; };
-		C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9C2AA7A09500DEDB57 /* ViewController.swift */; };
 		C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */; };
 		C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */; };
 		C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB22AA7AF7A00DEDB57 /* APIService.swift */; };
@@ -77,7 +76,6 @@
 		C2183D992AA7A09500DEDB57 /* FactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 		C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C2183D9B2AA7A09500DEDB57 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		C2183D9C2AA7A09500DEDB57 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSelectionViewController.swift; sourceTree = "<group>"; };
 		C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C2183DB22AA7AF7A00DEDB57 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -265,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */,
-				C2183D9C2AA7A09500DEDB57 /* ViewController.swift */,
 			);
 			path = Unused;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 				C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */,
 				C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */,
 				C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */,
-				C2183DA62AA7A09500DEDB57 /* ViewController.swift in Sources */,
 				C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */,
 				C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */,
 				C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */,
