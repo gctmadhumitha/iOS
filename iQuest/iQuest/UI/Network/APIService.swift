@@ -64,7 +64,7 @@ class APIService {
             let (data, response) = try await URLSession.shared.data(for: request)
             print("data is \(data)")
             print("response is \(response)")
-            guard let response = response as? HTTPURLResponse else {
+            guard let _ = response as? HTTPURLResponse else {
                 return (nil, "Error: response received nil")
             }
             
@@ -72,7 +72,7 @@ class APIService {
                 return (nil, "Error decoding categories")
             }
             print("Categories decoded is \(categories)")
-            return (categories, "No error")
+            return (categories, "Success")
             
         }catch let error {
             print("Error caught while fetching trivia categories", error.localizedDescription)
@@ -111,4 +111,34 @@ class APIService {
 //            return ([], error.localizedDescription)
 //        }
 //    }
+    
+    
+    public func fetchFact() async -> (fact: Fact?, error: String)
+    {
+        
+        let apiUrl = "https://uselessfacts.jsph.pl/api/v2/facts/random"
+        var request = URLRequest(url: URL(string: apiUrl)!)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do{
+            let (data, response) = try await URLSession.shared.data(for: request)
+            print("data is \(data)")
+            print("response is \(response)")
+            guard let _ = response as? HTTPURLResponse else {
+                return (nil, "Error: response received nil")
+            }
+            
+            guard let fact = try? JSONDecoder().decode(Fact.self, from: data) else{
+                return (nil, "Error decoding categories")
+            }
+            
+            print("Fact is \(fact)")
+            return(fact, "Success")
+            
+        }  catch let error {
+            print(error.localizedDescription)
+            return(nil, "Error fetching fact")
+        }
+    }
 }

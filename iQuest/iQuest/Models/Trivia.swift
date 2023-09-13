@@ -5,8 +5,6 @@
 //  Created by Madhumitha Loganathan on 01/09/23.
 //
 
-import Foundation
-
 import UIKit
 struct Product {
     var name : String

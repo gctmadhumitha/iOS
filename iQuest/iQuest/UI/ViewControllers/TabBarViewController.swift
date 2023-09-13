@@ -31,7 +31,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
                                     selectedImage: UIImage(systemName: "circle.fill"))
         tab1ViewController.tabBarItem = tabItem1
         
-        let tab2ViewController  = FactsViewController()
+        let tab2ViewController  = FactsSwipeViewController()
         let tabItem2 = UITabBarItem(title: "Facts", image: UIImage(systemName:  "square"),selectedImage: UIImage(systemName: "square.fill"))
         tab2ViewController.tabBarItem = tabItem2
         

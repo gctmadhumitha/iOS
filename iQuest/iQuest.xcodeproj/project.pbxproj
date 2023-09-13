@@ -35,6 +35,12 @@
 		C2625D372AB021210006CFF1 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D362AB021210006CFF1 /* CarouselView.swift */; };
 		C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D382AB0225B0006CFF1 /* CarouselCollectionViewCell.swift */; };
 		C2625D3F2AB026330006CFF1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D3E2AB026330006CFF1 /* SettingsViewController.swift */; };
+		C2625D432AB12EB80006CFF1 /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D412AB12EB70006CFF1 /* StackContainerView.swift */; };
+		C2625D442AB12EB80006CFF1 /* SwipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D422AB12EB70006CFF1 /* SwipeCardView.swift */; };
+		C2625D4A2AB12ED00006CFF1 /* FactsSwipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D492AB12ED00006CFF1 /* FactsSwipeViewController.swift */; };
+		C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */; };
+		C2625D502AB12F180006CFF1 /* FactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */; };
+		C2625D522AB134F60006CFF1 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D512AB134F60006CFF1 /* Fact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +92,12 @@
 		C2625D362AB021210006CFF1 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		C2625D382AB0225B0006CFF1 /* CarouselCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2625D3E2AB026330006CFF1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C2625D412AB12EB70006CFF1 /* StackContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
+		C2625D422AB12EB70006CFF1 /* SwipeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardView.swift; sourceTree = "<group>"; };
+		C2625D492AB12ED00006CFF1 /* FactsSwipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsSwipeViewController.swift; sourceTree = "<group>"; };
+		C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
+		C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactDataModel.swift; sourceTree = "<group>"; };
+		C2625D512AB134F60006CFF1 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				C2183D962AA7A09500DEDB57 /* Trivia.swift */,
+				C2625D512AB134F60006CFF1 /* Fact.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +230,7 @@
 		C2625D3B2AB0227D0006CFF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2625D4B2AB12F000006CFF1 /* New Group */,
 				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
 				C2625D362AB021210006CFF1 /* CarouselView.swift */,
 			);
@@ -226,6 +240,7 @@
 		C2625D3C2AB022980006CFF1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2625D4C2AB12F080006CFF1 /* SwipeCards */,
 				C2625D402AB026990006CFF1 /* Unused */,
 				C2625D342AB01B4F0006CFF1 /* CarouselViewController.swift */,
 				C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */,
@@ -253,6 +268,25 @@
 				C2183D9C2AA7A09500DEDB57 /* ViewController.swift */,
 			);
 			path = Unused;
+			sourceTree = "<group>";
+		};
+		C2625D4B2AB12F000006CFF1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C2625D4C2AB12F080006CFF1 /* SwipeCards */ = {
+			isa = PBXGroup;
+			children = (
+				C2625D492AB12ED00006CFF1 /* FactsSwipeViewController.swift */,
+				C2625D412AB12EB70006CFF1 /* StackContainerView.swift */,
+				C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */,
+				C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */,
+				C2625D422AB12EB70006CFF1 /* SwipeCardView.swift */,
+			);
+			path = SwipeCards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,9 +429,11 @@
 				C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */,
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
 				C2625D3F2AB026330006CFF1 /* SettingsViewController.swift in Sources */,
+				C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */,
 				C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */,
 				C2625D182AABF1990006CFF1 /* UIColor.swift in Sources */,
 				C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */,
+				C2625D4A2AB12ED00006CFF1 /* FactsSwipeViewController.swift in Sources */,
 				C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */,
 				C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */,
 				C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */,
@@ -407,8 +443,12 @@
 				C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */,
 				C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */,
 				C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */,
+				C2625D502AB12F180006CFF1 /* FactDataModel.swift in Sources */,
 				C2625D372AB021210006CFF1 /* CarouselView.swift in Sources */,
 				C2625D302AAFE2670006CFF1 /* UIFont.swift in Sources */,
+				C2625D432AB12EB80006CFF1 /* StackContainerView.swift in Sources */,
+				C2625D442AB12EB80006CFF1 /* SwipeCardView.swift in Sources */,
+				C2625D522AB134F60006CFF1 /* Fact.swift in Sources */,
 				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
 				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
 				C2625D352AB01B4F0006CFF1 /* CarouselViewController.swift in Sources */,
