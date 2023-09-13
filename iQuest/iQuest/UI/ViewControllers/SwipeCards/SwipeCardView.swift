@@ -12,8 +12,7 @@ class SwipeCardView : UIView {
     //MARK: - Properties
     var swipeView : UIView!
     var shadowView : UIView!
-    var imageView: UIImageView!
-  
+    
     var label = UILabel()
     var moreButton = UIButton()
     
@@ -26,7 +25,7 @@ class SwipeCardView : UIView {
     
     var dataSource : FactDataModel? {
         didSet {
-            swipeView.backgroundColor = dataSource?.bgColor
+            swipeView.backgroundColor = AppColors.primaryAppColor
             label.text = dataSource?.text
         }
     }
@@ -38,7 +37,6 @@ class SwipeCardView : UIView {
         configureShadowView()
         configureSwipeView()
         configureLabelView()
-        configureImageView()
         configureButton()
         addPanGestureOnCards()
         configureTapGesture()
@@ -53,57 +51,46 @@ class SwipeCardView : UIView {
     func configureShadowView() {
         shadowView = UIView()
         shadowView.backgroundColor = .clear
-        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowColor = AppColors.shadowColor?.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
         shadowView.layer.shadowOpacity = 0.8
-        shadowView.layer.shadowRadius = 4.0
+        shadowView.layer.shadowRadius = 2.0
         addSubview(shadowView)
-        
+
         shadowView.translatesAutoresizingMaskIntoConstraints = false
         shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
     }
-    
+
     func configureSwipeView() {
         swipeView = UIView()
         swipeView.layer.cornerRadius = 15
         swipeView.clipsToBounds = true
         shadowView.addSubview(swipeView)
-        
+
         swipeView.translatesAutoresizingMaskIntoConstraints = false
-        swipeView.leftAnchor.constraint(equalTo: shadowView.leftAnchor).isActive = true
-        swipeView.rightAnchor.constraint(equalTo: shadowView.rightAnchor).isActive = true
+        swipeView.leftAnchor.constraint(equalTo: shadowView.leftAnchor, constant: 30).isActive = true
+        swipeView.rightAnchor.constraint(equalTo: shadowView.rightAnchor, constant: 30).isActive = true
         swipeView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor).isActive = true
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }
-    
+
     func configureLabelView() {
         swipeView.addSubview(label)
-        label.backgroundColor = .white
-        label.textColor = .black
+        label.textColor = .white
+        label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: swipeView.topAnchor).isActive = true
         label.leftAnchor.constraint(equalTo: swipeView.leftAnchor).isActive = true
         label.rightAnchor.constraint(equalTo: swipeView.rightAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 85).isActive = true
-        
+        label.lineBreakMode = .byWordWrapping
     }
-    
-    func configureImageView() {
-        imageView = UIImageView()
-        swipeView.addSubview(imageView)
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
 
-        imageView.centerXAnchor.constraint(equalTo: swipeView.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: swipeView.centerYAnchor, constant: -30).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-    }
     
     func configureButton() {
         label.addSubview(moreButton)

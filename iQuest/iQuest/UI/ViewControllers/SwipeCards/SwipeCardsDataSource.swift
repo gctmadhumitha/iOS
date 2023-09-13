@@ -9,7 +9,6 @@ import UIKit
 
 protocol SwipeCardsDataSource {
     func numberOfCardsToShow() -> Int
-    func cardold(at index: Int)  -> SwipeCardView
     func card() async -> SwipeCardView
     func emptyView() -> UIView?
     

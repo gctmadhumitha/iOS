@@ -11,10 +11,8 @@ import UIKit
 class StackContainerView: UIView, SwipeCardsDelegate {
 
     //MARK: - Properties
-    var numberOfCardsToShow: Int = 0
     var cardsToBeVisible: Int = 3
     var cardViews : [SwipeCardView] = []
-    var remainingcards: Int = 0
     
     let horizontalInset: CGFloat = 10.0
     let verticalInset: CGFloat = 10.0
@@ -44,10 +42,9 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         guard let datasource = dataSource else { return }
         setNeedsLayout()
         layoutIfNeeded()
-        numberOfCardsToShow = datasource.numberOfCardsToShow()
-        remainingcards = numberOfCardsToShow
+     
         Task {
-            for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
+            for i in 0..<cardsToBeVisible {
                 let card = await datasource.card()
                 addCardView(cardView: card, atIndex: i )
             }
@@ -61,7 +58,7 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         addCardFrame(index: index, cardView: cardView)
         cardViews.append(cardView)
         insertSubview(cardView, at: 0)
-        remainingcards -= 1
+   
     }
     
     func addCardFrame(index: Int, cardView: SwipeCardView) {
@@ -86,31 +83,19 @@ class StackContainerView: UIView, SwipeCardsDelegate {
     func swipeDidEnd(on view: SwipeCardView) {
         guard let datasource = dataSource else { return }
         view.removeFromSuperview()
-
-        if remainingcards > 0 {
-            let newIndex = datasource.numberOfCardsToShow() - remainingcards
-            Task {
-                let card = await datasource.card()
-                addCardView(cardView: card, atIndex: 2)
-            }
-            
-            for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
-                UIView.animate(withDuration: 0.2, animations: {
-                cardView.center = self.center
-                  self.addCardFrame(index: cardIndex, cardView: cardView)
-                    self.layoutIfNeeded()
-                })
-            }
-
-        }else {
-            for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
-                UIView.animate(withDuration: 0.2, animations: {
-                    cardView.center = self.center
-                    self.addCardFrame(index: cardIndex, cardView: cardView)
-                    self.layoutIfNeeded()
-                })
-            }
+        Task {
+            let card = await datasource.card()
+            addCardView(cardView: card, atIndex: 2)
         }
+        
+        for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
+            UIView.animate(withDuration: 0.2, animations: {
+            cardView.center = self.center
+              self.addCardFrame(index: cardIndex, cardView: cardView)
+                self.layoutIfNeeded()
+            })
+        }
+
     }
     
 

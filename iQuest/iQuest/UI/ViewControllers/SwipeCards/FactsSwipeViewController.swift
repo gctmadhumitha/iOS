@@ -9,12 +9,6 @@ import UIKit
 class FactsSwipeViewController: UIViewController {
 
     //MARK: - Properties
-    var viewModelData = [FactDataModel(bgColor: UIColor(red:0.96, green:0.81, blue:0.46, alpha:1.0), text: "Hamburger"),
-                         FactDataModel(bgColor: UIColor(red:0.29, green:0.64, blue:0.96, alpha:1.0), text: "Puppy"),
-                         FactDataModel(bgColor: UIColor(red:0.29, green:0.63, blue:0.49, alpha:1.0), text: "Poop"),
-                         FactDataModel(bgColor: UIColor(red:0.69, green:0.52, blue:0.38, alpha:1.0), text: "Panda"),
-                         FactDataModel(bgColor: UIColor(red:0.90, green:0.99, blue:0.97, alpha:1.0), text: "Subway"),
-                         FactDataModel(bgColor: UIColor(red:0.83, green:0.82, blue:0.69, alpha:1.0), text: "Robot")]
     var stackContainer : StackContainerView!
   
     
@@ -60,23 +54,7 @@ class FactsSwipeViewController: UIViewController {
 extension FactsSwipeViewController : SwipeCardsDataSource  {
 
     func numberOfCardsToShow() -> Int {
-        return viewModelData.count
-    }
-    
-    func cardold(at index: Int)  -> SwipeCardView {
-        let card = SwipeCardView()
-        card.dataSource = viewModelData[index]
-        Task {
-            let response = await APIService().fetchFact()
-            guard let fact = response.fact  else {
-                print("Error Message is \(response.error)")
-                //return (nil, "Error")
-                return card
-            }
-            print("fact is \(fact)")
-            return card
-        }
-        return card
+        return 3
     }
     
     func card() async -> SwipeCardView  {
