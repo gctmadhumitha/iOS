@@ -23,14 +23,12 @@ class CategoryTableViewCell: UITableViewCell {
     
     var category: Category? {
         didSet {
-           // categoryImage.image = UIImage(systemName:"circle")
             let categoryName = category?.name
             let category = categoryName!.split(separator: ":")
             if (category.count > 1) { // Split Entertainment:Comics
                 categoryNameLabel.text = String(category[1])
                 categoryDescLabel.text = String(category[0])
             }
-            
         }
     }
     
@@ -52,14 +50,6 @@ class CategoryTableViewCell: UITableViewCell {
         return label
     }()
     
-//    private var categoryImage : UIImageView = {
-//        let imgView = UIImageView(image: UIImage(systemName: "star"))
-//        imgView.contentMode = .scaleAspectFit
-//        imgView.clipsToBounds = true
-//        return imgView
-//    }()
-    
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
@@ -70,7 +60,6 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     func setupUI(){
-//        addSubview(categoryImage)
         addSubview(categoryNameLabel)
         addSubview(categoryDescLabel)
         
@@ -82,19 +71,15 @@ class CategoryTableViewCell: UITableViewCell {
         self.layer.borderColor = AppColors.primaryAppColor.cgColor
         self.backgroundColor = UIColor.systemBackground
         
-//
-//        categoryImage.translatesAutoresizingMaskIntoConstraints = false
-//        categoryImage.layer.masksToBounds = false
-//        categoryImage.layer.cornerRadius = categoryImage.frame.height/2
-//        categoryImage.clipsToBounds = true
-        
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoryNameLabel.numberOfLines = 0
         categoryNameLabel.font = .preferredFont(forTextStyle: .headline)
         categoryNameLabel.contentScaleFactor = 2.0
         categoryNameLabel.minimumScaleFactor = 0.5
         categoryNameLabel.text = "ha ha ha"
         
         categoryDescLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoryDescLabel.numberOfLines = 0
         categoryDescLabel.font = .preferredFont(forTextStyle: .caption1)
         categoryDescLabel.text = "blah blah blah"
         setupConstraints()
@@ -103,24 +88,13 @@ class CategoryTableViewCell: UITableViewCell {
     func setupConstraints(){
         
         NSLayoutConstraint.activate([
-            
-//            categoryImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-//            categoryImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-//            categoryImage.heightAnchor.constraint(equalToConstant: 80),
-//            categoryImage.widthAnchor.constraint(equalToConstant: 80),
-            
             categoryNameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            categoryNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            categoryNameLabel.leftAnchor.constraint(equalTo: categoryImage.rightAnchor, constant: 30),
-            categoryNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 30),
-//            categoryNameLabel.widthAnchor.constraint(equalToConstant: frame.size.width/2),
-//
-            categoryDescLabel.topAnchor.constraint(equalTo: categoryNameLabel.bottomAnchor, constant: 20),
-            categoryDescLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-//            categoryDescLabel.leftAnchor.constraint(equalTo: categoryImage.rightAnchor, constant: 30),
-            categoryDescLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 30),
-//            categoryDescLabel.widthAnchor.constraint(equalToConstant: frame.size.width/2),
-            categoryDescLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
+            categoryNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            categoryNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            categoryDescLabel.topAnchor.constraint(equalTo: categoryNameLabel.bottomAnchor, constant: 10),
+            categoryDescLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            categoryDescLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            categoryDescLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
     }
     

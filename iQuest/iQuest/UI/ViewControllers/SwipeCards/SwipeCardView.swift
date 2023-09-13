@@ -58,8 +58,8 @@ class SwipeCardView : UIView {
         addSubview(shadowView)
 
         shadowView.translatesAutoresizingMaskIntoConstraints = false
-        shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        shadowView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        shadowView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
     }
@@ -71,8 +71,8 @@ class SwipeCardView : UIView {
         shadowView.addSubview(swipeView)
 
         swipeView.translatesAutoresizingMaskIntoConstraints = false
-        swipeView.leftAnchor.constraint(equalTo: shadowView.leftAnchor, constant: 30).isActive = true
-        swipeView.rightAnchor.constraint(equalTo: shadowView.rightAnchor, constant: 30).isActive = true
+        swipeView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 30).isActive = true
+        swipeView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: 30).isActive = true
         swipeView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor).isActive = true
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }
@@ -85,8 +85,8 @@ class SwipeCardView : UIView {
         label.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: swipeView.topAnchor).isActive = true
-        label.leftAnchor.constraint(equalTo: swipeView.leftAnchor).isActive = true
-        label.rightAnchor.constraint(equalTo: swipeView.rightAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor).isActive = true
         label.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
         label.lineBreakMode = .byWordWrapping
     }
@@ -99,7 +99,7 @@ class SwipeCardView : UIView {
         moreButton.setImage(image, for: .normal)
         moreButton.tintColor = UIColor.red
         
-        moreButton.rightAnchor.constraint(equalTo: label.rightAnchor, constant: -15).isActive = true
+        moreButton.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -15).isActive = true
         moreButton.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
         moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

@@ -50,8 +50,8 @@ private extension CarouselCollectionViewCell {
         addSubview(textLabel)
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16).isActive = true
-        textLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        textLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        textLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         textLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
         textLabel.numberOfLines = 0
         textLabel.textAlignment = .center

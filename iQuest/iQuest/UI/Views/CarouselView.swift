@@ -100,8 +100,8 @@ private extension CarouselView {
         addSubview(carouselCollectionView)
         carouselCollectionView.translatesAutoresizingMaskIntoConstraints = false
         carouselCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        carouselCollectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        carouselCollectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        carouselCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         carouselCollectionView.heightAnchor.constraint(equalToConstant: 450).isActive = true
     }
     
@@ -122,8 +122,8 @@ private extension CarouselView {
         getStartedButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 16).isActive = true
         getStartedButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         getStartedButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        getStartedButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 30).isActive = true
-        getStartedButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -30).isActive = true
+        getStartedButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
+        getStartedButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
     
     }
 }

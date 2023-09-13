@@ -49,8 +49,8 @@ private extension CarouselViewController {
         view.addSubview(carouselView)
         carouselView.translatesAutoresizingMaskIntoConstraints = false
         carouselView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        carouselView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        carouselView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        carouselView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        carouselView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         carouselView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
