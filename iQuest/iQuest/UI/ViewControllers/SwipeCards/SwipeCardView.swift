@@ -1,9 +1,8 @@
 //
 //  SwipeCardView.swift
-//  TinderStack
+//  iQuest
 //
-//  Created by Osama Naeem on 16/03/2019.
-//  Copyright © 2019 NexThings. All rights reserved.
+//  Created by Madhumitha Loganathan on 12/09/23.
 //
 
 import UIKit
@@ -29,8 +28,6 @@ class SwipeCardView : UIView {
         didSet {
             swipeView.backgroundColor = dataSource?.bgColor
             label.text = dataSource?.text
-            guard let image = dataSource?.image else { return }
-            imageView.image = UIImage(named: image)
         }
     }
     

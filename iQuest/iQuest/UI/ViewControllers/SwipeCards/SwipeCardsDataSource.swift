@@ -1,16 +1,16 @@
 //
-//  Protocols.swift
-//  TinderStack
+//  SwipeCardsDataSource.swift
+//  iQuest
 //
-//  Created by Osama Naeem on 16/03/2019.
-//  Copyright © 2019 NexThings. All rights reserved.
+//  Created by Madhumitha Loganathan on 12/09/23.
 //
 
 import UIKit
 
 protocol SwipeCardsDataSource {
     func numberOfCardsToShow() -> Int
-    func card(at index: Int)  -> SwipeCardView
+    func cardold(at index: Int)  -> SwipeCardView
+    func card() async -> SwipeCardView
     func emptyView() -> UIView?
     
 }

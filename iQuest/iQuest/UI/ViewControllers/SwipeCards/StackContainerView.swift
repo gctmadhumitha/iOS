@@ -46,9 +46,11 @@ class StackContainerView: UIView, SwipeCardsDelegate {
         layoutIfNeeded()
         numberOfCardsToShow = datasource.numberOfCardsToShow()
         remainingcards = numberOfCardsToShow
-        
-        for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
-            addCardView(cardView: datasource.card(at: i), atIndex: i )
+        Task {
+            for i in 0..<min(numberOfCardsToShow,cardsToBeVisible) {
+                let card = await datasource.card()
+                addCardView(cardView: card, atIndex: i )
+            }
         }
     }
 
@@ -87,7 +89,11 @@ class StackContainerView: UIView, SwipeCardsDelegate {
 
         if remainingcards > 0 {
             let newIndex = datasource.numberOfCardsToShow() - remainingcards
-            addCardView(cardView: datasource.card(at: newIndex), atIndex: 2)
+            Task {
+                let card = await datasource.card()
+                addCardView(cardView: card, atIndex: 2)
+            }
+            
             for (cardIndex, cardView) in visibleCards.reversed().enumerated() {
                 UIView.animate(withDuration: 0.2, animations: {
                 cardView.center = self.center

@@ -23,3 +23,17 @@
         return nav
     }
    
+
+    func card() async   {
+        Task { () -> SwipeCardView in
+            let card = SwipeCardView()
+            let response = await APIService().fetchFact()
+            guard let fact = response.fact  else {
+                print("Error Message is \(response.error)")
+                return card
+            }
+            card.dataSource = FactDataModel(bgColor: UIColor(red:0.96, green:0.81, blue:0.46, alpha:1.0), text: fact.text)
+            print("fact is \(fact)")
+            return card
+        }
+    }
