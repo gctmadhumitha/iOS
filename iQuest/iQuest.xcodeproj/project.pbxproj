@@ -14,7 +14,7 @@
 		C2183D7D2AA7A06500DEDB57 /* iQuestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D7C2AA7A06500DEDB57 /* iQuestTests.swift */; };
 		C2183D872AA7A06600DEDB57 /* iQuestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D862AA7A06600DEDB57 /* iQuestUITests.swift */; };
 		C2183D892AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */; };
-		C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */; };
+		C2183D9F2AA7A09500DEDB57 /* QuizCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D952AA7A09500DEDB57 /* QuizCategoriesViewController.swift */; };
 		C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D962AA7A09500DEDB57 /* Trivia.swift */; };
 		C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D992AA7A09500DEDB57 /* FactsViewController.swift */; };
 		C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */; };
@@ -22,7 +22,6 @@
 		C2183DA82AA7A09500DEDB57 /* ProductSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */; };
 		C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */; };
 		C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB22AA7AF7A00DEDB57 /* APIService.swift */; };
-		C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */; };
 		C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB72AA8DE2300DEDB57 /* ChatView.swift */; };
 		C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */; };
 		C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C2183DF22AA8F5E900DEDB57 /* OpenAIKit */; };
@@ -40,6 +39,8 @@
 		C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */; };
 		C2625D502AB12F180006CFF1 /* FactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */; };
 		C2625D522AB134F60006CFF1 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D512AB134F60006CFF1 /* Fact.swift */; };
+		C2625D542AB231FB0006CFF1 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D532AB231FB0006CFF1 /* QuizViewController.swift */; };
+		C2625D592AB23A080006CFF1 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D582AB23A080006CFF1 /* QuizBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,7 @@
 		C2183D822AA7A06600DEDB57 /* iQuestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iQuestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2183D862AA7A06600DEDB57 /* iQuestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestUITests.swift; sourceTree = "<group>"; };
 		C2183D882AA7A06600DEDB57 /* iQuestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iQuestUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriviaViewController.swift; sourceTree = "<group>"; };
+		C2183D952AA7A09500DEDB57 /* QuizCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizCategoriesViewController.swift; sourceTree = "<group>"; };
 		C2183D962AA7A09500DEDB57 /* Trivia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trivia.swift; sourceTree = "<group>"; };
 		C2183D992AA7A09500DEDB57 /* FactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 		C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductSelectionViewController.swift; sourceTree = "<group>"; };
 		C2183DAB2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C2183DB22AA7AF7A00DEDB57 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponse.swift; sourceTree = "<group>"; };
 		C2625D172AABF1990006CFF1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -96,6 +96,8 @@
 		C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardsDataSource.swift; sourceTree = "<group>"; };
 		C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactDataModel.swift; sourceTree = "<group>"; };
 		C2625D512AB134F60006CFF1 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
+		C2625D532AB231FB0006CFF1 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		C2625D582AB23A080006CFF1 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 			children = (
 				C2183D962AA7A09500DEDB57 /* Trivia.swift */,
 				C2625D512AB134F60006CFF1 /* Fact.swift */,
+				C2625D582AB23A080006CFF1 /* QuizBrain.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,7 +231,6 @@
 		C2625D3B2AB0227D0006CFF1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2625D4B2AB12F000006CFF1 /* New Group */,
 				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
 				C2625D362AB021210006CFF1 /* CarouselView.swift */,
 			);
@@ -238,14 +240,11 @@
 		C2625D3C2AB022980006CFF1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2625D4C2AB12F080006CFF1 /* SwipeCards */,
-				C2625D402AB026990006CFF1 /* Unused */,
-				C2625D342AB01B4F0006CFF1 /* CarouselViewController.swift */,
-				C2183D952AA7A09500DEDB57 /* TriviaViewController.swift */,
-				C2183D992AA7A09500DEDB57 /* FactsViewController.swift */,
 				C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */,
-				C2183DB52AA7FE7400DEDB57 /* QuestionsViewController.swift */,
-				C2625D3E2AB026330006CFF1 /* SettingsViewController.swift */,
+				C2625D552AB232060006CFF1 /* Quiz */,
+				C2625D4C2AB12F080006CFF1 /* Facts */,
+				C2625D572AB232500006CFF1 /* Carousel */,
+				C2625D562AB2322C0006CFF1 /* Settings */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -259,31 +258,43 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		C2625D402AB026990006CFF1 /* Unused */ = {
-			isa = PBXGroup;
-			children = (
-				C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */,
-			);
-			path = Unused;
-			sourceTree = "<group>";
-		};
-		C2625D4B2AB12F000006CFF1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		C2625D4C2AB12F080006CFF1 /* SwipeCards */ = {
+		C2625D4C2AB12F080006CFF1 /* Facts */ = {
 			isa = PBXGroup;
 			children = (
 				C2625D492AB12ED00006CFF1 /* FactsSwipeViewController.swift */,
 				C2625D412AB12EB70006CFF1 /* StackContainerView.swift */,
 				C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */,
+				C2183D992AA7A09500DEDB57 /* FactsViewController.swift */,
 				C2625D4D2AB12F180006CFF1 /* SwipeCardsDataSource.swift */,
 				C2625D422AB12EB70006CFF1 /* SwipeCardView.swift */,
 			);
-			path = SwipeCards;
+			path = Facts;
+			sourceTree = "<group>";
+		};
+		C2625D552AB232060006CFF1 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D952AA7A09500DEDB57 /* QuizCategoriesViewController.swift */,
+				C2625D532AB231FB0006CFF1 /* QuizViewController.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		C2625D562AB2322C0006CFF1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C2183D9E2AA7A09500DEDB57 /* ProductSelectionViewController.swift */,
+				C2625D3E2AB026330006CFF1 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C2625D572AB232500006CFF1 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				C2625D342AB01B4F0006CFF1 /* CarouselViewController.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,13 +434,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2625D592AB23A080006CFF1 /* QuizBrain.swift in Sources */,
 				C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */,
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
 				C2625D3F2AB026330006CFF1 /* SettingsViewController.swift in Sources */,
 				C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */,
 				C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */,
 				C2625D182AABF1990006CFF1 /* UIColor.swift in Sources */,
-				C2183DB62AA7FE7400DEDB57 /* QuestionsViewController.swift in Sources */,
 				C2625D4A2AB12ED00006CFF1 /* FactsSwipeViewController.swift in Sources */,
 				C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */,
 				C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */,
@@ -437,7 +448,7 @@
 				C2183DA02AA7A09500DEDB57 /* Trivia.swift in Sources */,
 				C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */,
 				C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */,
-				C2183D9F2AA7A09500DEDB57 /* TriviaViewController.swift in Sources */,
+				C2183D9F2AA7A09500DEDB57 /* QuizCategoriesViewController.swift in Sources */,
 				C2183DA32AA7A09500DEDB57 /* FactsViewController.swift in Sources */,
 				C2625D502AB12F180006CFF1 /* FactDataModel.swift in Sources */,
 				C2625D372AB021210006CFF1 /* CarouselView.swift in Sources */,
@@ -447,6 +458,7 @@
 				C2625D522AB134F60006CFF1 /* Fact.swift in Sources */,
 				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
 				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
+				C2625D542AB231FB0006CFF1 /* QuizViewController.swift in Sources */,
 				C2625D352AB01B4F0006CFF1 /* CarouselViewController.swift in Sources */,
 				C2183DAC2AA7AC4D00DEDB57 /* CategoryTableViewCell.swift in Sources */,
 			);

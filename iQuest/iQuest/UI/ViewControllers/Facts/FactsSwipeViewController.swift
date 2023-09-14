@@ -26,7 +26,6 @@ class FactsSwipeViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Expense Tracker"
         stackContainer.dataSource = self
     }
     

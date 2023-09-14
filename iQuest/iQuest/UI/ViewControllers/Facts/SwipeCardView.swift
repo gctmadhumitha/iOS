@@ -72,7 +72,7 @@ class SwipeCardView : UIView {
 
         swipeView.translatesAutoresizingMaskIntoConstraints = false
         swipeView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 30).isActive = true
-        swipeView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: 30).isActive = true
+        swipeView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: -30).isActive = true
         swipeView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor).isActive = true
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }

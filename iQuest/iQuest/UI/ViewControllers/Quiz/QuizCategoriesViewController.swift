@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TriviaViewController: UIViewController {
+final class QuizCategoriesViewController: UIViewController {
    
     private var titleView = UIView()
     private var tableView = UITableView()
@@ -28,9 +28,10 @@ final class TriviaViewController: UIViewController {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.isEditing = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         
     }
     
@@ -44,7 +45,7 @@ final class TriviaViewController: UIViewController {
 
 }
 
-extension TriviaViewController {
+extension QuizCategoriesViewController {
     
     func setupUI(){
         self.view.backgroundColor = AppColors.primaryBackground
@@ -103,11 +104,11 @@ extension TriviaViewController {
     }
 }
 
-extension TriviaViewController : UITableViewDelegate, UITableViewDataSource {
+extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //<#code#>
-        let questionsVC = QuestionsViewController()
-        questionsVC.category = categories[indexPath.row]
+        let questionsVC = QuizViewController()
+        questionsVC.category = categories[indexPath.section].name
         self.navigationController?.pushViewController(questionsVC,animated: true)
 
     }

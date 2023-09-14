@@ -26,7 +26,7 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
         //self.view.backgroundColor = .systemBackground
         self.navigationController?.isNavigationBarHidden = true
       
-        let tab1ViewController = TriviaViewController()
+        let tab1ViewController = UINavigationController(rootViewController: QuizCategoriesViewController())
         let tabItem1 = UITabBarItem(title: "Trivia", image: UIImage(systemName:  "circle"),
                                     selectedImage: UIImage(systemName: "circle.fill"))
         tab1ViewController.tabBarItem = tabItem1

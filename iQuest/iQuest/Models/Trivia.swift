@@ -12,11 +12,18 @@ struct Product {
     var desc : String
 }
 
+//struct Question: Decodable {
+//    private(set) var `category`: String?
+//    private(set) var question: String?
+//    private(set) var correct_answer: String?
+//    private(set) var incorrect_answers: Array<String>?
+//}
+
 struct Question: Decodable {
-    private(set) var `category`: String?
-    private(set) var question: String?
-    private(set) var correct_answer: String?
-    private(set) var incorrect_answers: Array<String>?
+    var `category`: String?
+    var question: String?
+    var correct_answer: String?
+    var incorrect_answers: Array<String>?
 }
 
 struct Questions: Decodable {
