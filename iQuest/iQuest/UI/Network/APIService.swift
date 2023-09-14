@@ -13,7 +13,8 @@
 import Foundation
 
 class APIService {
-    public func fetchTriviaQuestions(category: String) async throws -> (questions: Array<Question>, error: String?) {
+    
+    public func fetchQuizsFor(category: Int) async -> (questions: Array<Question>, error: String?) {
         
         let urlString: String = "https://opentdb.com/api.php?amount=10&category=\(category)&difficulty=easy&type=multiple&encode=base64"
         
@@ -49,10 +50,52 @@ class APIService {
     
     
     
+    public func fetchQuizFor(category: Int) async -> (questions: Array<Question>, error: String?) {
+        // Sample https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple
+        let urlString: String = "https://opentdb.com/api.php?amount=10&category=\(category)&difficulty=easy&type=multiple&encode=base64"
+        
+        var request = URLRequest(url: URL(string: urlString)!)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let (dataResponse, urlResponse) = try await URLSession.shared.data(for: request)
+            guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
+                return ([], "Server response error.")
+            }
+            
+            if httpUrlResponse.statusCode != 200 {
+                return ([], "Error: \(httpUrlResponse.statusCode)")
+            }
+            
+            guard let decodedData = try? JSONDecoder().decode(Questions.self, from: dataResponse) else {
+                return ([], "An error occured obtaining trivia questions. Try again")
+            }
+            
+            if decodedData.response_code == 1 {
+                return ([], "Not enough questions in database 😕")
+            } else if decodedData.response_code != 0 {
+                return ([], "There was an error initializing game 😕")
+            }
+            
+            print("Successfully fetched trivia questions!")
+            
+            for var question in decodedData.results {
+                question.decodeBase64Strings()
+                print("question.decodeBase64Strings() : \(question)")
+            }
+            return (decodedData.results, nil) // Successful
+            
+        } catch let error {
+            print(error.localizedDescription)
+            return ([], error.localizedDescription)
+        }
+    }
     
     
     
-    public func fetchTriviaCategories() async -> (categories: Categories?, error: String)
+    
+    public func fetchQuizCategories() async -> (categories: Categories?, error: String)
     {
         
         let apiUrl = "https://opentdb.com/api_category.php"

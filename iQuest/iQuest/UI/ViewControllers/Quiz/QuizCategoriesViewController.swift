@@ -84,15 +84,11 @@ extension QuizCategoriesViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             tableView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-            
         ])
     }
     
     func setupData() async {
-//        categories.append(Category(name: "Glasses", image: "circle" , desc: "This is best Glasses I've ever seen"))
-//        categories.append(Category(name: "Desert", image: "square" , desc: "This is so yummy"))
-//        categories.append(Category(name: "Camera Lens", image: "star", desc: "I wish I had this camera lens"))
-        let serviceResponse = await APIService().fetchTriviaCategories()
+        let serviceResponse = await APIService().fetchQuizCategories()
         guard let trivia_categories = serviceResponse.categories?.trivia_categories, trivia_categories.count != 0  else{
             print("Error Message is \(serviceResponse.error)")
             return
@@ -108,7 +104,7 @@ extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //<#code#>
         let questionsVC = QuizViewController()
-        questionsVC.category = categories[indexPath.section].name
+        questionsVC.category = categories[indexPath.section]
         self.navigationController?.pushViewController(questionsVC,animated: true)
 
     }

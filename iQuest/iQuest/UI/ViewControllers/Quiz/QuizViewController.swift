@@ -9,9 +9,19 @@ import UIKit
 
 class QuizViewController: UIViewController {
 
-    var category : String? = "General Knowledge"
-    var quizBrain = QuizBrain()
+    var category : Category = Category(id: 9, name: "General Knowledge")
+    var quiz = Quiz()
     let haptics=UIImpactFeedbackGenerator()
+    
+    private var questionsStackView : UIStackView = {
+        let stackView = UIStackView()
+        return stackView
+    }()
+    
+    private var resultsStackView : UIStackView = {
+        let stackView = UIStackView()
+        return stackView
+    }()
     
     private var categoryLabel : UILabel = {
         let label = UILabel()
@@ -88,12 +98,26 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
-        setupUI()
-        updateUI()
+        setupQuestionsView()
+        setupQuestionsView()
+        Task {
+            await setupData()
+        }
     }
     
-    func setupUI(){
+    func setupResultsView(){
+        resultsStackView.axis = .vertical
+        resultsStackView.alignment = .center
+        resultsStackView.distribution = .equalSpacing
+        resultsStackView.spacing = 20
+        resultsStackView.isLayoutMarginsRelativeArrangement = true
+        resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+        
+    }
+    
+    func setupQuestionsView(){
         
         self.view.backgroundColor = AppColors.primaryBackground
         optionOne.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
@@ -109,19 +133,19 @@ class QuizViewController: UIViewController {
         titleStackView.spacing = 10
         titleStackView.backgroundColor = .cyan
         
-        let stackView = UIStackView(arrangedSubviews: [progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 20
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+        questionsStackView = UIStackView(arrangedSubviews: [progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
+        questionsStackView.axis = .vertical
+        questionsStackView.alignment = .center
+        questionsStackView.distribution = .equalSpacing
+        questionsStackView.spacing = 20
+        questionsStackView.isLayoutMarginsRelativeArrangement = true
+        questionsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
 
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         
         
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(questionsStackView)
+        questionsStackView.translatesAutoresizingMaskIntoConstraints = false
         titleStackView.translatesAutoresizingMaskIntoConstraints = false
         optionTwo.translatesAutoresizingMaskIntoConstraints = false
         optionTwo.translatesAutoresizingMaskIntoConstraints = false
@@ -130,44 +154,44 @@ class QuizViewController: UIViewController {
         
         NSLayoutConstraint.activate([
            
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            questionsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            questionsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            questionsStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             
             titleStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            progressBar.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            progressBar.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20),
-            progressBar.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -20),
+            progressBar.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
+            progressBar.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
+            progressBar.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
             progressBar.heightAnchor.constraint(equalToConstant: 30),
             
-            questionLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
-            questionLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: 20),
-            questionLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -20),
+            questionLabel.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
+            questionLabel.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
+            questionLabel.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
            
             optionOne.widthAnchor.constraint(equalToConstant: view.frame.width/2),
-            optionOne.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            optionOne.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionOne.heightAnchor.constraint(equalToConstant: 50),
             
             
             optionTwo.widthAnchor.constraint(equalToConstant: view.frame.width/2),
-            optionTwo.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            optionTwo.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionTwo.heightAnchor.constraint(equalToConstant: 50),
             
             optionThree.widthAnchor.constraint(equalToConstant: view.frame.width/2),
-            optionThree.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            optionThree.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionThree.heightAnchor.constraint(equalToConstant: 50),
             
             optionFour.widthAnchor.constraint(equalToConstant: view.frame.width/2),
-            optionFour.centerXAnchor.constraint(equalTo: stackView.centerXAnchor),
+            optionFour.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionFour.heightAnchor.constraint(equalToConstant: 50)
 
         ])
     }
 
     @objc func didSelectAnswer(_ sender: UIButton) {
-        if quizBrain.checkAnswer(sender.currentTitle!){
+        if quiz.checkAnswer(sender.currentTitle!){
             haptics.impactOccurred()
             sender.backgroundColor = UIColor.green
         } else {
@@ -175,40 +199,38 @@ class QuizViewController: UIViewController {
             sender.backgroundColor = UIColor.red
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.quizBrain.nextQuestion()
+            self.quiz.nextQuestion()
             self.updateUI()
         }
         
         
     }
     
+    func setupData() async  {
+        let _ = await quiz.fetchQuestions()
+        DispatchQueue.main.async { self.updateUI() }
+    }
+    
     func updateUI(){
-        var answers = (quizBrain.quiz[quizBrain.questionNumber].incorrect_answers)!
-        answers.append(quizBrain.quiz[quizBrain.questionNumber].correct_answer!)
+        var answers = (quiz.questions[quiz.questionNumber].incorrect_answers)
+        answers.append(quiz.questions[quiz.questionNumber].correct_answer)
         answers = answers.shuffled()
         
         print("answers is \(answers)")
-        questionLabel.text = quizBrain.quiz[quizBrain.questionNumber].question
-        categoryLabel.text = category
+        questionLabel.text = quiz.questions[quiz.questionNumber].question
+        categoryLabel.text = category.name
         optionOne.setTitle(answers[0], for: UIControl.State.normal)
         optionTwo.setTitle(answers[1], for: UIControl.State.normal)
         optionThree.setTitle(answers[2], for: UIControl.State.normal)
         optionFour.setTitle(answers[3], for: UIControl.State.normal)
-        progressBar.progress =  quizBrain.getProgress()
-        scoreLabel.text = "Score: \(quizBrain.correctQuestions)"
+        optionOne.backgroundColor = AppColors.buttonColor
+        optionTwo.backgroundColor = AppColors.buttonColor
+        optionThree.backgroundColor = AppColors.buttonColor
+        optionFour.backgroundColor = AppColors.buttonColor
+        progressBar.progress =  quiz.getProgress()
+        scoreLabel.text = "Score: \(quiz.correctQuestions)"
         
     }
     
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

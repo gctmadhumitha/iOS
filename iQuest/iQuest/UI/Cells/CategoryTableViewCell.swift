@@ -76,12 +76,12 @@ class CategoryTableViewCell: UITableViewCell {
         categoryNameLabel.font = .preferredFont(forTextStyle: .headline)
         categoryNameLabel.contentScaleFactor = 2.0
         categoryNameLabel.minimumScaleFactor = 0.5
-        categoryNameLabel.text = "ha ha ha"
+        //categoryNameLabel.text = "ha ha ha"
         
         categoryDescLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryDescLabel.numberOfLines = 0
         categoryDescLabel.font = .preferredFont(forTextStyle: .caption1)
-        categoryDescLabel.text = "blah blah blah"
+        //categoryDescLabel.text = "blah blah blah"
         setupConstraints()
     }
     

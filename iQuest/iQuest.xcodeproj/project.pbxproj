@@ -40,7 +40,7 @@
 		C2625D502AB12F180006CFF1 /* FactDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */; };
 		C2625D522AB134F60006CFF1 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D512AB134F60006CFF1 /* Fact.swift */; };
 		C2625D542AB231FB0006CFF1 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D532AB231FB0006CFF1 /* QuizViewController.swift */; };
-		C2625D592AB23A080006CFF1 /* QuizBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D582AB23A080006CFF1 /* QuizBrain.swift */; };
+		C2625D5B2AB2CEFE0006CFF1 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D5A2AB2CEFE0006CFF1 /* Quiz.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +97,7 @@
 		C2625D4E2AB12F180006CFF1 /* FactDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactDataModel.swift; sourceTree = "<group>"; };
 		C2625D512AB134F60006CFF1 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		C2625D532AB231FB0006CFF1 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		C2625D582AB23A080006CFF1 /* QuizBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizBrain.swift; sourceTree = "<group>"; };
+		C2625D5A2AB2CEFE0006CFF1 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +196,7 @@
 			children = (
 				C2183D962AA7A09500DEDB57 /* Trivia.swift */,
 				C2625D512AB134F60006CFF1 /* Fact.swift */,
-				C2625D582AB23A080006CFF1 /* QuizBrain.swift */,
+				C2625D5A2AB2CEFE0006CFF1 /* Quiz.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -434,7 +434,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2625D592AB23A080006CFF1 /* QuizBrain.swift in Sources */,
 				C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */,
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
 				C2625D3F2AB026330006CFF1 /* SettingsViewController.swift in Sources */,
@@ -457,6 +456,7 @@
 				C2625D442AB12EB80006CFF1 /* SwipeCardView.swift in Sources */,
 				C2625D522AB134F60006CFF1 /* Fact.swift in Sources */,
 				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
+				C2625D5B2AB2CEFE0006CFF1 /* Quiz.swift in Sources */,
 				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
 				C2625D542AB231FB0006CFF1 /* QuizViewController.swift in Sources */,
 				C2625D352AB01B4F0006CFF1 /* CarouselViewController.swift in Sources */,
