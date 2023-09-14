@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryTableViewCell: UITableViewCell {
+class QuizCategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,11 +28,14 @@ class CategoryTableViewCell: UITableViewCell {
             if (category.count > 1) { // Split Entertainment:Comics
                 categoryNameLabel.text = String(category[1])
                 categoryDescLabel.text = String(category[0])
+            } else {
+                categoryNameLabel.text = String(category[0])
+                categoryDescLabel.text = String(category[0])
             }
         }
     }
     
-    private var categoryNameLabel : UILabel = {
+    private lazy var categoryNameLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textAlignment = .left
@@ -41,7 +44,7 @@ class CategoryTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var categoryDescLabel : UILabel = {
+    private lazy var categoryDescLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textAlignment = .left

@@ -50,9 +50,9 @@ class APIService {
     
     
     
-    public func fetchQuizFor(category: Int) async -> (questions: Array<Question>, error: String?) {
+    public func fetchQuizFor(category: Int, amount: Int) async -> (questions: Array<Question>, error: String?) {
         // Sample https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple
-        let urlString: String = "https://opentdb.com/api.php?amount=10&category=\(category)&difficulty=easy&type=multiple&encode=base64"
+        let urlString: String = "https://opentdb.com/api.php?amount=\(amount)&category=\(category)&difficulty=easy&type=multiple&encode=base64"
         
         var request = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = "GET"

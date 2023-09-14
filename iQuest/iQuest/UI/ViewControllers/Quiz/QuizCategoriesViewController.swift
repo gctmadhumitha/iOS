@@ -32,15 +32,16 @@ final class QuizCategoriesViewController: UIViewController {
         tableView.dataSource = self
         tableView.isEditing = true
         tableView.allowsSelectionDuringEditing = true
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         setupUI()
         setupConstraints()
         Task {
             await setupData()
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
     }
 
 }
@@ -53,8 +54,8 @@ extension QuizCategoriesViewController {
         self.view.addSubview(titleView)
         self.view.addSubview(tableView)
         
-        self.titleLabel.text = "Trivia"
-        self.tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellId)
+        self.titleLabel.text = "Quiz"
+        self.tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: cellId)
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         
     }
@@ -101,12 +102,11 @@ extension QuizCategoriesViewController {
 }
 
 extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //<#code#>
         let questionsVC = QuizViewController()
         questionsVC.category = categories[indexPath.section]
         self.navigationController?.pushViewController(questionsVC,animated: true)
-
     }
     
     // MARK: - Table view data source
@@ -123,10 +123,10 @@ extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSou
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CategoryTableViewCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! QuizCategoryTableViewCell
          let category = categories[indexPath.section]
          cell.category = category
-         cell.selectionStyle = UITableViewCell.SelectionStyle.none
+         cell.selectionStyle = .none
          return cell
     }
     

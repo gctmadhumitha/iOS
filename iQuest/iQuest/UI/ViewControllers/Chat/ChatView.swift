@@ -20,7 +20,7 @@ struct ChatView: View {
                     .bold()
                 Image(systemName: "bubble.left.fill")
                     .font(.system(size:26))
-                    .foregroundColor(Color.mint)
+                    .foregroundColor(AppColors.primaryAppColor.suColor)
             }
             ScrollView{
                 //Messages
@@ -81,7 +81,7 @@ struct ChatView: View {
                        await sendMessage(message: messageText)
                     }
                 } label: {
-                    Image(systemName: "paperplane.fill")
+                    Image(systemName: "paperplane.fill").foregroundColor(AppColors.primaryAppColor.suColor)
                 }
                 .font(.system(size: 26))
                 .padding(.horizontal, 10)
@@ -93,6 +93,7 @@ struct ChatView: View {
     func sendMessage(message:String) async {
         withAnimation {
             messages.append("[USER]" + message)
+            print("message is :", message)
             self.messageText = ""
         }
         let reply = await getChatGPTResponse(message: message)

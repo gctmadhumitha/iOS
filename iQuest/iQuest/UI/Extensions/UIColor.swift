@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIColor {
     public convenience init?(hex: String) {
@@ -34,6 +35,10 @@ extension UIColor {
 
         return nil
     }
+    
+    /// The SwiftUI color associated with the receiver.
+    var suColor: Color { Color(self) }
+    
 }
 
 

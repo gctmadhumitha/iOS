@@ -21,3 +21,7 @@ enum AppColors {
     static let shadowColor = lightGray
     static let buttonColor = UIColor.systemYellow
 }
+
+enum Constants {
+    static let buttonWidth = CGFloat(40)
+}

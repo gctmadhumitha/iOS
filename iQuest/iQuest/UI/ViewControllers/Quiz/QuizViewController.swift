@@ -49,10 +49,10 @@ class QuizViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         label.adjustsFontForContentSizeCategory = true
-        label.textAlignment = .left
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         label.text = ""
         label.textColor = AppColors.primaryTextColor
-        
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
@@ -62,9 +62,9 @@ class QuizViewController: UIViewController {
        let progressBar = UIProgressView(progressViewStyle: .bar)
         progressBar.progressTintColor = AppColors.secondaryAppColor
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        progressBar.setProgress(0.5, animated: false)
+        progressBar.setProgress(0.5, animated: true)
         progressBar.trackTintColor = UIColor.lightGray
-        progressBar.layer.cornerRadius = 15.0
+        progressBar.layer.cornerRadius = 10
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = 15
         progressBar.subviews[1].clipsToBounds = true
@@ -75,16 +75,30 @@ class QuizViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.adjustsFontForContentSizeCategory = true
-        label.textAlignment = .right
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         label.text = ""
+        label.numberOfLines = 0
         label.textColor = AppColors.primaryTextColor
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
-    private lazy var doneButton: UIButton = {
+    private lazy var tryAgainButton: UIButton = {
         let button  = UIButton(type: .system)
         button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
         button.setTitle("Try Again", for: .normal)
+        button.tintColor = AppColors.secondaryTextColor
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        button.backgroundColor = AppColors.buttonColor
+        button.layer.cornerRadius = 20
+        return button
+    }()
+    
+    private lazy var goBackButton: UIButton = {
+        let button  = UIButton(type: .system)
+        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        button.setTitle("Go Back", for: .normal)
         button.tintColor = AppColors.secondaryTextColor
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         button.backgroundColor = AppColors.buttonColor
@@ -122,7 +136,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.backgroundColor = .systemBackground
         // Do any additional setup after loading the view.
         setupQuestionsView()
         setupResultsView()
@@ -141,12 +155,19 @@ class QuizViewController: UIViewController {
         resultsStackView.isLayoutMarginsRelativeArrangement = true
         resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         
+        let buttonsView = UIStackView(arrangedSubviews: [tryAgainButton, goBackButton])
+        buttonsView.axis = .vertical
+        buttonsView.alignment = .center
+        buttonsView.distribution = .equalSpacing
+        buttonsView.spacing = 10
+        
         resultsStackView.addArrangedSubview(resultsLabel)
-        resultsStackView.addArrangedSubview(doneButton)
+        resultsStackView.addArrangedSubview(buttonsView)
         resultsStackView.translatesAutoresizingMaskIntoConstraints = false
         resultsLabel.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
+        tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
+        tryAgainButton.addTarget(self, action: #selector(didTryAgain(_ :)), for: .touchUpInside)
+        goBackButton.addTarget(self, action: #selector(didGoBack(_ :)), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
            
@@ -158,15 +179,24 @@ class QuizViewController: UIViewController {
             resultsLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
             resultsLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
             
-            doneButton.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
-            doneButton.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
-            doneButton.topAnchor.constraint(equalTo: resultsLabel.bottomAnchor, constant: 40)
+            buttonsView.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
+            buttonsView.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
+            buttonsView.topAnchor.constraint(equalTo: resultsLabel.bottomAnchor, constant: 40),
+            
+            tryAgainButton.leadingAnchor.constraint(equalTo: buttonsView.leadingAnchor, constant: 10),
+            tryAgainButton.centerXAnchor.constraint(equalTo: resultsStackView.centerXAnchor),
+            tryAgainButton.heightAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            tryAgainButton.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            
+            goBackButton.leadingAnchor.constraint(equalTo: buttonsView.leadingAnchor, constant: 10),
+            goBackButton.centerXAnchor.constraint(equalTo: resultsStackView.centerXAnchor),
+            goBackButton.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            goBackButton.heightAnchor.constraint(equalToConstant: Constants.buttonWidth)
         ])
     }
     
     func setupQuestionsView(){
         
-        self.view.backgroundColor = AppColors.primaryBackground
         optionOne.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
         optionTwo.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
         optionThree.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
@@ -175,10 +205,10 @@ class QuizViewController: UIViewController {
         
         let titleStackView = UIStackView(arrangedSubviews: [categoryLabel, scoreLabel])
         titleStackView.axis = .horizontal
-        titleStackView.alignment = .trailing
-        titleStackView.distribution = .equalSpacing
-        titleStackView.spacing = 10
-        
+        //titleStackView.alignment = .trailing
+        titleStackView.distribution = .fillEqually
+        titleStackView.spacing = 20
+       
         questionsStackView = UIStackView(arrangedSubviews: [progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
         questionsStackView.axis = .vertical
         questionsStackView.alignment = .center
@@ -188,7 +218,6 @@ class QuizViewController: UIViewController {
         questionsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         questionsStackView.translatesAutoresizingMaskIntoConstraints = false
         progressBar.translatesAutoresizingMaskIntoConstraints = false
-        
         
         view.addSubview(questionsStackView)
         questionsStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -208,28 +237,31 @@ class QuizViewController: UIViewController {
             titleStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
             progressBar.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
-            progressBar.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
-            progressBar.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
-            progressBar.heightAnchor.constraint(equalToConstant: 30),
+            progressBar.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor),
+            progressBar.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor),
+            progressBar.heightAnchor.constraint(equalToConstant: 10),
             
             questionLabel.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
-            questionLabel.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
-            questionLabel.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
-           
-            optionOne.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            questionLabel.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 10),
+            questionLabel.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -10),
+            
+            optionOne.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
+            optionOne.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
             optionOne.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionOne.heightAnchor.constraint(equalToConstant: 50),
             
-            
-            optionTwo.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            optionTwo.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor,constant: 20),
+            optionTwo.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor,constant: -20),
             optionTwo.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionTwo.heightAnchor.constraint(equalToConstant: 50),
             
-            optionThree.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            optionThree.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
+            optionThree.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
             optionThree.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionThree.heightAnchor.constraint(equalToConstant: 50),
             
-            optionFour.widthAnchor.constraint(equalToConstant: view.frame.width/2),
+            optionFour.leadingAnchor.constraint(equalTo: questionsStackView.leadingAnchor, constant: 20),
+            optionFour.trailingAnchor.constraint(equalTo: questionsStackView.trailingAnchor, constant: -20),
             optionFour.centerXAnchor.constraint(equalTo: questionsStackView.centerXAnchor),
             optionFour.heightAnchor.constraint(equalToConstant: 50)
 
@@ -245,33 +277,46 @@ class QuizViewController: UIViewController {
             haptics.impactOccurred()
             sender.backgroundColor = UIColor.red
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.quiz.nextQuestion()
-            self.updateUI()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            let qno = self?.quiz.questionNumber ?? 0
+            if(qno + 1 == self?.quiz.totalNumberOfQuestions) {
+                self?.showResults()
+            }
+            else {
+                self?.quiz.nextQuestion()
+                self?.showQuestion()
+            }
+
         }
-   
+    }
+    
+    @objc func didTryAgain(_ sender: UIButton) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            self?.quiz.nextQuestion()
+            self?.showQuestion()
+            self?.resultsStackView.fadeOut()
+            self?.questionsStackView.fadeIn()
+            
+        }
+    }
+    
+    @objc func didGoBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupData() async  {
         let _ = await quiz.fetchQuestions()
-        DispatchQueue.main.async { self.updateUI() }
+        DispatchQueue.main.async { self.showQuestion() }
     }
     
     func showResults() {
-        resultsLabel.text = "You have scored \(quiz.correctQuestions)/10."
-        resultsStackView.isHidden = false
-        questionsStackView.isHidden = true
+        resultsLabel.text = "You have scored \(quiz.correctQuestions)/\(quiz.totalNumberOfQuestions) in the category - \(quiz.category.name)."
+        
+        self.resultsStackView.fadeIn()
+        self.questionsStackView.fadeOut()
     }
     
-    func updateUI(){
-        if(quiz.questionNumber >= 9) {
-            showResults()
-        }
-        else {
-            showQuestion()
-        }
-        
-    }
+    
     
     func showQuestion(){
         var answers = (quiz.questions[quiz.questionNumber].incorrect_answers)
@@ -279,8 +324,19 @@ class QuizViewController: UIViewController {
         answers = answers.shuffled()
         
         print("answers is \(answers)")
+        
         questionLabel.text = quiz.questions[quiz.questionNumber].question
         categoryLabel.text = category.name
+        
+        // Don't do the animation for first question
+        if quiz.questionNumber != 0 {
+            questionLabel.fadeTransition()
+            optionOne.fadeTransition()
+            optionTwo.fadeTransition()
+            optionThree.fadeTransition()
+            optionFour.fadeTransition()
+        }
+        
         optionOne.setTitle(answers[0], for: UIControl.State.normal)
         optionTwo.setTitle(answers[1], for: UIControl.State.normal)
         optionThree.setTitle(answers[2], for: UIControl.State.normal)

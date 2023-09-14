@@ -71,8 +71,8 @@ class SwipeCardView : UIView {
         shadowView.addSubview(swipeView)
 
         swipeView.translatesAutoresizingMaskIntoConstraints = false
-        swipeView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 30).isActive = true
-        swipeView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: -30).isActive = true
+        swipeView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor, constant: 10).isActive = true
+        swipeView.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor, constant: -10).isActive = true
         swipeView.bottomAnchor.constraint(equalTo: shadowView.bottomAnchor).isActive = true
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }
@@ -82,13 +82,15 @@ class SwipeCardView : UIView {
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.font = UIFont.preferredFont(forTextStyle: .title1).bold()
+        label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: swipeView.topAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor).isActive = true
-        label.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: swipeView.topAnchor, constant: 8).isActive = true
+        label.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor, constant: 8).isActive = true
+        label.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor, constant: -8).isActive = true
+        label.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor, constant: -8).isActive = true
         label.lineBreakMode = .byWordWrapping
+        label.contentScaleFactor = 2.0
+        label.minimumScaleFactor = 0.5
     }
 
     

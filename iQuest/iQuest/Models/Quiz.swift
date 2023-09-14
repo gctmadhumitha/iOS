@@ -15,6 +15,7 @@ class Quiz {
     var correctQuestions = 0
     var wrongQuestions = 0
     var questions: [Question] = []
+    var totalNumberOfQuestions = 3
 
     func getQuestionsText() -> String {
         return questions[questionNumber].question
@@ -54,7 +55,7 @@ class Quiz {
     }
     
      func fetchQuestions() async  {
-        let serviceResponse = await APIService().fetchQuizFor(category: category.id)
+         let serviceResponse = await APIService().fetchQuizFor(category: category.id, amount: totalNumberOfQuestions)
         guard serviceResponse.questions.count != 0  else {
             print("Error Message is", serviceResponse.error)
             return
