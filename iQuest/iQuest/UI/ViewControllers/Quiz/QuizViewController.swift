@@ -64,8 +64,32 @@ class QuizViewController: UIViewController {
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.setProgress(0.5, animated: false)
         progressBar.trackTintColor = UIColor.lightGray
-        progressBar.tintColor = UIColor.blue
+        progressBar.layer.cornerRadius = 15.0
+        progressBar.clipsToBounds = true
+        progressBar.layer.sublayers![1].cornerRadius = 15
+        progressBar.subviews[1].clipsToBounds = true
         return progressBar
+    }()
+    
+    private var resultsLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .right
+        label.text = ""
+        label.textColor = AppColors.primaryTextColor
+        return label
+    }()
+    
+    private lazy var doneButton: UIButton = {
+        let button  = UIButton(type: .system)
+        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        button.setTitle("Try Again", for: .normal)
+        button.tintColor = AppColors.secondaryTextColor
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
+        button.backgroundColor = AppColors.buttonColor
+        button.layer.cornerRadius = 20
+        return button
     }()
     
     private lazy var optionOne: UIButton = {
@@ -101,13 +125,15 @@ class QuizViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         setupQuestionsView()
-        setupQuestionsView()
+        setupResultsView()
         Task {
             await setupData()
         }
     }
     
     func setupResultsView(){
+        view.addSubview(resultsStackView)
+        resultsStackView.isHidden = true
         resultsStackView.axis = .vertical
         resultsStackView.alignment = .center
         resultsStackView.distribution = .equalSpacing
@@ -115,6 +141,27 @@ class QuizViewController: UIViewController {
         resultsStackView.isLayoutMarginsRelativeArrangement = true
         resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         
+        resultsStackView.addArrangedSubview(resultsLabel)
+        resultsStackView.addArrangedSubview(doneButton)
+        resultsStackView.translatesAutoresizingMaskIntoConstraints = false
+        resultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.addTarget(self, action: #selector(didSelectAnswer(_ :)), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+           
+            resultsStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            resultsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            resultsStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            
+            resultsLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
+            resultsLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
+            resultsLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
+            
+            doneButton.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
+            doneButton.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
+            doneButton.topAnchor.constraint(equalTo: resultsLabel.bottomAnchor, constant: 40)
+        ])
     }
     
     func setupQuestionsView(){
@@ -131,7 +178,6 @@ class QuizViewController: UIViewController {
         titleStackView.alignment = .trailing
         titleStackView.distribution = .equalSpacing
         titleStackView.spacing = 10
-        titleStackView.backgroundColor = .cyan
         
         questionsStackView = UIStackView(arrangedSubviews: [progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
         questionsStackView.axis = .vertical
@@ -140,7 +186,7 @@ class QuizViewController: UIViewController {
         questionsStackView.spacing = 20
         questionsStackView.isLayoutMarginsRelativeArrangement = true
         questionsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
-
+        questionsStackView.translatesAutoresizingMaskIntoConstraints = false
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         
         
@@ -189,6 +235,7 @@ class QuizViewController: UIViewController {
 
         ])
     }
+    
 
     @objc func didSelectAnswer(_ sender: UIButton) {
         if quiz.checkAnswer(sender.currentTitle!){
@@ -202,8 +249,7 @@ class QuizViewController: UIViewController {
             self.quiz.nextQuestion()
             self.updateUI()
         }
-        
-        
+   
     }
     
     func setupData() async  {
@@ -211,7 +257,23 @@ class QuizViewController: UIViewController {
         DispatchQueue.main.async { self.updateUI() }
     }
     
+    func showResults() {
+        resultsLabel.text = "You have scored \(quiz.correctQuestions)/10."
+        resultsStackView.isHidden = false
+        questionsStackView.isHidden = true
+    }
+    
     func updateUI(){
+        if(quiz.questionNumber >= 9) {
+            showResults()
+        }
+        else {
+            showQuestion()
+        }
+        
+    }
+    
+    func showQuestion(){
         var answers = (quiz.questions[quiz.questionNumber].incorrect_answers)
         answers.append(quiz.questions[quiz.questionNumber].correct_answer)
         answers = answers.shuffled()
@@ -229,8 +291,6 @@ class QuizViewController: UIViewController {
         optionFour.backgroundColor = AppColors.buttonColor
         progressBar.progress =  quiz.getProgress()
         scoreLabel.text = "Score: \(quiz.correctQuestions)"
-        
     }
-    
 
 }

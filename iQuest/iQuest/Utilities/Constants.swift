@@ -15,7 +15,8 @@ enum AppColors {
     
     static let primaryBackground = UIColor.systemBackground
     static let primaryAppColor = UIColor.systemTeal
-    static let secondaryAppColor = UIColor.systemGray
+    static let secondaryAppColor = UIColor.systemYellow
+    static let appColor = UIColor.systemGray
     static let lightGray = UIColor(hex: "#f2f2f2ff")
     static let shadowColor = lightGray
     static let buttonColor = UIColor.systemYellow
