@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, ProductSelectionDelegate {
+final class SettingsViewController: UIViewController, ProductSelectionDelegate {
 
     let productImageView = UIImageView()
     let productNameLabel = UILabel()

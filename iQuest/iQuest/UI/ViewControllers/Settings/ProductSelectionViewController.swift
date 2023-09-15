@@ -11,7 +11,7 @@ protocol ProductSelectionDelegate {
     func didSelectProduct(name: String, imageName: String)
 }
 
-class ProductSelectionViewController: UIViewController {
+final class ProductSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

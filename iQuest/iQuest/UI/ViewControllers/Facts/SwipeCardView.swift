@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SwipeCardView : UIView {
+final class SwipeCardView : UIView {
    
     //MARK: - Properties
     var swipeView : UIView!
@@ -82,6 +82,7 @@ class SwipeCardView : UIView {
         label.textColor = .white
         label.numberOfLines = 0
         label.textAlignment = .center
+        //label.setLineSpacing(lineSpacing: 100)
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.topAnchor.constraint(equalTo: swipeView.topAnchor, constant: 8).isActive = true

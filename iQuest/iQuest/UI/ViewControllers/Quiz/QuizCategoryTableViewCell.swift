@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizCategoryTableViewCell: UITableViewCell {
+final class QuizCategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()

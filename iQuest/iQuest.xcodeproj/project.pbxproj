@@ -41,6 +41,7 @@
 		C2625D542AB231FB0006CFF1 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D532AB231FB0006CFF1 /* QuizViewController.swift */; };
 		C2625D5B2AB2CEFE0006CFF1 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D5A2AB2CEFE0006CFF1 /* Quiz.swift */; };
 		C2625D5E2AB3991D0006CFF1 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D5D2AB3991D0006CFF1 /* UIView.swift */; };
+		C2625D602AB42A470006CFF1 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D5F2AB42A470006CFF1 /* UILabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		C2625D532AB231FB0006CFF1 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		C2625D5A2AB2CEFE0006CFF1 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		C2625D5D2AB3991D0006CFF1 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		C2625D5F2AB42A470006CFF1 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				C2625D172AABF1990006CFF1 /* UIColor.swift */,
 				C2625D2F2AAFE2670006CFF1 /* UIFont.swift */,
 				C2625D5D2AB3991D0006CFF1 /* UIView.swift */,
+				C2625D5F2AB42A470006CFF1 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 			files = (
 				C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */,
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
+				C2625D602AB42A470006CFF1 /* UILabel.swift in Sources */,
 				C2625D3F2AB026330006CFF1 /* SettingsViewController.swift in Sources */,
 				C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */,
 				C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */,

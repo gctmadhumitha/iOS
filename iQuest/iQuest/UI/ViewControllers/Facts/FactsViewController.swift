@@ -6,15 +6,15 @@
 
 import UIKit
 
-class FactsViewController: UIViewController {
-
+final class FactsViewController: UIViewController {
+    
     //MARK: - Properties
     
     private var titleView = UIView()
     private lazy var stackContainer : StackContainerView = {
         return StackContainerView()
     }()
-  
+    
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
@@ -29,24 +29,26 @@ class FactsViewController: UIViewController {
     override func loadView() {
         view = UIView()
         view.backgroundColor = UIColor(red:0.93, green:0.93, blue:0.93, alpha:1.0)
-        stackContainer = StackContainerView()
-        
         setupUI()
-        configureNavigationBarButtonItem()
     }
- 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         stackContainer.dataSource = self
     }
     
- 
+}
+
+// UI Setup
+extension FactsViewController {
+    
     //MARK: - Configurations
     
     func setupUI(){
         setupTitle()
         setupStackContainer()
     }
+    
     func setupStackContainer() {
         view.addSubview(stackContainer)
         stackContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -54,18 +56,8 @@ class FactsViewController: UIViewController {
         stackContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         stackContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -60).isActive = true
         stackContainer.widthAnchor.constraint(equalToConstant: 320).isActive = true
-        stackContainer.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        stackContainer.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
-    
-    
-//    func configureTitle(){
-//        view.addSubview(titleLabel)
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-//        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-//        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-//    }
     
     func setupTitle(){
         view.addSubview(titleView)
@@ -86,21 +78,10 @@ class FactsViewController: UIViewController {
             titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80)
         ])
-        
     }
-    
-    
-    func configureNavigationBarButtonItem() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(resetTapped))
-    }
-    
-    //MARK: - Handlers
-    @objc func resetTapped() {
-        stackContainer.reloadData()
-        
-    }
-
 }
+
+// Swipe Cardview Setup
 
 extension FactsViewController : SwipeCardsDataSource  {
 

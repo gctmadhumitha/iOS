@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizViewController: UIViewController {
+final class QuizViewController: UIViewController {
 
     var category : Category = Category(id: 9, name: "General Knowledge")
     var quiz = Quiz()
@@ -71,6 +71,19 @@ class QuizViewController: UIViewController {
         return progressBar
     }()
     
+    private var resultsMessageLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        label.text = "Congratulations! You have completed your Quiz."
+        label.numberOfLines = 0
+        label.textColor = AppColors.primaryTextColor
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
     private var resultsLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .title3)
@@ -122,13 +135,6 @@ class QuizViewController: UIViewController {
     
     func setupResultsView(){
         view.addSubview(resultsStackView)
-        resultsStackView.isHidden = true
-        resultsStackView.axis = .vertical
-        resultsStackView.alignment = .center
-        resultsStackView.distribution = .equalSpacing
-        resultsStackView.spacing = 20
-        resultsStackView.isLayoutMarginsRelativeArrangement = true
-        resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         
         let buttonsView = UIStackView(arrangedSubviews: [tryAgainButton, goBackButton])
         buttonsView.axis = .vertical
@@ -136,13 +142,27 @@ class QuizViewController: UIViewController {
         buttonsView.distribution = .equalSpacing
         buttonsView.spacing = 10
         
+        resultsStackView.isHidden = true
+        resultsStackView.axis = .vertical
+        resultsStackView.alignment = .center
+        resultsStackView.distribution = .equalSpacing
+        resultsStackView.spacing = 20
+        resultsStackView.isLayoutMarginsRelativeArrangement = true
+        resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+        resultsStackView.addArrangedSubview(resultsMessageLabel)
         resultsStackView.addArrangedSubview(resultsLabel)
         resultsStackView.addArrangedSubview(buttonsView)
         resultsStackView.translatesAutoresizingMaskIntoConstraints = false
+        resultsMessageLabel.translatesAutoresizingMaskIntoConstraints = false
         resultsLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        tryAgainButton.setTitle("Play Again", for: .normal)
         tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
         tryAgainButton.addTarget(self, action: #selector(didTryAgain(_ :)), for: .touchUpInside)
+        
+        goBackButton.translatesAutoresizingMaskIntoConstraints = false
         goBackButton.addTarget(self, action: #selector(didGoBack(_ :)), for: .touchUpInside)
+        tryAgainButton.setTitle("Go Back", for: .normal)
         
         NSLayoutConstraint.activate([
            
@@ -150,9 +170,13 @@ class QuizViewController: UIViewController {
             resultsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             resultsStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             
+            resultsMessageLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
+            resultsMessageLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
+            resultsMessageLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
+            
             resultsLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
             resultsLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
-            resultsLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
+            resultsLabel.topAnchor.constraint(equalTo: resultsLabel.topAnchor, constant: 20),
             
             buttonsView.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
             buttonsView.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),

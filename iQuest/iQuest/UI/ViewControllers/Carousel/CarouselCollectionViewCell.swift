@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CarouselCollectionViewCell: UICollectionViewCell {
+final class CarouselCollectionViewCell: UICollectionViewCell {
     
     // MARK: - SubViews
     
@@ -42,7 +42,7 @@ private extension CarouselCollectionViewCell {
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 24

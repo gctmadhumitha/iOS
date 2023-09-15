@@ -15,6 +15,7 @@ enum AppColors {
     static let headerTextColor = UIColor(named: "headerTextColor")
     static let primaryTextColor = UIColor(named: "primaryTextColor")
     static let secondaryTextColor = UIColor.systemGray
+    static let tertiaryTextColor = UIColor.white
 
     //Views
     static let primaryBackground = UIColor.systemBackground
@@ -26,6 +27,7 @@ enum AppColors {
     //Button
     static let buttonColor = primaryAppColor
     static let buttonTextColor = UIColor(named: "buttonTextColor")
+    
     
     //Other
     static let shadowColor = lightGray

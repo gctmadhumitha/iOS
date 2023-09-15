@@ -8,7 +8,7 @@
 import UIKit
 
 
-class StackContainerView: UIView, SwipeCardsDelegate {
+final class StackContainerView: UIView, SwipeCardsDelegate {
 
     //MARK: - Properties
     var cardsToBeVisible: Int = 3
