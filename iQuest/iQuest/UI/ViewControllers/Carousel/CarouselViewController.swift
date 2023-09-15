@@ -61,7 +61,11 @@ extension CarouselViewController: CarouselViewDelegate {
     func currentPageDidChange(to page: Int) {
         UIView.animate(withDuration: 0.7) {
             //self.view.backgroundColor = self.backgroundColors[page]
-            self.view.backgroundColor = UIColor(patternImage: UIImage(named: self.backgroundImages[page])!)
+            if let image = UIImage(named: self.backgroundImages[page]) {
+                self.view.backgroundColor = UIColor(patternImage: image)
+            }else {
+                self.view.backgroundColor = UIColor.systemBackground
+            }
             
         }
     }

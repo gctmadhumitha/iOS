@@ -14,7 +14,7 @@ class SwipeCardView : UIView {
     var shadowView : UIView!
     
     var label = UILabel()
-    var moreButton = UIButton()
+    //var moreButton = UIButton()
     
     var delegate : SwipeCardsDelegate?
 
@@ -37,7 +37,7 @@ class SwipeCardView : UIView {
         configureShadowView()
         configureSwipeView()
         configureLabelView()
-        configureButton()
+        //configureButton()
         addPanGestureOnCards()
         configureTapGesture()
     }
@@ -94,19 +94,19 @@ class SwipeCardView : UIView {
     }
 
     
-    func configureButton() {
-        label.addSubview(moreButton)
-        moreButton.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
-        moreButton.setImage(image, for: .normal)
-        moreButton.tintColor = UIColor.red
-        
-        moreButton.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -15).isActive = true
-        moreButton.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    
-    }
+//    func configureButton() {
+//        label.addSubview(moreButton)
+//        moreButton.translatesAutoresizingMaskIntoConstraints = false
+//        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
+//        moreButton.setImage(image, for: .normal)
+//        moreButton.tintColor = UIColor.red
+//
+//        moreButton.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -15).isActive = true
+//        moreButton.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
+//        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//
+//    }
 
     func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))

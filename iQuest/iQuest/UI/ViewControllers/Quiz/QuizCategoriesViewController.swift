@@ -26,41 +26,27 @@ final class QuizCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isEditing = true
-        tableView.allowsSelectionDuringEditing = true
         setupUI()
-        setupConstraints()
         Task {
             await setupData()
         }
-        
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-       
-    }
-
 }
+
 
 extension QuizCategoriesViewController {
     
     func setupUI(){
-        self.view.backgroundColor = AppColors.primaryBackground
-        self.titleView.addSubview(titleLabel)
-        self.view.addSubview(titleView)
-        self.view.addSubview(tableView)
-        
-        self.titleLabel.text = "Quiz"
-        self.tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: cellId)
-        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
+        view.backgroundColor = AppColors.primaryBackground
+        view.addSubview(titleView)
+        view.addSubview(tableView)
+        setupTitle()
+        setupTableView()
     }
 
-    func setupConstraints(){
+    func setupTitle(){
+        titleView.addSubview(titleLabel)
+        titleLabel.text = "Quiz"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
@@ -70,7 +56,6 @@ extension QuizCategoriesViewController {
             titleLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         
-        
         titleView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -79,6 +64,16 @@ extension QuizCategoriesViewController {
             titleView.bottomAnchor.constraint(equalTo: tableView.topAnchor, constant: 0)
         ])
         
+    }
+    
+    func setupTableView(){
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
+        tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

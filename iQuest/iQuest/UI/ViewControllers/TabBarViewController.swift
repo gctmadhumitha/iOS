@@ -24,6 +24,8 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     private func setupTabs(){
         
         //self.view.backgroundColor = .systemBackground
+        self.tabBar.tintColor = AppColors.primaryAppColor
+        self.tabBar.backgroundColor = AppColors.secondaryBackground
         self.navigationController?.isNavigationBarHidden = true
       
         let tab1ViewController = UINavigationController(rootViewController: QuizCategoriesViewController())

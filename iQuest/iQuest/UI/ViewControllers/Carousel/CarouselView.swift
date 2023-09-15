@@ -43,7 +43,7 @@ class CarouselView: UIView {
         let button  = UIButton(type: .system)
         button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
         button.setTitle("Get Started", for: .normal)
-        button.tintColor = AppColors.secondaryTextColor
+        button.tintColor = AppColors.buttonTextColor
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         button.backgroundColor = AppColors.buttonColor
         button.layer.cornerRadius = 20

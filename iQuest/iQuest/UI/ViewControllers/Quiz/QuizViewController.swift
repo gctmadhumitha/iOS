@@ -85,55 +85,30 @@ class QuizViewController: UIViewController {
     }()
     
     private lazy var tryAgainButton: UIButton = {
-        let button  = UIButton(type: .system)
-        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
-        button.setTitle("Try Again", for: .normal)
-        button.tintColor = AppColors.secondaryTextColor
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        button.backgroundColor = AppColors.buttonColor
-        button.layer.cornerRadius = 20
-        return button
+        return createButton()
     }()
     
     private lazy var goBackButton: UIButton = {
-        let button  = UIButton(type: .system)
-        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
-        button.setTitle("Go Back", for: .normal)
-        button.tintColor = AppColors.secondaryTextColor
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        button.backgroundColor = AppColors.buttonColor
-        button.layer.cornerRadius = 20
-        return button
+        return createButton()
     }()
     
     private lazy var optionOne: UIButton = {
-        return optionButton(title: "Answer 1")
+        return createButton()
     }()
     
     private lazy var optionTwo: UIButton = {
-        return optionButton(title: "Answer 2")
+        return createButton()
     }()
     
     private lazy var optionThree: UIButton = {
-        return optionButton(title: "Answer 3")
+        return createButton()
     }()
     
     private lazy var optionFour: UIButton = {
-        return optionButton(title: "Answer 4")
+        return createButton()
     }()
 
-    
-    func optionButton(title:String) -> UIButton {
-        let button  = UIButton(type: .system)
-        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
-        button.setTitle("Option", for: .normal)
-        button.tintColor = AppColors.secondaryTextColor
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        button.backgroundColor = AppColors.buttonColor
-        button.layer.cornerRadius = 20
-        return button
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
@@ -349,4 +324,18 @@ class QuizViewController: UIViewController {
         scoreLabel.text = "Score: \(quiz.correctQuestions)"
     }
 
+}
+
+
+extension QuizViewController {
+    func createButton(title:String = "") -> UIButton {
+        let button  = UIButton(type: .system)
+        button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
+        button.setTitle(title, for: .normal)
+        button.tintColor = AppColors.buttonTextColor
+        button.titleLabel?.font = AppFonts.buttonFont
+        button.backgroundColor = AppColors.buttonColor
+        button.layer.cornerRadius = 20
+        return button
+    }
 }

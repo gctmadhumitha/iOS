@@ -46,7 +46,7 @@ class QuizCategoryTableViewCell: UITableViewCell {
     
     private lazy var categoryDescLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = AppFonts.buttonFont
         label.textAlignment = .left
         label.text = ""
         label.textColor = AppColors.secondaryTextColor

@@ -9,15 +9,17 @@ import UIKit
 class FactsViewController: UIViewController {
 
     //MARK: - Properties
+    
+    private var titleView = UIView()
     private lazy var stackContainer : StackContainerView = {
         return StackContainerView()
     }()
   
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
         label.textAlignment = .center
-        label.text = "Do You Know"
+        label.text = "Did You Know?"
         label.textColor = AppColors.primaryTextColor
         return label
     }()
@@ -42,10 +44,10 @@ class FactsViewController: UIViewController {
     //MARK: - Configurations
     
     func setupUI(){
-        configureTitle()
-        configureStackContainer()
+        setupTitle()
+        setupStackContainer()
     }
-    func configureStackContainer() {
+    func setupStackContainer() {
         view.addSubview(stackContainer)
         stackContainer.translatesAutoresizingMaskIntoConstraints = false
         stackContainer.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
@@ -56,13 +58,35 @@ class FactsViewController: UIViewController {
     }
     
     
-    func configureTitle(){
-        view.addSubview(titleLabel)
+//    func configureTitle(){
+//        view.addSubview(titleLabel)
+//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+//        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+//    }
+    
+    func setupTitle(){
+        view.addSubview(titleView)
+        titleView.addSubview(titleLabel)
+        titleLabel.text = "Did you Know!"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 20).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20),
+            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 0),
+            titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
+            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80)
+        ])
+        
     }
     
     
