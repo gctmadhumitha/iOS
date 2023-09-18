@@ -40,12 +40,8 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         let tab3ViewController  = UIHostingController(rootView:ChatView())
         let tabItem3 = UITabBarItem(title: "Chat GPT", image: UIImage(systemName:  "message.and.waveform"),selectedImage: UIImage(systemName: "message.and.waveform.fill"))
         tab3ViewController.tabBarItem = tabItem3
-        
-        let tab4ViewController  = SettingsViewController()
-        let tabItem4 = UITabBarItem(title: "Settings", image: UIImage(systemName:  "heart"),selectedImage: UIImage(systemName: "person"))
-        tab4ViewController.tabBarItem = tabItem4
-        
-        self.viewControllers = [tab1ViewController, tab2ViewController, tab3ViewController, tab4ViewController]
+      
+        self.viewControllers = [tab1ViewController, tab2ViewController, tab3ViewController]
         
     }
 
