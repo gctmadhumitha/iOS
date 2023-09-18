@@ -16,10 +16,15 @@ class CarouselView: UIView {
     
     struct CarouselData {
         let image: UIImage?
-        let text: String
+        let caption: String
+        let description: String
     }
     
+    let widthMultiplier = 0.6
+    let heightMultiplier = 0.5
+    
     // MARK: - Subviews
+
     
     private lazy var carouselCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -81,51 +86,51 @@ private extension CarouselView {
     
     func setupUI() {
         backgroundColor = .clear
-        
         setupCollectionView()
         setupPageControl()
-        setupButton()
+        setupStartButton()
+       
     }
     
     func setupCollectionView() {
-        
-        let cellPadding = (frame.width - 300) / 2
+        let collectionViewCellHeight  = UIScreen.main.bounds.height * heightMultiplier
         let carouselLayout = UICollectionViewFlowLayout()
         carouselLayout.scrollDirection = .horizontal
-        carouselLayout.itemSize = .init(width: 300, height: 400)
-        carouselLayout.sectionInset = .init(top: 0, left: cellPadding, bottom: 0, right: cellPadding)
-        carouselLayout.minimumLineSpacing = cellPadding * 2
         carouselCollectionView.collectionViewLayout = carouselLayout
-        
         addSubview(carouselCollectionView)
+      
         carouselCollectionView.translatesAutoresizingMaskIntoConstraints = false
         carouselCollectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         carouselCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        carouselCollectionView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        carouselCollectionView.heightAnchor.constraint(equalToConstant: CGFloat(collectionViewCellHeight)).isActive = true
     }
     
     func setupPageControl() {
         addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.topAnchor.constraint(equalTo: carouselCollectionView.bottomAnchor, constant: 16).isActive = true
+        pageControl.topAnchor.constraint(equalTo: carouselCollectionView.bottomAnchor, constant: 8).isActive = true
         pageControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         pageControl.widthAnchor.constraint(equalToConstant: 150).isActive = true
         pageControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
         pageControl.numberOfPages = pages
     }
     
-    func setupButton() {
+    func setupStartButton() {
         addSubview(getStartedButton)
+        print(" UIScreen.main.bounds.size \( UIScreen.main.bounds.size)")
+        print("frame size is :: \(frame.width)")
+        
         getStartedButton.addTarget(self, action: #selector(gotoMainView(_:)), for: .touchUpInside)
         getStartedButton.translatesAutoresizingMaskIntoConstraints = false
-        getStartedButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 16).isActive = true
+        getStartedButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 8).isActive = true
         getStartedButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         getStartedButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         getStartedButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
         getStartedButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
     
     }
+    
 }
 
 
@@ -150,9 +155,10 @@ extension CarouselView: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCollectionViewCell.cellId, for: indexPath) as? CarouselCollectionViewCell else { return UICollectionViewCell() }
         
         let image = carouselData[indexPath.row].image
-        let text = carouselData[indexPath.row].text
+        let caption = carouselData[indexPath.row].caption
+        let description = carouselData[indexPath.row].description
         
-        cell.configure(image: image, text: text)
+        cell.configure(image: image, caption: caption, description: description)
         
         return cell
     }
@@ -177,21 +183,36 @@ extension CarouselView: UICollectionViewDelegate {
 // MARK: - Public
 
 extension CarouselView {
-    public func configureView(with data: [CarouselData]) {
-        let cellPadding = (frame.width - 300) / 2
+    
+    // Update view constraints based on frame sizes.
+    public func updateView(with data: [CarouselData]) {
+        
+        
+        let collectionViewCellWidth = carouselCollectionView.frame.width * widthMultiplier
+        let collectionViewCellHeight = carouselCollectionView.frame.height
+        let cellPadding = (frame.width - collectionViewCellWidth) / 2
+        print("Configure view frame.width : \(frame.width)")
+        print("cellPadding : \(cellPadding)")
+        
         let carouselLayout = UICollectionViewFlowLayout()
         carouselLayout.scrollDirection = .horizontal
-        carouselLayout.itemSize = .init(width: 300, height: 400)
+        carouselLayout.itemSize = .init(width: collectionViewCellWidth, height: collectionViewCellHeight)
         carouselLayout.sectionInset = .init(top: 0, left: cellPadding, bottom: 0, right: cellPadding)
         carouselLayout.minimumLineSpacing = cellPadding * 2
         carouselCollectionView.collectionViewLayout = carouselLayout
-        
         carouselData = data
         carouselCollectionView.reloadData()
+        
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    
 }
 
-// MARKK: - Helpers
+// MARK: - Helpers
 
 private extension CarouselView {
     func getCurrentPage() -> Int {

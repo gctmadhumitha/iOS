@@ -162,7 +162,8 @@ final class QuizViewController: UIViewController {
         
         goBackButton.translatesAutoresizingMaskIntoConstraints = false
         goBackButton.addTarget(self, action: #selector(didGoBack(_ :)), for: .touchUpInside)
-        tryAgainButton.setTitle("Go Back", for: .normal)
+        goBackButton.setTitle("Go back", for: .normal)
+        tryAgainButton.setTitle("Play again", for: .normal)
         
         NSLayoutConstraint.activate([
            

@@ -25,7 +25,8 @@ enum AppColors {
     static let lightGray = UIColor(hex: "#f2f2f2ff")
     
     //Button
-    static let buttonColor = primaryAppColor
+    static let buttonColor = UIColor(named:"buttonColor")
+    static let appTitleColor = UIColor(named:"appTitleColor")
     static let buttonTextColor = UIColor(named: "buttonTextColor")
     
     

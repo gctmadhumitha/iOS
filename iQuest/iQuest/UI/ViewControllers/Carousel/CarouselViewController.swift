@@ -15,11 +15,22 @@ class CarouselViewController: UIViewController {
     private var carouselView: CarouselView?
     
     // MARK: - Properties
-    private var titleView = UIView()
-    private var tableView = UITableView()
+    private var titleView = UIStackView()
+    private lazy var logoView = UIImageView()
+
     private var titleLabel : UILabel = {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
+        label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .center
+        label.text = ""
+        label.textColor = AppColors.tertiaryTextColor
+        return label
+    }()
+    
+    private var captionLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
         label.text = ""
@@ -39,16 +50,18 @@ class CarouselViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         carouselView = CarouselView(pages: 3, delegate: self)
-        carouselData.append(.init(image: UIImage(named: "background-image1"), text: "SQuiz(e) your brain"))
-        carouselData.append(.init(image: UIImage(named: "background-image2"), text: "Have fun with facts"))
-        carouselData.append(.init(image: UIImage(named: "background-image3"), text: "Ask ChatGPT"))
+        carouselData.append(.init(image: UIImage(named: "background-image1"), caption: "Quiz", description: "Challenge yourself thousands of questions"))
+        carouselData.append(.init(image: UIImage(named: "background-image2"), caption: "Facts", description: "Unlimited fun with facts"))
+        carouselData.append(.init(image: UIImage(named: "background-image3"), caption: "ChatGPT", description:"Ask AI to know more"))
         setupUI()
+        carouselView?.layoutIfNeeded()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        carouselView?.configureView(with: carouselData)
+        carouselView?.updateView(with: carouselData)
     }
+    
 }
 
 // MARK: - Setups
@@ -56,38 +69,78 @@ class CarouselViewController: UIViewController {
 private extension CarouselViewController {
     
     func setupUI() {
-        
+
         view.backgroundColor = backgroundColors.first
-        titleView.addSubview(titleLabel)
+        titleView.addArrangedSubview(logoView)
+        titleView.addArrangedSubview(titleLabel)
+        titleView.addArrangedSubview(captionLabel)
         view.addSubview(titleView)
+        
+        view.addSubview(captionLabel)
+        titleView.addArrangedSubview(logoView)
+        titleView.addArrangedSubview(titleLabel)
+        titleView.addArrangedSubview(captionLabel)
         guard let carouselView = carouselView else { return }
         view.addSubview(carouselView)
         
-        titleLabel.text = "Did you Know!"
+        titleView.axis = .horizontal
+        titleView.alignment = .center
+        titleView.distribution = .fillProportionally
+        titleView.spacing = 0
+        titleView.isLayoutMarginsRelativeArrangement = true
+        titleView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+        titleView.translatesAutoresizingMaskIntoConstraints = false
+    
+        titleLabel.text = "Quiz Ninja"
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .left
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textColor = AppColors.appTitleColor
+        
+        captionLabel.text = ""
+        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        titleView.addArrangedSubview(logoView)
+        titleView.addArrangedSubview(titleLabel)
+        
+        logoView.image = UIImage(named: "AppLogoWhite")
+        logoView.contentMode = .scaleAspectFit
+        logoView.clipsToBounds = true
+        logoView.layer.cornerRadius = 24
+        logoView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20),
-            titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 0),
+            logoView.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 0),
+            logoView.widthAnchor.constraint(equalToConstant: view.frame.width/6),
+            logoView.heightAnchor.constraint(equalToConstant: view.frame.width/6),
+            logoView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
+        ])
+
+        NSLayoutConstraint.activate([
+           // titleLabel.leadingAnchor.constraint(equalTo: logoView.trailingAnchor, constant: 0),
+           // titleLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: 0),
             titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+            titleLabel.widthAnchor.constraint(equalToConstant: 180)
         ])
          
-        titleView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
-            titleView.bottomAnchor.constraint(equalTo: carouselView.topAnchor, constant: -40)
-        ])
+//        NSLayoutConstraint.activate([
+//            captionLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
+//            captionLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20),
+//            captionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+//            captionLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0)
+//        ])
         
+        NSLayoutConstraint.activate([
+            titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
+            titleView.bottomAnchor.constraint(equalTo: carouselView.topAnchor, constant: -40),
+            titleView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
         carouselView.translatesAutoresizingMaskIntoConstraints = false
         carouselView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         carouselView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         carouselView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-     
-        
-        }
+    }
 }
 
 // MARK: - CarouselViewDelegate
@@ -99,10 +152,9 @@ extension CarouselViewController: CarouselViewDelegate {
             if let image = UIImage(named: self.backgroundImages[page]) {
                 self.view.backgroundColor = UIColor(patternImage: image)
                 self.view.backgroundColor = self.backgroundColors[page]
-            }else {
+            } else {
                 self.view.backgroundColor = UIColor.systemBackground
             }
-            
         }
     }
     
