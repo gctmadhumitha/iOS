@@ -42,8 +42,8 @@ class CarouselViewController: UIViewController {
     //private let backgroundColors: [UIColor] = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.4826081395, green: 0.04436998069, blue: 0.2024421096, alpha: 1), #colorLiteral(red: 0.1728022993, green: 0.42700845, blue: 0.3964217603, alpha: 1)]
     private let backgroundImages: [String] = ["background-image1", "background-image2", "background-image3"]
     private let backgroundColors: [UIColor] =
-        [UIColor(hex: "#72aadeff") ?? AppColors.primaryBackground,
-         UIColor(hex: "#fdaa71ff") ?? AppColors.primaryBackground,
+        [UIColor(hex: "#74ade0ff") ?? AppColors.primaryBackground,
+         UIColor(hex: "#fda76eff") ?? AppColors.primaryBackground,
          UIColor(hex:"#d06c8aff") ?? AppColors.primaryBackground]
     // MARK: - Life Cycle
     
@@ -162,3 +162,17 @@ extension CarouselViewController: CarouselViewDelegate {
         self.navigationController?.pushViewController(TabBarViewController(), animated: true)
     }
 }
+
+
+#if DEBUG
+import SwiftUI
+
+@available(iOS 13, *)
+struct CarouselViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        // view controller using programmatic UI
+        CarouselViewController().showPreview()
+    }
+}
+#endif
+

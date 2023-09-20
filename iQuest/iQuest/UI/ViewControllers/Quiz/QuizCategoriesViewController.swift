@@ -26,6 +26,7 @@ final class QuizCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = AppColors.primaryAppColor;
         setupUI()
         Task {
             await setupData()

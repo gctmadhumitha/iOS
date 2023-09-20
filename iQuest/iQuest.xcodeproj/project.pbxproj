@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20A6EB42ABAB58D002360D5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A6EB32ABAB58D002360D5 /* UIViewController.swift */; };
 		C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D652AA7A06300DEDB57 /* AppDelegate.swift */; };
 		C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */; };
 		C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C20A6EB32ABAB58D002360D5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C2183D622AA7A06300DEDB57 /* iQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2183D652AA7A06300DEDB57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				C2625D2F2AAFE2670006CFF1 /* UIFont.swift */,
 				C2625D5D2AB3991D0006CFF1 /* UIView.swift */,
 				C2625D5F2AB42A470006CFF1 /* UILabel.swift */,
+				C20A6EB32ABAB58D002360D5 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			files = (
 				C2625D392AB0225B0006CFF1 /* CarouselCollectionViewCell.swift in Sources */,
 				C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */,
+				C20A6EB42ABAB58D002360D5 /* UIViewController.swift in Sources */,
 				C2625D602AB42A470006CFF1 /* UILabel.swift in Sources */,
 				C2625D4F2AB12F180006CFF1 /* SwipeCardsDataSource.swift in Sources */,
 				C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */,
