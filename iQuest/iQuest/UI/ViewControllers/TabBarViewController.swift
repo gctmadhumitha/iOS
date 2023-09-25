@@ -41,7 +41,7 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         let tabItem3 = UITabBarItem(title: "Chat GPT", image: UIImage(systemName:  "message.and.waveform"),selectedImage: UIImage(systemName: "message.and.waveform.fill"))
         tab3ViewController.tabBarItem = tabItem3
       
-        self.viewControllers = [tab1ViewController, tab2ViewController, tab3ViewController]
+        self.viewControllers = [tab1ViewController, tab3ViewController, tab2ViewController]
         
     }
 

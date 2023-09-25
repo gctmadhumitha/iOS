@@ -38,7 +38,6 @@ class CarouselViewController: UIViewController {
     }()
     
     private var carouselData = [CarouselView.CarouselData]()
-    //private let backgroundColors: [UIColor] = [#colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), #colorLiteral(red: 0.4826081395, green: 0.04436998069, blue: 0.2024421096, alpha: 1), #colorLiteral(red: 0.1728022993, green: 0.42700845, blue: 0.3964217603, alpha: 1)]
     private let backgroundImages: [String] = ["background-image1", "background-image2", "background-image3"]
 
     // MARK: - Life Cycle
@@ -46,9 +45,9 @@ class CarouselViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         carouselView = CarouselView(pages: 3, delegate: self)
-        carouselData.append(.init(image: UIImage(named: "background-image1"), caption: "Quiz", description: "Challenge yourself thousands of questions."))
-        carouselData.append(.init(image: UIImage(named: "background-image2"), caption: "Facts", description: "Unlimited fun with facts"))
-        carouselData.append(.init(image: UIImage(named: "background-image3"), caption: "ChatGPT", description:"Ask ChatGPT to enhacne your knowledge"))
+        carouselData.append(.init(image: UIImage(named: "background-image1"), caption: "Quiz", description: "Challenge yourself thousands of questions"))
+        carouselData.append(.init(image: UIImage(named: "background-image2"), caption: "ChatGPT", description:"Ask ChatGPT and get your questions answered"))
+        carouselData.append(.init(image: UIImage(named: "background-image3"), caption: "Facts", description: "Unlimited fun with cool facts"))
         setupUI()
         carouselView?.layoutIfNeeded()
         
@@ -107,7 +106,7 @@ private extension CarouselViewController {
         titleView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         titleView.translatesAutoresizingMaskIntoConstraints = false
     
-        titleLabel.text = "Quiz Quest"
+        titleLabel.text = "QuizQuest"
         titleLabel.font = UIFont(name: "Cream Cake", size: 70)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center

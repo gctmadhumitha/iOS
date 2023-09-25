@@ -12,10 +12,9 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
     // MARK: - SubViews
     private lazy var imageView : UIImageView =  {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 24
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -66,8 +65,8 @@ private extension CarouselCollectionViewCell {
         addSubview(descriptionLabel)
         
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant :16).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant :-16).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: self.frame.height * 0.8).isActive = true
        
         captionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16).isActive = true

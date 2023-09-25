@@ -22,6 +22,17 @@ final class QuizViewController: UIViewController {
         let stackView = UIStackView()
         return stackView
     }()
+   
+    private var headerLabel : UILabel = {
+        let label = UILabel()
+        label.font = AppFonts.titleFont
+        label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        label.text = "Quiz"
+        label.textColor = AppColors.primaryTextColor
+        return label
+    }()
     
     private var categoryLabel : UILabel = {
         let label = UILabel()
@@ -61,15 +72,28 @@ final class QuizViewController: UIViewController {
     
     private var progressBar : UIProgressView = {
        let progressBar = UIProgressView(progressViewStyle: .bar)
-        progressBar.progressTintColor = AppColors.primaryAppColor
+        progressBar.progressTintColor = AppColors.gradientColor1
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.setProgress(0.5, animated: true)
-        progressBar.trackTintColor = AppColors.secondaryAppColor
+        progressBar.trackTintColor = UIColor.systemGray
         progressBar.layer.cornerRadius = 4
         progressBar.clipsToBounds = true
-        progressBar.layer.sublayers![1].cornerRadius = 15
+        progressBar.layer.sublayers![1].cornerRadius = 5
         progressBar.subviews[1].clipsToBounds = true
         return progressBar
+    }()
+    
+    
+    private var resultsHeaderLabel : UILabel = {
+        let label = UILabel()
+        label.text = "Quiz Quest"
+        label.font = AppFonts.titleFont
+        label.adjustsFontForContentSizeCategory = true
+        label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
+        label.text = "QuizQuest"
+        label.textColor = AppColors.primaryTextColor
+        return label
     }()
     
     private var resultsMessageLabel : UILabel = {
@@ -137,6 +161,10 @@ final class QuizViewController: UIViewController {
     func setupResultsView(){
         view.addSubview(resultsStackView)
         
+        let backButton = UIBarButtonItem()
+        backButton.title = ""
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         let buttonsView = UIStackView(arrangedSubviews: [tryAgainButton, goBackButton])
         buttonsView.axis = .vertical
         buttonsView.alignment = .center
@@ -150,6 +178,7 @@ final class QuizViewController: UIViewController {
         resultsStackView.spacing = 20
         resultsStackView.isLayoutMarginsRelativeArrangement = true
         resultsStackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
+        resultsStackView.addArrangedSubview(resultsHeaderLabel)
         resultsStackView.addArrangedSubview(resultsMessageLabel)
         resultsStackView.addArrangedSubview(resultsLabel)
         resultsStackView.addArrangedSubview(buttonsView)
@@ -172,13 +201,17 @@ final class QuizViewController: UIViewController {
             resultsStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             resultsStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),
             
+            resultsHeaderLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
+            resultsHeaderLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
+            //resultsHeaderLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
+            
             resultsMessageLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
             resultsMessageLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
-            resultsMessageLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
+            //resultsMessageLabel.topAnchor.constraint(equalTo: resultsStackView.topAnchor, constant: 80),
             
             resultsLabel.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
             resultsLabel.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
-            resultsLabel.topAnchor.constraint(equalTo: resultsLabel.topAnchor, constant: 20),
+            //resultsLabel.topAnchor.constraint(equalTo: resultsLabel.topAnchor, constant: 20),
             
             buttonsView.leadingAnchor.constraint(equalTo: resultsStackView.leadingAnchor, constant: 20),
             buttonsView.trailingAnchor.constraint(equalTo: resultsStackView.trailingAnchor, constant: -20),
@@ -209,7 +242,7 @@ final class QuizViewController: UIViewController {
         titleStackView.distribution = .fillEqually
         titleStackView.spacing = 20
        
-        questionsStackView = UIStackView(arrangedSubviews: [progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
+        questionsStackView = UIStackView(arrangedSubviews: [headerLabel, progressBar, titleStackView,  questionLabel, optionOne, optionTwo, optionThree, optionFour])
         questionsStackView.axis = .vertical
         questionsStackView.alignment = .center
         questionsStackView.distribution = .equalSpacing
@@ -272,10 +305,10 @@ final class QuizViewController: UIViewController {
     @objc func didSelectAnswer(_ sender: UIButton) {
         if quiz.checkAnswer(sender.currentTitle!){
             haptics.impactOccurred()
-            sender.backgroundColor = UIColor.green
+            sender.backgroundColor = AppColors.gradientColor1
         } else {
             haptics.impactOccurred()
-            sender.backgroundColor = UIColor.red
+            sender.backgroundColor = AppColors.redColor
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             let qno = self?.quiz.questionNumber ?? 0

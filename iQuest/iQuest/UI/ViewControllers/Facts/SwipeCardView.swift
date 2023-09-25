@@ -25,7 +25,7 @@ final class SwipeCardView : UIView {
     
     var dataSource : FactDataModel? {
         didSet {
-            swipeView.backgroundColor = AppColors.gradientColor2
+            swipeView.backgroundColor = AppColors.gradientColor1
             factLabel.text = dataSource?.text
         }
     }
@@ -82,7 +82,7 @@ final class SwipeCardView : UIView {
         headerLabel.text = "Did you know? "
         headerLabel.textAlignment = .center
         headerLabel.textColor = AppColors.yellowColor
-        headerLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        headerLabel.font = UIFont.preferredFont(forTextStyle: .title1).bold()
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerLabel.topAnchor.constraint(equalTo: swipeView.topAnchor, constant: 20).isActive = true
         headerLabel.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor, constant: 8).isActive = true

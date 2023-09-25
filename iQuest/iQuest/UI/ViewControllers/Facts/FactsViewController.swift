@@ -17,7 +17,7 @@ final class FactsViewController: UIViewController {
     
     private lazy var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
+        label.font = AppFonts.titleFont
         label.textAlignment = .center
         label.text = "Fun facts!"
         label.textColor = AppColors.primaryTextColor

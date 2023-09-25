@@ -13,10 +13,20 @@ final class QuizCategoriesViewController: UIViewController {
     private var tableView = UITableView()
     private var titleLabel : UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
+        label.font = AppFonts.titleFont
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
-        label.text = ""
+        label.text = "Quiz"
+        label.textColor = AppColors.primaryTextColor
+        return label
+    }()
+    
+    private var titleTextLabel : UILabel = {
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title2).bold()
+        label.adjustsFontForContentSizeCategory = true
+        label.textAlignment = .center
+        label.text = "Pick your favorite category"
         label.textColor = AppColors.primaryTextColor
         return label
     }()
@@ -47,14 +57,21 @@ extension QuizCategoriesViewController {
 
     func setupTitle(){
         titleView.addSubview(titleLabel)
-        titleLabel.text = "Quiz"
+        titleView.addSubview(titleTextLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20),
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 0),
-            titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleTextLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
+            titleTextLabel.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -20),
+            titleTextLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            titleTextLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0),
         ])
         
         titleView.translatesAutoresizingMaskIntoConstraints = false

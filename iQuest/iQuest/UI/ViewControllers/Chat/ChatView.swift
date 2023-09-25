@@ -15,12 +15,14 @@ struct ChatView: View {
     var body: some View {
         VStack {
             HStack{
-                Text("Ask ChatGPT")
-                    .font(.largeTitle)
+                Text("Ask ChatGPT ")
+                    .font(Font(AppFonts.titleFont!))
                     .bold()
+                    .padding([.leading, .trailing], 10)
+                    .foregroundColor(AppColors.primaryTextColor!.suColor)
                 Image(systemName: "bubble.left.fill")
                     .font(.system(size:26))
-                    .foregroundColor(AppColors.primaryAppColor.suColor)
+                    .foregroundColor(AppColors.primaryTextColor!.suColor)
             }
             ScrollView{
                 //Messages
@@ -31,7 +33,7 @@ struct ChatView: View {
                             Spacer()
                             Text(newMessage)
                                 .padding(10)
-                                .background(.mint)
+                                .background(AppColors.secondaryAppColor.suColor)
                                 .foregroundColor(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 16.0, style: .continuous))
                                 .listRowSeparator(.hidden)
@@ -40,7 +42,7 @@ struct ChatView: View {
                                         .font(.title)
                                         .rotationEffect(.degrees( -45))
                                         .offset(x:  10, y: 10)
-                                        .foregroundColor(.mint)
+                                        .foregroundColor(AppColors.secondaryAppColor.suColor)
                                 }
                         }.padding()
                     }else {
@@ -64,6 +66,9 @@ struct ChatView: View {
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
             .background(Color.gray.opacity(0.1))
+            .onTapGesture {
+                self.hideKeyboard()
+            }
             HStack{
                 TextField("Type your question", text: $messageText)
                     .padding()
@@ -112,3 +117,12 @@ struct ChatView_Previews: PreviewProvider {
         ChatView()
     }
 }
+
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

@@ -20,8 +20,8 @@ enum AppColors {
 //    //Views
     static let primaryBackground =  UIColor.systemBackground
     static let secondaryBackground = UIColor.systemBackground
-    static let primaryAppColor = gradientColor2!
-    static let secondaryAppColor = gradientColor1
+    static let primaryAppColor = gradientColor1!
+    static let secondaryAppColor = gradientColor2!
 //    static let lightGray = UIColor(hex: "#f2f2f2ff")
 //
 //    //Button
@@ -34,6 +34,7 @@ enum AppColors {
     static let gradientColor1 = UIColor(hex: "#27B7D1ff")
     static let gradientColor2 = UIColor(hex: "#5e51f2ff") //(hex: "#7055e1ff")
     static let yellowColor = UIColor(hex: "#fdc921ff")
+    static let redColor = UIColor(hex: "#e34f74ff")
     
     //Other
     static let shadowColor =  UIColor(hex: "#f2f2f2ff")
@@ -41,6 +42,8 @@ enum AppColors {
 
 enum AppFonts {
     static let buttonFont = UIFont.preferredFont(forTextStyle: .title3)
+    static let titleFont = UIFont(name: "Cream Cake", size: 56)
+    static let subtitleFont = UIFont(name: "Cream Cake", size: 40)
 }
 
 enum AppConstants {
