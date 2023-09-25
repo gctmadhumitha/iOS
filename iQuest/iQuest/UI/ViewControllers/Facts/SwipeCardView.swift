@@ -13,8 +13,8 @@ final class SwipeCardView : UIView {
     var swipeView : UIView!
     var shadowView : UIView!
     
-    var label = UILabel()
-    //var moreButton = UIButton()
+    var headerLabel = UILabel()
+    var factLabel = UILabel()
     
     var delegate : SwipeCardsDelegate?
 
@@ -25,8 +25,8 @@ final class SwipeCardView : UIView {
     
     var dataSource : FactDataModel? {
         didSet {
-            swipeView.backgroundColor = AppColors.primaryAppColor
-            label.text = dataSource?.text
+            swipeView.backgroundColor = AppColors.gradientColor2
+            factLabel.text = dataSource?.text
         }
     }
     
@@ -37,9 +37,7 @@ final class SwipeCardView : UIView {
         configureShadowView()
         configureSwipeView()
         configureLabelView()
-        //configureButton()
         addPanGestureOnCards()
-        configureTapGesture()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,6 +66,7 @@ final class SwipeCardView : UIView {
         swipeView = UIView()
         swipeView.layer.cornerRadius = 15
         swipeView.clipsToBounds = true
+   
         shadowView.addSubview(swipeView)
 
         swipeView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,39 +77,29 @@ final class SwipeCardView : UIView {
     }
 
     func configureLabelView() {
-        swipeView.addSubview(label)
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        //label.setLineSpacing(lineSpacing: 100)
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: swipeView.topAnchor, constant: 8).isActive = true
-        label.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor, constant: 8).isActive = true
-        label.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor, constant: -8).isActive = true
-        label.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor, constant: -8).isActive = true
-        label.lineBreakMode = .byWordWrapping
-        label.contentScaleFactor = 2.0
-        label.minimumScaleFactor = 0.5
-    }
-
-    
-//    func configureButton() {
-//        label.addSubview(moreButton)
-//        moreButton.translatesAutoresizingMaskIntoConstraints = false
-//        let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
-//        moreButton.setImage(image, for: .normal)
-//        moreButton.tintColor = UIColor.red
-//
-//        moreButton.trailingAnchor.constraint(equalTo: label.trailingAnchor, constant: -15).isActive = true
-//        moreButton.centerYAnchor.constraint(equalTo: label.centerYAnchor).isActive = true
-//        moreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-//        moreButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-//
-//    }
-
-    func configureTapGesture() {
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
+        swipeView.addSubview(headerLabel)
+        swipeView.addSubview(factLabel)
+        headerLabel.text = "Did you know? "
+        headerLabel.textAlignment = .center
+        headerLabel.textColor = AppColors.yellowColor
+        headerLabel.font = UIFont.preferredFont(forTextStyle: .title1)
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.topAnchor.constraint(equalTo: swipeView.topAnchor, constant: 20).isActive = true
+        headerLabel.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor, constant: 8).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor, constant: -8).isActive = true
+        
+        factLabel.textColor = .white
+        factLabel.numberOfLines = 0
+        factLabel.textAlignment = .center
+        factLabel.font = UIFont.preferredFont(forTextStyle: .title2)
+        factLabel.translatesAutoresizingMaskIntoConstraints = false
+        factLabel.topAnchor.constraint(equalTo: headerLabel.topAnchor, constant: 8).isActive = true
+        factLabel.leadingAnchor.constraint(equalTo: swipeView.leadingAnchor, constant: 8).isActive = true
+        factLabel.trailingAnchor.constraint(equalTo: swipeView.trailingAnchor, constant: -8).isActive = true
+        factLabel.bottomAnchor.constraint(equalTo: swipeView.bottomAnchor, constant: -8).isActive = true
+        factLabel.lineBreakMode = .byWordWrapping
+        factLabel.contentScaleFactor = 2.0
+        factLabel.minimumScaleFactor = 0.5
     }
     
     
@@ -163,9 +152,6 @@ final class SwipeCardView : UIView {
             break
         }
     }
-    
-    @objc func handleTapGesture(sender: UITapGestureRecognizer){
-    }
-    
+
   
 }

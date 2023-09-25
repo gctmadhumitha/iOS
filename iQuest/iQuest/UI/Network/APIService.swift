@@ -47,8 +47,7 @@ class APIService {
         }
         return([], "error")
     }
-    
-    
+
     
     public func fetchQuizFor(category: Int, amount: Int) async -> (questions: Array<Question>, error: String?) {
         // Sample https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple
@@ -122,38 +121,6 @@ class APIService {
             return(nil, "Error occured")
         }
     }
-    
-//    public func fetchTriviaCategories() async -> (categories: Array<TriviaCategory>, error: String?) {
-//        let apiURL = URL(string: "https://opentdb.com/api_category.php")!
-//        var request = URLRequest(url: apiURL)
-//        request.httpMethod = "GET"
-//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//        do {
-//            let (dataResponse, urlResponse) = try await URLSession.shared.data(for: request) // URLResponse is not needed since a status code is provided by the API
-//            guard let httpUrlResponse = urlResponse as? HTTPURLResponse else {
-//                return ([], "Server response error.")
-//            }
-//
-//            if httpUrlResponse.statusCode != 200 {
-//                return ([], "Error: \(httpUrlResponse.statusCode)")
-//            }
-//
-//            guard let decodedData = try? JSONDecoder().decode(TriviaCategories.self, from: dataResponse) else {
-//                // Handle nil case
-//                print("Decode error")
-//                return ([], "An error occured obtaining categories. Try again")
-//            }
-//
-//            print("Successfully fetched category data!")
-//
-//            return (decodedData.trivia_categories, nil)
-//
-//        } catch let error {
-//            print(error.localizedDescription)
-//            return ([], error.localizedDescription)
-//        }
-//    }
     
     
     public func fetchFact() async -> (fact: Fact?, error: String)

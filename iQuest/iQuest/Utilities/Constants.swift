@@ -16,29 +16,34 @@ enum AppColors {
     static let primaryTextColor = UIColor(named: "primaryTextColor")
     static let secondaryTextColor = UIColor.systemGray
     static let tertiaryTextColor = UIColor.white
-
-    //Views
-    static let primaryBackground = UIColor.systemBackground
-    static let secondaryBackground = UIColor(named: "background")
-    static let primaryAppColor = UIColor(named: "primaryAppColor") ?? UIColor.systemMint
-    static let secondaryAppColor = UIColor(named: "secondaryAppColor")
-    static let lightGray = UIColor(hex: "#f2f2f2ff")
-    
-    //Button
-    static let buttonColor = UIColor(named:"buttonColor")
-    static let appTitleColor = UIColor(named:"appTitleColor")
+//
+//    //Views
+    static let primaryBackground =  UIColor.systemBackground
+    static let secondaryBackground = UIColor.systemBackground
+    static let primaryAppColor = gradientColor2!
+    static let secondaryAppColor = gradientColor1
+//    static let lightGray = UIColor(hex: "#f2f2f2ff")
+//
+//    //Button
+//    static let primaryButtonColor = UIColor(named:"buttonColor")
+//    static let secondaryButtonColor = UIColor.systemGray5
+    static let appTitleColor = UIColor.white
     static let buttonTextColor = UIColor(named: "buttonTextColor")
+//    static let secondaryButtonTextColor = UIColor(named: "#7c2ae6ff") //7c2ae6
     
+    static let gradientColor1 = UIColor(hex: "#27B7D1ff")
+    static let gradientColor2 = UIColor(hex: "#5e51f2ff") //(hex: "#7055e1ff")
+    static let yellowColor = UIColor(hex: "#fdc921ff")
     
     //Other
-    static let shadowColor = lightGray
+    static let shadowColor =  UIColor(hex: "#f2f2f2ff")
 }
 
 enum AppFonts {
     static let buttonFont = UIFont.preferredFont(forTextStyle: .title3)
 }
 
-enum Constants {
+enum AppConstants {
     static let buttonWidth = CGFloat(40)
-    static let buttonCornerRadius = 20
+    static let buttonCornerRadius = CGFloat(10)
 }

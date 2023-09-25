@@ -19,7 +19,7 @@ final class FactsViewController: UIViewController {
         let label = UILabel()
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
         label.textAlignment = .center
-        label.text = "Did You Know?"
+        label.text = "Fun facts!"
         label.textColor = AppColors.primaryTextColor
         return label
     }()
@@ -62,7 +62,6 @@ extension FactsViewController {
     func setupTitle(){
         view.addSubview(titleView)
         titleView.addSubview(titleLabel)
-        titleLabel.text = "Did you Know!"
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),

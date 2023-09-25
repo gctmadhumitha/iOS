@@ -48,10 +48,10 @@ class CarouselView: UIView {
         let button  = UIButton(type: .system)
         button.frame = CGRect(x: 20, y: 20, width: 100, height: 50)
         button.setTitle("Get Started", for: .normal)
-        button.tintColor = AppColors.buttonTextColor
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        button.backgroundColor = AppColors.buttonColor
-        button.layer.cornerRadius = 20
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title3).bold()
+        button.backgroundColor = UIColor(hex: "#fdc921ff")//AppColors.secondaryButtonColor
+        button.layer.cornerRadius = AppConstants.buttonCornerRadius
         return button
     }()
     // MARK: - Properties
@@ -126,8 +126,8 @@ private extension CarouselView {
         getStartedButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 8).isActive = true
         getStartedButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         getStartedButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        getStartedButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
-        getStartedButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
+        getStartedButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40).isActive = true
+        getStartedButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40).isActive = true
     
     }
     

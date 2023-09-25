@@ -22,6 +22,11 @@
 
         return nav
     }
+    
+        private let backgroundColors: [UIColor] =
+        [UIColor(hex: "#74ade0ff") ?? AppColors.primaryBackground,
+         UIColor(hex: "#fda76eff") ?? AppColors.primaryBackground,
+         UIColor(hex:"#d06c8aff") ?? AppColors.primaryBackground]
    
 
     func card() async   {

@@ -10,10 +10,35 @@ import UIKit
 final class CarouselCollectionViewCell: UICollectionViewCell {
     
     // MARK: - SubViews
+    private lazy var imageView : UIImageView =  {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 24
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
-    private lazy var imageView = UIImageView()
-    private lazy var captionLabel = UILabel()
-    private lazy var descriptionLabel = UILabel()
+    private lazy var captionLabel : UILabel = {
+        let captionLabel = UILabel()
+        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+        captionLabel.textAlignment = .center
+        captionLabel.font = UIFont.preferredFont(forTextStyle: .title2).bold()
+        captionLabel.textColor = .white
+        return captionLabel
+    }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let descriptionLabel = UILabel()
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        descriptionLabel.textColor = .white
+        return descriptionLabel
+    }()
     
     // MARK: - Properties
     
@@ -23,54 +48,38 @@ final class CarouselCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupUI()
+        layoutViews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setupUI()
     }
 }
 
 // MARK: - Setups
 
 private extension CarouselCollectionViewCell {
-    func setupUI() {
-        backgroundColor = .clear
+    func layoutViews() {
+        backgroundColor = UIColor.clear
         addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(captionLabel)
+        addSubview(descriptionLabel)
+        
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: self.frame.height * 0.8).isActive = true
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 24
-        imageView.contentMode = .scaleAspectFill
-        
-        addSubview(captionLabel)
-        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+       
         captionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16).isActive = true
         captionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         captionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        captionLabel.numberOfLines = 0
-        captionLabel.textAlignment = .center
-        captionLabel.font = UIFont.preferredFont(forTextStyle: .title2).bold()
-        captionLabel.textColor = .white
         
-        
-        addSubview(descriptionLabel)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 8).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16).isActive = true
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .title2)
-        descriptionLabel.textColor = .white
-        
+        descriptionLabel.sizeToFit()
+        descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        //descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+
         self.contentView.layer.cornerRadius = 2.0
         self.contentView.layer.borderWidth = 3.0
         self.contentView.layer.borderColor = UIColor.clear.cgColor

@@ -38,7 +38,7 @@ final class QuizCategoriesViewController: UIViewController {
 extension QuizCategoriesViewController {
     
     func setupUI(){
-        view.backgroundColor = AppColors.primaryBackground
+        view.backgroundColor = UIColor.systemBackground
         view.addSubview(titleView)
         view.addSubview(tableView)
         setupTitle()
@@ -76,6 +76,7 @@ extension QuizCategoriesViewController {
         tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = AppColors.secondaryBackground
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),

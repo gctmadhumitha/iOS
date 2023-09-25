@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C202771E2AC1010300A2323D /* Cream Cake.otf in Resources */ = {isa = PBXBuildFile; fileRef = C202771D2AC1010300A2323D /* Cream Cake.otf */; };
+		C20277202AC1032400A2323D /* ananda_2 in Resources */ = {isa = PBXBuildFile; fileRef = C202771F2AC1032300A2323D /* ananda_2 */; };
 		C20A6EB42ABAB58D002360D5 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A6EB32ABAB58D002360D5 /* UIViewController.swift */; };
 		C2183D662AA7A06300DEDB57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D652AA7A06300DEDB57 /* AppDelegate.swift */; };
 		C2183D682AA7A06300DEDB57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C202771D2AC1010300A2323D /* Cream Cake.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cream Cake.otf"; sourceTree = "<group>"; };
+		C202771F2AC1032300A2323D /* ananda_2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ananda_2; sourceTree = "<group>"; };
 		C20A6EB32ABAB58D002360D5 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		C2183D622AA7A06300DEDB57 /* iQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2183D652AA7A06300DEDB57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C202771C2AC0FEA700A2323D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C202771F2AC1032300A2323D /* ananda_2 */,
+				C202771D2AC1010300A2323D /* Cream Cake.otf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C2183D592AA7A06300DEDB57 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +163,7 @@
 		C2183D642AA7A06300DEDB57 /* iQuest */ = {
 			isa = PBXGroup;
 			children = (
+				C202771C2AC0FEA700A2323D /* Resources */,
 				C2183D652AA7A06300DEDB57 /* AppDelegate.swift */,
 				C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */,
 				C2183DB12AA7AF4C00DEDB57 /* Models */,
@@ -392,8 +406,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2625D2E2AAFB9EA0006CFF1 /* NOTEPAD.md in Resources */,
+				C202771E2AC1010300A2323D /* Cream Cake.otf in Resources */,
 				C2183D722AA7A06500DEDB57 /* LaunchScreen.storyboard in Resources */,
 				C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */,
+				C20277202AC1032400A2323D /* ananda_2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

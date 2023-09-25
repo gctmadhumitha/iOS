@@ -72,7 +72,7 @@ final class QuizCategoryTableViewCell: UITableViewCell {
         self.layer.shadowColor = AppColors.shadowColor?.cgColor ?? UIColor.lightGray.cgColor
         self.layer.borderWidth = 1
         self.layer.borderColor = AppColors.primaryAppColor.cgColor
-        self.backgroundColor = UIColor.systemBackground
+        self.backgroundColor = AppColors.secondaryBackground
         
         categoryNameLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryNameLabel.numberOfLines = 0

@@ -56,15 +56,16 @@ final class QuizViewController: UIViewController {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
+        
     }()
     
     private var progressBar : UIProgressView = {
        let progressBar = UIProgressView(progressViewStyle: .bar)
-        progressBar.progressTintColor = AppColors.secondaryAppColor
+        progressBar.progressTintColor = AppColors.primaryAppColor
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         progressBar.setProgress(0.5, animated: true)
-        progressBar.trackTintColor = UIColor.lightGray
-        progressBar.layer.cornerRadius = 10
+        progressBar.trackTintColor = AppColors.secondaryAppColor
+        progressBar.layer.cornerRadius = 4
         progressBar.clipsToBounds = true
         progressBar.layer.sublayers![1].cornerRadius = 15
         progressBar.subviews[1].clipsToBounds = true
@@ -124,7 +125,7 @@ final class QuizViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = AppColors.primaryBackground
         // Do any additional setup after loading the view.
         setupQuestionsView()
         setupResultsView()
@@ -185,13 +186,13 @@ final class QuizViewController: UIViewController {
             
             tryAgainButton.leadingAnchor.constraint(equalTo: buttonsView.leadingAnchor, constant: 10),
             tryAgainButton.centerXAnchor.constraint(equalTo: resultsStackView.centerXAnchor),
-            tryAgainButton.heightAnchor.constraint(equalToConstant: Constants.buttonWidth),
+            tryAgainButton.heightAnchor.constraint(equalToConstant: AppConstants.buttonWidth),
             tryAgainButton.widthAnchor.constraint(equalToConstant: view.frame.width/2),
             
             goBackButton.leadingAnchor.constraint(equalTo: buttonsView.leadingAnchor, constant: 10),
             goBackButton.centerXAnchor.constraint(equalTo: resultsStackView.centerXAnchor),
             goBackButton.widthAnchor.constraint(equalToConstant: view.frame.width/2),
-            goBackButton.heightAnchor.constraint(equalToConstant: Constants.buttonWidth)
+            goBackButton.heightAnchor.constraint(equalToConstant: AppConstants.buttonWidth)
         ])
     }
     
@@ -205,7 +206,6 @@ final class QuizViewController: UIViewController {
         
         let titleStackView = UIStackView(arrangedSubviews: [categoryLabel, scoreLabel])
         titleStackView.axis = .horizontal
-        //titleStackView.alignment = .trailing
         titleStackView.distribution = .fillEqually
         titleStackView.spacing = 20
        
@@ -341,10 +341,10 @@ final class QuizViewController: UIViewController {
         optionTwo.setTitle(answers[1], for: UIControl.State.normal)
         optionThree.setTitle(answers[2], for: UIControl.State.normal)
         optionFour.setTitle(answers[3], for: UIControl.State.normal)
-        optionOne.backgroundColor = AppColors.buttonColor
-        optionTwo.backgroundColor = AppColors.buttonColor
-        optionThree.backgroundColor = AppColors.buttonColor
-        optionFour.backgroundColor = AppColors.buttonColor
+        optionOne.backgroundColor = AppColors.yellowColor
+        optionTwo.backgroundColor = AppColors.yellowColor
+        optionThree.backgroundColor = AppColors.yellowColor
+        optionFour.backgroundColor = AppColors.yellowColor
         progressBar.progress =  quiz.getProgress()
         scoreLabel.text = "Score: \(quiz.correctQuestions)"
     }
@@ -359,8 +359,8 @@ extension QuizViewController {
         button.setTitle(title, for: .normal)
         button.tintColor = AppColors.buttonTextColor
         button.titleLabel?.font = AppFonts.buttonFont
-        button.backgroundColor = AppColors.buttonColor
-        button.layer.cornerRadius = 20
+        button.backgroundColor = AppColors.yellowColor
+        button.layer.cornerRadius = AppConstants.buttonCornerRadius
         return button
     }
 }
