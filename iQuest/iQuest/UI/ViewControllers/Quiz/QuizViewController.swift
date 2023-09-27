@@ -86,7 +86,7 @@ final class QuizViewController: UIViewController {
     
     private var resultsHeaderLabel : UILabel = {
         let label = UILabel()
-        label.text = "Quiz Quest"
+        label.text = "Quiz Quester"
         label.font = AppFonts.titleFont
         label.adjustsFontForContentSizeCategory = true
         label.minimumScaleFactor = 0.5

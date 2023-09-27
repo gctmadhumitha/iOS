@@ -33,7 +33,7 @@ struct ChatView: View {
                             Spacer()
                             Text(newMessage)
                                 .padding(10)
-                                .background(AppColors.secondaryAppColor.suColor)
+                                .background(AppColors.primaryAppColor.suColor)
                                 .foregroundColor(.white)
                                 .clipShape(RoundedRectangle(cornerRadius: 16.0, style: .continuous))
                                 .listRowSeparator(.hidden)
@@ -42,7 +42,7 @@ struct ChatView: View {
                                         .font(.title)
                                         .rotationEffect(.degrees( -45))
                                         .offset(x:  10, y: 10)
-                                        .foregroundColor(AppColors.secondaryAppColor.suColor)
+                                        .foregroundColor(AppColors.primaryAppColor.suColor)
                                 }
                         }.padding()
                     }else {

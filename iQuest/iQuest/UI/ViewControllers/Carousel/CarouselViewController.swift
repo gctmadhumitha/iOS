@@ -22,7 +22,6 @@ class CarouselViewController: UIViewController {
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .center
-        label.text = ""
         label.textColor = AppColors.tertiaryTextColor
         return label
     }()
@@ -106,7 +105,7 @@ private extension CarouselViewController {
         titleView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 10, bottom: 20, trailing: 10)
         titleView.translatesAutoresizingMaskIntoConstraints = false
     
-        titleLabel.text = "QuizQuest"
+        titleLabel.text = "QuizQuester"
         titleLabel.font = UIFont(name: "Cream Cake", size: 70)
         titleLabel.numberOfLines = 0
         titleLabel.textAlignment = .center

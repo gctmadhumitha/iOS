@@ -8,7 +8,7 @@
 import Foundation
 import OpenAIKit
 
-let apiToken: String = ""
+let apiToken: String = "sk-"
 let organizationName: String = "org-E60ldsJ7z7JeI9SJGhWZNrjI"
 
 /// Initialize OpenAIKit with your API Token

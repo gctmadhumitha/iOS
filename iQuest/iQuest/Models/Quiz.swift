@@ -15,7 +15,7 @@ class Quiz {
     var correctQuestions = 0
     var wrongQuestions = 0
     var questions: [Question] = []
-    var totalNumberOfQuestions = 3
+    var totalNumberOfQuestions = 5
 
     func getQuestionsText() -> String {
         return questions[questionNumber].question

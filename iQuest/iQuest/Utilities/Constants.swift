@@ -16,8 +16,8 @@ enum AppColors {
     static let primaryTextColor = UIColor(named: "primaryTextColor")
     static let secondaryTextColor = UIColor.systemGray
     static let tertiaryTextColor = UIColor.white
-//
-//    //Views
+
+    //Views
     static let primaryBackground =  UIColor.systemBackground
     static let secondaryBackground = UIColor.systemBackground
     static let primaryAppColor = gradientColor1!
