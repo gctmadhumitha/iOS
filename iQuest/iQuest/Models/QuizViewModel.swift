@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Quiz {
+class QuizViewModel {
     
     var category : Category = Category(id: 9, name: "General Knowledge")
     var questionNumber = 0

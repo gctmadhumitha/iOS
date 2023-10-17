@@ -10,7 +10,15 @@ import UIKit
 final class QuizCategoriesViewController: UIViewController {
    
     private var titleView = UIView()
-    private var tableView = UITableView()
+    private var tableView : UITableView = {
+        let tableView = UITableView()
+        tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: QuizCategoryTableViewCell.cellId)
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = AppColors.secondaryBackground
+        return tableView
+    }()
+    
     private var titleLabel : UILabel = {
         let label = UILabel()
         label.font = AppFonts.titleFont
@@ -18,6 +26,7 @@ final class QuizCategoriesViewController: UIViewController {
         label.textAlignment = .center
         label.text = "Quiz"
         label.textColor = AppColors.primaryTextColor
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
@@ -28,19 +37,17 @@ final class QuizCategoriesViewController: UIViewController {
         label.textAlignment = .center
         label.text = "Pick your favorite category"
         label.textColor = AppColors.primaryTextColor
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private var categories:[Category] = [Category]()
-    private let cellId = "cell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = AppColors.primaryAppColor;
         setupUI()
-        Task {
-            await setupData()
-        }
+        setupData()
     }
 }
 
@@ -58,8 +65,6 @@ extension QuizCategoriesViewController {
     func setupTitle(){
         titleView.addSubview(titleLabel)
         titleView.addSubview(titleTextLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 20),
@@ -85,15 +90,8 @@ extension QuizCategoriesViewController {
     }
     
     func setupTableView(){
-        
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isEditing = true
-        tableView.allowsSelectionDuringEditing = true
-        tableView.register(QuizCategoryTableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = AppColors.secondaryBackground
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -102,15 +100,17 @@ extension QuizCategoriesViewController {
         ])
     }
     
-    func setupData() async {
-        let serviceResponse = await APIService().fetchQuizCategories()
-        guard let trivia_categories = serviceResponse.categories?.trivia_categories, trivia_categories.count != 0  else{
-            print("Error Message is \(serviceResponse.error)")
-            return
+    func setupData()  {
+        Task {
+            let serviceResponse = await APIService().fetchQuizCategories()
+            guard let trivia_categories = serviceResponse.categories?.trivia_categories, trivia_categories.count != 0  else{
+                print("Error Message is \(serviceResponse.error)")
+                return
+            }
+            categories = trivia_categories
+            
+            self.tableView.reloadData()
         }
-        categories = trivia_categories
-        
-        DispatchQueue.main.async { self.tableView.reloadData() }
         
     }
 }
@@ -137,7 +137,7 @@ extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSou
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! QuizCategoryTableViewCell
+         let cell = tableView.dequeueReusableCell(withIdentifier: QuizCategoryTableViewCell.cellId, for: indexPath) as! QuizCategoryTableViewCell
          let category = categories[indexPath.section]
          cell.category = category
          cell.selectionStyle = .none
@@ -164,27 +164,9 @@ extension QuizCategoriesViewController : UITableViewDelegate, UITableViewDataSou
         return 0
     }
     
-    // Override to support conditional editing of the table view.
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
-    }
-    
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let moveObject = categories[sourceIndexPath.section]
-        categories.remove(at: sourceIndexPath.section)
-        categories.insert(moveObject, at: destinationIndexPath.section)
-        
-    }
+   
 
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
 }

@@ -9,6 +9,8 @@ import UIKit
 
 final class QuizCategoryTableViewCell: UITableViewCell {
     
+    static let cellId = "QuizCategoryTableViewCell"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

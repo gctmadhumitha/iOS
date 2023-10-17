@@ -81,7 +81,6 @@ class APIService {
             
             for var question in decodedData.results {
                 question.decodeBase64Strings()
-                print("question.decodeBase64Strings() : \(question)")
             }
             return (decodedData.results, nil) // Successful
             
