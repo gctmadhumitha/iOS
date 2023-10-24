@@ -10,7 +10,7 @@
 /*
     {
         id: "017e12a12972b700a050091e6e84130d",
-        text: "This common everyday occurrence composed of 59% nitrogen, 21% hydrogen, and 9% dioxide is called a `fart`.",
+        text: "Barbie's full name is Barbara Millicent Roberts.",
         source: "djtech.net",
         source_url: "http://www.djtech.net/humor/useless_facts.htm",
         language: "en",
