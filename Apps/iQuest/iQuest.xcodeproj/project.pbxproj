@@ -26,7 +26,6 @@
 		C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */; };
 		C2183DF32AA8F5E900DEDB57 /* OpenAIKit in Frameworks */ = {isa = PBXBuildFile; productRef = C2183DF22AA8F5E900DEDB57 /* OpenAIKit */; };
 		C2625D182AABF1990006CFF1 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D172AABF1990006CFF1 /* UIColor.swift */; };
-		C2625D2E2AAFB9EA0006CFF1 /* NOTEPAD.md in Resources */ = {isa = PBXBuildFile; fileRef = C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */; };
 		C2625D302AAFE2670006CFF1 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D2F2AAFE2670006CFF1 /* UIFont.swift */; };
 		C2625D322AAFE27E0006CFF1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D312AAFE27E0006CFF1 /* Constants.swift */; };
 		C2625D352AB01B4F0006CFF1 /* CarouselViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2625D342AB01B4F0006CFF1 /* CarouselViewController.swift */; };
@@ -86,7 +85,6 @@
 		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatGPTResponse.swift; sourceTree = "<group>"; };
 		C2625D172AABF1990006CFF1 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = NOTEPAD.md; sourceTree = "<group>"; };
 		C2625D2F2AAFE2670006CFF1 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		C2625D312AAFE27E0006CFF1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C2625D342AB01B4F0006CFF1 /* CarouselViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 		C2183D592AA7A06300DEDB57 = {
 			isa = PBXGroup;
 			children = (
-				C2625D2D2AAFB9EA0006CFF1 /* NOTEPAD.md */,
 				C2183D642AA7A06300DEDB57 /* iQuest */,
 				C2183D7B2AA7A06500DEDB57 /* iQuestTests */,
 				C2183D852AA7A06600DEDB57 /* iQuestUITests */,
@@ -165,12 +162,15 @@
 		C2183D642AA7A06300DEDB57 /* iQuest */ = {
 			isa = PBXGroup;
 			children = (
-				C202771C2AC0FEA700A2323D /* Resources */,
 				C2183D652AA7A06300DEDB57 /* AppDelegate.swift */,
 				C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */,
+				C2D93E292AE794AB00657C97 /* ViewModels */,
 				C2183DB12AA7AF4C00DEDB57 /* Models */,
 				C2183DB02AA7AF2B00DEDB57 /* UI */,
+				C2625D332AAFE2B10006CFF1 /* Extensions */,
+				C2625D3D2AB022C50006CFF1 /* Network */,
 				C2183DB42AA7B2A100DEDB57 /* Utilities */,
+				C202771C2AC0FEA700A2323D /* Resources */,
 				C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */,
 				C2183D702AA7A06500DEDB57 /* LaunchScreen.storyboard */,
 				C2183D732AA7A06500DEDB57 /* Info.plist */,
@@ -198,9 +198,7 @@
 		C2183DB02AA7AF2B00DEDB57 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C2625D332AAFE2B10006CFF1 /* Extensions */,
 				C2625D3C2AB022980006CFF1 /* ViewControllers */,
-				C2625D3D2AB022C50006CFF1 /* Network */,
 				C2FA6D9B2AC75151006428B5 /* Views */,
 			);
 			path = UI;
@@ -211,7 +209,6 @@
 			children = (
 				C2183D962AA7A09500DEDB57 /* Questions.swift */,
 				C2625D512AB134F60006CFF1 /* Fact.swift */,
-				C2D93E292AE794AB00657C97 /* ViewModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -239,8 +236,8 @@
 		C2625D3C2AB022980006CFF1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2625D5C2AB36BDE0006CFF1 /* Chat */,
 				C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */,
+				C2625D5C2AB36BDE0006CFF1 /* Chat */,
 				C2625D552AB232060006CFF1 /* Quiz */,
 				C2625D4C2AB12F080006CFF1 /* Facts */,
 				C2625D572AB232500006CFF1 /* Carousel */,
@@ -424,7 +421,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2625D2E2AAFB9EA0006CFF1 /* NOTEPAD.md in Resources */,
 				C202771E2AC1010300A2323D /* Cream Cake.otf in Resources */,
 				C2183D722AA7A06500DEDB57 /* LaunchScreen.storyboard in Resources */,
 				C2183D6F2AA7A06500DEDB57 /* Assets.xcassets in Resources */,
