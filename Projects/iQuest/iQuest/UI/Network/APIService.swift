@@ -79,7 +79,7 @@ class APIService {
             
             print("Successfully fetched trivia questions!")
             
-            for var question in decodedData.results {
+            for question in decodedData.results {
                 question.decodeBase64Strings()
             }
             return (decodedData.results, nil) // Successful

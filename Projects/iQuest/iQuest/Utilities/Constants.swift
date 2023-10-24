@@ -22,14 +22,10 @@ enum AppColors {
     static let secondaryBackground = UIColor.systemBackground
     static let primaryAppColor = gradientColor1!
     static let secondaryAppColor = gradientColor2!
-//    static let lightGray = UIColor(hex: "#f2f2f2ff")
-//
-//    //Button
-//    static let primaryButtonColor = UIColor(named:"buttonColor")
-//    static let secondaryButtonColor = UIColor.systemGray5
+    
+    //Button
     static let appTitleColor = UIColor.white
     static let buttonTextColor = UIColor(named: "buttonTextColor")
-//    static let secondaryButtonTextColor = UIColor(named: "#7c2ae6ff") //7c2ae6
     
     static let gradientColor1 = UIColor(hex: "#27B7D1ff")
     static let gradientColor2 = UIColor(hex: "#5e51f2ff") //(hex: "#7055e1ff")

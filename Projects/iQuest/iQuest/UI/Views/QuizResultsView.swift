@@ -98,6 +98,7 @@ extension QuizResultsView {
         
         resultsButtonView.addArrangedSubview(tryAgainButton)
         resultsButtonView.addArrangedSubview(goBackButton)
+        
         self.addArrangedSubview(resultsHeaderLabel)
         self.addArrangedSubview(resultsMessageLabel)
         self.addArrangedSubview(resultsLabel)

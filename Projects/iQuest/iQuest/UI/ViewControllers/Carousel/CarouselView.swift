@@ -24,8 +24,6 @@ class CarouselView: UIView {
     let heightMultiplier = 0.5
     
     // MARK: - Subviews
-
-    
     private lazy var carouselCollectionView: UICollectionView = {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collection.showsHorizontalScrollIndicator = false

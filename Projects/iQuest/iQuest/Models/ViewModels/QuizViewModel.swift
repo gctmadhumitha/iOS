@@ -29,16 +29,13 @@ class QuizViewModel {
         return correctQuestions
     }
     
-     func nextQuestion() {
-         print("questionNumber : \(questionNumber)")
+    func nextQuestion() {
         if questionNumber + 1 < questions.count {
             questionNumber+=1
                 
             
         } else {
             questionNumber = 0
-            print("Correct Questions: \(correctQuestions)")
-            print("Wrong Questions: \(wrongQuestions)")
             correctQuestions=0
             wrongQuestions=0
         }
@@ -52,10 +49,10 @@ class QuizViewModel {
             wrongQuestions+=1
             return false
         }
-    }
+     }
     
      func fetchQuestions() async  {
-         let serviceResponse = await APIService().fetchQuizFor(category: category.id, amount: totalNumberOfQuestions)
+        let serviceResponse = await APIService().fetchQuizFor(category: category.id, amount: totalNumberOfQuestions)
         guard serviceResponse.questions.count != 0  else {
             print("Error Message is", serviceResponse.error)
             return

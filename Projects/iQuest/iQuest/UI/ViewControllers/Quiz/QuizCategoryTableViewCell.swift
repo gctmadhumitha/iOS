@@ -13,14 +13,11 @@ final class QuizCategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
+      }
     
     
     var category: Category? {
@@ -81,12 +78,10 @@ final class QuizCategoryTableViewCell: UITableViewCell {
         categoryNameLabel.font = .preferredFont(forTextStyle: .headline)
         categoryNameLabel.contentScaleFactor = 2.0
         categoryNameLabel.minimumScaleFactor = 0.5
-        //categoryNameLabel.text = "ha ha ha"
         
         categoryDescLabel.translatesAutoresizingMaskIntoConstraints = false
         categoryDescLabel.numberOfLines = 0
         categoryDescLabel.font = .preferredFont(forTextStyle: .caption1)
-        //categoryDescLabel.text = "blah blah blah"
         setupConstraints()
     }
     

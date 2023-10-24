@@ -77,20 +77,13 @@ private extension CarouselCollectionViewCell {
         descriptionLabel.sizeToFit()
         descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        //descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-
+ 
         self.contentView.layer.cornerRadius = 2.0
         self.contentView.layer.borderWidth = 3.0
         self.contentView.layer.borderColor = UIColor.clear.cgColor
         self.contentView.layer.masksToBounds = true
-
-        //self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-//        self.layer.shadowRadius = 2.0
-//        self.layer.shadowOpacity = 0.5
         self.layer.masksToBounds = false
         self.layer.cornerRadius = 2.0
-       // self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
 }
 

@@ -18,7 +18,6 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
     
     override func viewDidAppear(_ animated: Bool) {
         setupTabs()
-       // setUpTabs()
     }
     
     private func setupTabs(){

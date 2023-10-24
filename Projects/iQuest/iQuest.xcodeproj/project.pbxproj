@@ -20,7 +20,6 @@
 		C2183D9F2AA7A09500DEDB57 /* QuizCategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D952AA7A09500DEDB57 /* QuizCategoriesViewController.swift */; };
 		C2183DA02AA7A09500DEDB57 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D962AA7A09500DEDB57 /* Questions.swift */; };
 		C2183DA42AA7A09500DEDB57 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */; };
-		C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183D9B2AA7A09500DEDB57 /* Utilities.swift */; };
 		C2183DAC2AA7AC4D00DEDB57 /* QuizCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DAB2AA7AC4D00DEDB57 /* QuizCategoryTableViewCell.swift */; };
 		C2183DB32AA7AF7A00DEDB57 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB22AA7AF7A00DEDB57 /* APIService.swift */; };
 		C2183DB82AA8DE2300DEDB57 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2183DB72AA8DE2300DEDB57 /* ChatView.swift */; };
@@ -82,7 +81,6 @@
 		C2183D952AA7A09500DEDB57 /* QuizCategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizCategoriesViewController.swift; sourceTree = "<group>"; };
 		C2183D962AA7A09500DEDB57 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		C2183D9B2AA7A09500DEDB57 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C2183DAB2AA7AC4D00DEDB57 /* QuizCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C2183DB22AA7AF7A00DEDB57 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C2183DB72AA8DE2300DEDB57 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -213,7 +211,7 @@
 			children = (
 				C2183D962AA7A09500DEDB57 /* Questions.swift */,
 				C2625D512AB134F60006CFF1 /* Fact.swift */,
-				C2625D5A2AB2CEFE0006CFF1 /* QuizViewModel.swift */,
+				C2D93E292AE794AB00657C97 /* ViewModels */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -222,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				C2625D312AAFE27E0006CFF1 /* Constants.swift */,
-				C2183D9B2AA7A09500DEDB57 /* Utilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -298,6 +295,14 @@
 				C2183DB72AA8DE2300DEDB57 /* ChatView.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		C2D93E292AE794AB00657C97 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C2625D5A2AB2CEFE0006CFF1 /* QuizViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C2FA6D9B2AC75151006428B5 /* Views */ = {
@@ -469,7 +474,6 @@
 				C2625D432AB12EB80006CFF1 /* StackContainerView.swift in Sources */,
 				C2625D442AB12EB80006CFF1 /* SwipeCardView.swift in Sources */,
 				C2625D522AB134F60006CFF1 /* Fact.swift in Sources */,
-				C2183DA52AA7A09500DEDB57 /* Utilities.swift in Sources */,
 				C2625D5B2AB2CEFE0006CFF1 /* QuizViewModel.swift in Sources */,
 				C2183DF02AA8E8EC00DEDB57 /* ChatGPTResponse.swift in Sources */,
 				C2625D5E2AB3991D0006CFF1 /* UIView.swift in Sources */,

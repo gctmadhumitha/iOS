@@ -20,8 +20,6 @@ final class SwipeCardView : UIView {
 
     var divisor : CGFloat = 0
     let baseView = UIView()
-
-    
     
     var dataSource : FactDataModel? {
         didSet {

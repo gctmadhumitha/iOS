@@ -11,7 +11,7 @@ import OpenAIKit
 let apiToken: String = "sk-"
 let organizationName: String = "org-E60ldsJ7z7JeI9SJGhWZNrjI"
 
-/// Initialize OpenAIKit with your API Token
+// Initialize OpenAIKit with your API Token.
 public let openAI = OpenAIKit(apiToken: apiToken, organization: organizationName)
 
 

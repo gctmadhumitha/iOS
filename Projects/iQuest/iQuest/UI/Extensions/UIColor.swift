@@ -39,6 +39,15 @@ extension UIColor {
     /// The SwiftUI color associated with the receiver.
     var suColor: Color { Color(self) }
     
+    static var random: UIColor {
+            let redValue = CGFloat(drand48())
+            let greenValue = CGFloat(drand48())
+            let blueValue = CGFloat(drand48())
+                
+            let randomColor = UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: 1.0)
+                
+            return randomColor
+    }
 }
 
 
