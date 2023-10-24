@@ -164,11 +164,10 @@
 			children = (
 				C2183D652AA7A06300DEDB57 /* AppDelegate.swift */,
 				C2183D672AA7A06300DEDB57 /* SceneDelegate.swift */,
-				C2D93E292AE794AB00657C97 /* ViewModels */,
-				C2183DB12AA7AF4C00DEDB57 /* Models */,
-				C2183DB02AA7AF2B00DEDB57 /* UI */,
-				C2625D332AAFE2B10006CFF1 /* Extensions */,
-				C2625D3D2AB022C50006CFF1 /* Network */,
+				C2D93E292AE794AB00657C97 /* ViewModel */,
+				C2183DB12AA7AF4C00DEDB57 /* Model */,
+				C2183DB02AA7AF2B00DEDB57 /* View */,
+				C2625D3D2AB022C50006CFF1 /* Service */,
 				C2183DB42AA7B2A100DEDB57 /* Utilities */,
 				C202771C2AC0FEA700A2323D /* Resources */,
 				C2183D6E2AA7A06500DEDB57 /* Assets.xcassets */,
@@ -195,28 +194,29 @@
 			path = iQuestUITests;
 			sourceTree = "<group>";
 		};
-		C2183DB02AA7AF2B00DEDB57 /* UI */ = {
+		C2183DB02AA7AF2B00DEDB57 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C2625D3C2AB022980006CFF1 /* ViewControllers */,
-				C2FA6D9B2AC75151006428B5 /* Views */,
+				C2625D3C2AB022980006CFF1 /* Controllers */,
+				C2FA6D9B2AC75151006428B5 /* View */,
 			);
-			path = UI;
+			path = View;
 			sourceTree = "<group>";
 		};
-		C2183DB12AA7AF4C00DEDB57 /* Models */ = {
+		C2183DB12AA7AF4C00DEDB57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				C2183D962AA7A09500DEDB57 /* Questions.swift */,
 				C2625D512AB134F60006CFF1 /* Fact.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C2183DB42AA7B2A100DEDB57 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				C2625D312AAFE27E0006CFF1 /* Constants.swift */,
+				C2625D332AAFE2B10006CFF1 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C2625D3C2AB022980006CFF1 /* ViewControllers */ = {
+		C2625D3C2AB022980006CFF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C2183D9A2AA7A09500DEDB57 /* TabBarViewController.swift */,
@@ -242,16 +242,16 @@
 				C2625D4C2AB12F080006CFF1 /* Facts */,
 				C2625D572AB232500006CFF1 /* Carousel */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C2625D3D2AB022C50006CFF1 /* Network */ = {
+		C2625D3D2AB022C50006CFF1 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				C2183DEF2AA8E8EC00DEDB57 /* ChatGPTResponse.swift */,
 				C2183DB22AA7AF7A00DEDB57 /* APIService.swift */,
 			);
-			path = Network;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		C2625D4C2AB12F080006CFF1 /* Facts */ = {
@@ -294,21 +294,21 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		C2D93E292AE794AB00657C97 /* ViewModels */ = {
+		C2D93E292AE794AB00657C97 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				C2625D5A2AB2CEFE0006CFF1 /* QuizViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		C2FA6D9B2AC75151006428B5 /* Views */ = {
+		C2FA6D9B2AC75151006428B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				C2FA6D982AC75144006428B5 /* QuizResultsView.swift */,
 				C2FA6D9C2AC75B67006428B5 /* QuizQuestionsView.swift */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
