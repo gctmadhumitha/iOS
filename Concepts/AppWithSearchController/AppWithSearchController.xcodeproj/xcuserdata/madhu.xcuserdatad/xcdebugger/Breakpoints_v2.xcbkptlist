@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DD4B1917-ACC0-4110-B8DC-F55CB8A76F37"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44346CAC-FC88-4D91-B7AD-426531070461"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppWithSearchController/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "44346CAC-FC88-4D91-B7AD-426531070461 - 7d0f0b5e67eb5afd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppWithSearchController.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "103">
+               </Location>
+               <Location
+                  uuid = "44346CAC-FC88-4D91-B7AD-426531070461 - 7d0f0b5e67eb5afd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AppWithSearchController.ViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "93">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "66892077-9004-4634-B74C-F8C58956FCAB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppWithSearchController/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "loadPlaces(queue:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E04C7AD7-A33A-490D-AB3D-143FDF29E1C4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppWithSearchController/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "loadPlaces(queue:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E04C7AD7-A33A-490D-AB3D-143FDF29E1C4 - e6830ef8c47beba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AppWithSearchController.APIService.loadPlaces(queue: __C.OS_dispatch_queue, completion: (Swift.Array&lt;AppWithSearchController.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1022">
+               </Location>
+               <Location
+                  uuid = "E04C7AD7-A33A-490D-AB3D-143FDF29E1C4 - e6830ef8c47beba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AppWithSearchController.APIService.loadPlaces(queue: __C.OS_dispatch_queue, completion: (Swift.Array&lt;AppWithSearchController.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "721">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BFB22203-E169-418E-B165-D771C5F067BF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppWithSearchController/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "loadPlaces(queue:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BFB22203-E169-418E-B165-D771C5F067BF - b78f77c26a4eee94"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static AppWithSearchController.APIService.loadPlaces(queue: __C.OS_dispatch_queue, completion: (Swift.Array&lt;AppWithSearchController.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "502">
+               </Location>
+               <Location
+                  uuid = "BFB22203-E169-418E-B165-D771C5F067BF - e6830ef8c47b9d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AppWithSearchController.APIService.loadPlaces(queue: __C.OS_dispatch_queue, completion: (Swift.Array&lt;AppWithSearchController.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "122">
+               </Location>
+               <Location
+                  uuid = "BFB22203-E169-418E-B165-D771C5F067BF - e6830ef8c47b9d1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AppWithSearchController.APIService.loadPlaces(queue: __C.OS_dispatch_queue, completion: (Swift.Array&lt;AppWithSearchController.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AppWithSearchController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/AppWithSearchController/AppWithSearchController/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "203">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

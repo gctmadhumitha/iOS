@@ -15,7 +15,7 @@ class  PersonTableViewCell: UITableViewCell {
     
     lazy var profileImage : UIImageView = {
         let img = UIImageView()
-        img.frame = ct
+        //img.frame = ct
         img.image = UIImage(systemName: "person")
         img.layer.cornerRadius = 30
         img.translatesAutoresizingMaskIntoConstraints = false

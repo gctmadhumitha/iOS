@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1BC999D5-A12D-43BA-BBC7-94A2FA4FB514"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D1A7071-B470-4012-BBF6-A7F922A4B5EF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Neighborhood/ListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Neighborhood/Place.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "loadPlacesWithImages(queue:callback:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 8dfedb19ec042785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "278">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 28db4661e4d6a1a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "166">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - b35d9c9c736bdcff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "226">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 57f52edc9f7e50b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 8dfedb19ec042785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "281">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 37edbd849993b4b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 @Sendable () -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 8dfedb19ec042785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "381">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 28db4661e4d6a1a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - b35d9c9c736bdcff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;) -&gt; () in closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "219">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 8dfedb19ec042785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "291">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 28db4661e4d6a1a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "362">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - ac59cdd7da56fe69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "43">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 8dfedb19ec042785"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "294">
+               </Location>
+               <Location
+                  uuid = "98E13DD1-41B7-47DB-AEC9-41B969F53C1B - 28db4661e4d6a1a6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; () in static Neighborhood.PlaceFetcher.loadPlacesWithImages(queue: __C.OS_dispatch_queue, callback: (Swift.Array&lt;Neighborhood.Place&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Neighborhood"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/_Madhu/JobSearch/byteboard-interview/New%20Folder%20With%20Items/Neighborhood/Place.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "333">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+// TODO : Move api calls to ViewModel
 final class QuizViewController: UIViewController {
     
     var category : Category = Category(id: 9, name: "General Knowledge")

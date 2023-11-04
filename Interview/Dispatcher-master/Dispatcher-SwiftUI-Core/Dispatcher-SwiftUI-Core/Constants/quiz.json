@@ -1,0 +1,139 @@
+[
+    {
+        "number": 1,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Both loops print concurrently", 
+            "Prints 5 diamonds followed by 5 hearts",
+            "Does not compile",
+            "Causes race condition",
+            "Crahes because of deadlock", 
+        ],
+        "correct_answer": 1,
+        "explanation": "Sync blocks the caller, therefore we do not reach the second loop until the sync task is completed."
+    }, 
+    {
+        "number": 2,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Loop A always finishes first", 
+            "Loop B always finishes first",
+            "Order is not guaranteed", 
+            "Does not compile",
+            "Causes race condition"
+        ],
+        "correct_answer": 2,
+        "explanation": "The system does not guarantee when async tasks will get executed."
+    }, 
+    {
+        "number": 3,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Loops will print concurrently, order not guaranteed", 
+            "Prints 1 through 5 then 5 diamonds then 5 hearts",
+            "Does not compile",
+            "Causes race condition"
+        ],
+        "correct_answer": 1,
+        "explanation": "Code inside a single task will always execute in order, line by line."
+    }, 
+    {
+        "number": 4,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [  
+            "Runs without issues",
+            "Runs UI code on background thread",
+            "Does not compile",
+            "Causes race condition",
+            "Crahes because of deadlock"
+        ],
+        "correct_answer": 4,
+        "explanation": "Calling sync on the current queue results in a deadlock. In this case we chained several sync calls that lead back to the original queue."
+    }, 
+    {
+        "number": 5,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Will always print 4 moons before 4 suns",
+            "Will always print 4 suns before 4 moons",
+            "The order is not guaranteed",
+            "Does not compile",
+        ],
+        "correct_answer": 2,
+        "explanation": "The system does not guarantee when async tasks will execute. Tasks with higher QoS generally start first, but this is not guaranteed."
+    }, 
+    {
+        "number": 6,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "processImage(data:) will always return nil", 
+            "Does not compile: cannot convert DispatchQueue to UIImage?",
+            "processImage(data:) returns the tinted image as intended",
+            "Crahes because of deadlock",
+        ],
+        "correct_answer": 2,
+        "explanation": "Unlike async, it is perfectly fine to directly return a value from a sync task."
+    }, 
+    {
+        "number": 7,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Five cows are printed, followed by five dogs", 
+            "Both loops will run concurrently, order not guaranteed",
+            "Causes race condition",
+            "Crahes because of deadlock", 
+            "Causes priority inversion"
+        ],
+        "correct_answer": 1,
+        "explanation": "Queues run concurrently in relation to other queues, regardless of whether they're serial or concurrent."
+    }, 
+    {
+        "number": 8,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Prints 1 through 5, then 0 through 9", 
+            "Prints 0 through 9",
+            "Order of printed digits is not guaranteed",
+            "Causes race condition",
+            "Crahes because of deadlock", 
+            "Causes priority inversion"
+        ],
+        "correct_answer": 3,
+        "explanation": "Arrays are not thread safe, and modifying them from another thread can introduce race contidions."
+    }, 
+    {
+        "number": 9,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Results are always printed in the same order",
+            "Order of printed results is not guaranteed",
+            "Causes race condition",
+            "Crahes because of deadlock", 
+            "Causes priority inversion"
+        ],
+        "correct_answer": 0,
+        "explanation": "Tasks in serial queues are always executed in order. There is no risk of race condition because we're only modifying the array from a single thread."
+    }, 
+    {
+        "number": 10,
+        "question": "What is the outcome of this code?",
+        "code": "",
+        "answers": [ 
+            "Prints 1 through 30 in order",
+            "Prints 11 through 20, then 1 through 10, then 21 through 30",
+            "Order of printed digits is not guaranteed",
+            "Crahes because of deadlock"
+        ],
+        "correct_answer": 0,
+        "explanation": "Serial queues always run their tasks in order regardless of how you dispatch the task."
+    }
+]
