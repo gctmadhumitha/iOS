@@ -17,12 +17,18 @@ class DownloadManager: NSObject {
     
     var downloadComplete: Bool = false {
         didSet {
-            self.completionHandler?(downloadComplete)
+            if downloadComplete, let fileUrl = fileUrl {
+                self.completionHandler?(.completed((fileUrl)))
+            }else{
+                self.completionHandler?(.error)
+            }
         }
     }
    
+    var fileUrl : URL?
     var progressHandler: ((Float) -> Void)?
-    var completionHandler: ((Bool) -> Void)?
+    var completionHandler: ((DownloadStatus) -> Void)?
+    let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     
     // MARK: - Properties
     private var configuration: URLSessionConfiguration
@@ -39,19 +45,31 @@ class DownloadManager: NSObject {
         super.init()
     }
 
-    func download(url: String, progress: ((Float) -> Void)?, completion: ((Bool)->(Void))?){
-        /// bind progress closure to View
-        self.progressHandler = progress
-        self.completionHandler = completion
-        /// handle url
+    func download(url: String, progress: ((Float) -> Void)?, completion: ((DownloadStatus)->(Void))?){
         guard let url = URL(string: url) else {
             preconditionFailure("URL isn't true format!")
         }
-        let task = session.downloadTask(with: url)
-        task.resume()
+        
+        let fileManager = FileManager.default
+        fileUrl = directory.appendingPathComponent(url.lastPathComponent)
+        print("location.path @@@@ ", fileUrl?.path)
+        self.completionHandler = completion
+        if let fileUrl = fileUrl, fileManager.fileExists(atPath: fileUrl.path) {
+            print("location.path @@@@ exists")
+            self.completionHandler?(.completed(fileUrl))
+        }
+        else{
+            print("location.path @@doesn't exists")
+            self.progressHandler = progress
+            self.completionHandler = completion
+            let task = session.downloadTask(with: url)
+            task.resume()
+        }
     }
 
 }
+
+
 
 extension DownloadManager: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession,
@@ -61,10 +79,32 @@ extension DownloadManager: URLSessionDownloadDelegate {
                     totalBytesExpectedToWrite: Int64) {
         self.progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
     }
-
+    
     func urlSession(_ session: URLSession,
                     downloadTask: URLSessionDownloadTask,
                     didFinishDownloadingTo location: URL) {
-        self.downloadComplete = true
+        guard let url = downloadTask.originalRequest?.url else {
+            print("error")
+            return
+        }
+        
+        
+        let destinationURL = directory.appendingPathComponent(url.lastPathComponent)
+        try? FileManager.default.removeItem(at: destinationURL)
+        
+        do {
+            
+            try FileManager.default.copyItem(at: location, to: destinationURL)
+            DispatchQueue.main.async {
+                self.downloadComplete = true
+            }
+        } catch {
+            print(error)
+        }
     }
+    
+}
+enum DownloadStatus{
+    case completed(URL)
+    case error
 }
