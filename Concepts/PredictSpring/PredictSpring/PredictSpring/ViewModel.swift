@@ -9,9 +9,12 @@ import Foundation
 
 struct ViewModel {
     
-    var products : [Product]? = []
+    var products : [Product] = []
     var fileUrl : URL?
     let dbManager = DatabaseManager()
+    var offset = 0
+    var reachedEndOfProducts = false
+    let productsPerBatch = 20
     
     func insert()
     {
@@ -20,9 +23,12 @@ struct ViewModel {
         print("End insertToDb")
     }
     
-    func get(){
+    mutating func get(){
         print("Begin get")
-        let products = dbManager.getData(productId: "")
+        let products = dbManager.getData(productId: "", offset: offset)
+        if let products = products {
+            self.products = products
+        }
         print("End get", products)
     }
     

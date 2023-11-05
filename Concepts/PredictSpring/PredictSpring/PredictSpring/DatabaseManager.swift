@@ -124,11 +124,11 @@ class DatabaseManager {
         }
     }
     
-    func getData(productId: String) -> [Product]? {
+    func getData(productId: String, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
         if db == nil {
             openDatabase()
         }
-        let getDataStringOriginal = """
+        let getDataString = """
         SELECT *
         FROM PRODUCTS
         WHERE
@@ -137,11 +137,11 @@ class DatabaseManager {
         OFFSET ?;
         """
         
-        let getDataString = """
-        SELECT *
-        FROM PRODUCTS
-        LIMIT ?
-        """
+//        let getDataString = """
+//        SELECT *
+//        FROM PRODUCTS
+//        LIMIT ?
+//        """
         
         if noMoreDataInDB {
             return nil
@@ -152,10 +152,12 @@ class DatabaseManager {
         var tempResult: [Product] = []
         if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
             SQLITE_OK {
-            //sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
-            //sqlite3_bind_int(getPointer, 2, Int32(chunkSize))
-            sqlite3_bind_int(getPointer, 1, Int32(chunkSize))
-            //sqlite3_bind_int(getPointer, 3, Int32(result.count))
+            /// productId
+            sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
+            ///Limit
+            sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
+            ///Offset
+            sqlite3_bind_int(getPointer, 3, Int32(offset))
             while(sqlite3_step(getPointer) == SQLITE_ROW) {
                 let id = String(describing: String(cString: sqlite3_column_text(getPointer, 0)))
                 let title = String(describing: String(cString: sqlite3_column_text(getPointer, 1)))
@@ -165,9 +167,8 @@ class DatabaseManager {
                 let size = String(describing: String(cString: sqlite3_column_text(getPointer, 5)))
                 
                 tempResult.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
-                print("#0 tempResult is ", tempResult)
+                
             }
-            print("#1 tempResult is ", tempResult)
             if tempResult.count != chunkSize {
                 DispatchQueue.main.async {
                     self.noMoreDataInDB = true
@@ -177,7 +178,9 @@ class DatabaseManager {
                 self.result += tempResult
                 self.dataFetched = true
             }
-            print("#2 tempResult is ", tempResult)
+//            print("@@@@ Result is ", tempResult)
+//            print("@@@@ Result count  is ", tempResult.count)
+//            print("======================")
             print(result.count)
         } else {
             print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
@@ -283,7 +286,7 @@ class DatabaseManager {
             if id == "" || id == result[result.count - loadWhenItemsLeft].id {
                 dataFetched = false
                 DispatchQueue.global().async {
-                    self.getData(productId: inputString)
+                    self.getData(productId: inputString, offset: 0)
                 }
             }
         }

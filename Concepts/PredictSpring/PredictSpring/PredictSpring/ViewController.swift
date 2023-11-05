@@ -10,9 +10,10 @@ import UIKit
 class ViewController: UIViewController {
     
     let fileUrl =   "https://drive.google.com/uc?export=download&id=1XSrB4N6d6918JRobJ3Fx14JDa_ZsnMAO"
-    let products = ["one", "two", "three"]
+    //let products = ["one", "two", "three"]
     
     var viewModel: ViewModel = ViewModel()
+   
     
 // MARK: - Views
     private lazy var progressView: UIProgressView = {
@@ -38,10 +39,10 @@ class ViewController: UIViewController {
         return button
     }()
     
-//    private lazy var tableView: UITableView  = {
-//        let tableView = UITableView()
-//        return tableView
-//    }()
+    private lazy var tableView: UITableView  = {
+        let tableView = UITableView()
+        return tableView
+    }()
 
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
@@ -55,31 +56,32 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         layoutUI()
         downloadData(url: fileUrl)
+        viewModel.get()
     }
     
 
     func layoutUI()
     {
         progressView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.addSubview(progressView)
-        view.addSubview(button)
-        button.addTarget(self, action: #selector(insertToDb), for: .touchUpInside)
-        view.addSubview(button2)
-        button2.addTarget(self, action: #selector(getData), for: .touchUpInside)
-//        view.addSubview(tableView)
+        //view.addSubview(button)
+       // button.addTarget(self, action: #selector(insertToDb), for: .touchUpInside)
+        //view.addSubview(button2)
+        //button2.addTarget(self, action: #selector(getData), for: .touchUpInside)
+        view.addSubview(tableView)
         layoutConstraints()
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//        tableView.delegate = self
-//        tableView.dataSource = self
-//        tableView.isHidden = true
-//        
-//        searchController.searchResultsUpdater = self
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        navigationItem.searchController = searchController
-//        navigationItem.hidesSearchBarWhenScrolling = false
-//        definesPresentationContext = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        //tableView.isHidden = true
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
     
     func layoutConstraints(){
@@ -89,20 +91,20 @@ class ViewController: UIViewController {
                progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                progressView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
                
-               button.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 80),
-               button.heightAnchor.constraint(equalToConstant: 50),
-               button.widthAnchor.constraint(equalToConstant: 120),
-               button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//               button.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 80),
+//               button.heightAnchor.constraint(equalToConstant: 50),
+//               button.widthAnchor.constraint(equalToConstant: 120),
+//               button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//               
+//               button2.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 80),
+//               button2.heightAnchor.constraint(equalToConstant: 50),
+//               button2.widthAnchor.constraint(equalToConstant: 120),
+//               button2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                
-               button2.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 80),
-               button2.heightAnchor.constraint(equalToConstant: 50),
-               button2.widthAnchor.constraint(equalToConstant: 120),
-               button2.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-               
-//               tableView.topAnchor.constraint(equalTo: progressView.bottomAnchor),
-//               tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//               tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//               tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+               tableView.topAnchor.constraint(equalTo: progressView.bottomAnchor),
+               tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+               tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+               tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
                
          ])
        }
@@ -148,17 +150,17 @@ extension ViewController {
 
 
 // Implementation for TableView Delegate methods
-//extension ViewController : UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-//        cell.textLabel?.text = products[indexPath.row]
-//        return cell
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return products.count
-//    }
-//}
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+        cell.textLabel?.text = viewModel.products[indexPath.row].title
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.products.count
+    }
+}
 
 
 // Implementation for SearchController Delegate methods
