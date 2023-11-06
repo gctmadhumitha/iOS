@@ -7,14 +7,26 @@
 
 import Foundation
 
-struct ViewModel {
+class ProductsViewModel {
     
-    var products : [Product] = []
-    var fileUrl : URL?
-    let dbManager = DatabaseManager()
-    var offset = 0
-    var reachedEndOfProducts = false
-    let productsPerBatch = 20
+    private(set) var products : [Product] = []
+    private var fileUrl : URL?
+    private let dbManager = DatabaseManager()
+    private let productsPerBatch = 20
+    private var offset = 0
+    private var reachedEndOfProducts = false
+    private var isFetchInProgress = false
+    
+    var totalCount : Int {
+        print("products count : \(products.count)")
+        print("offset : \(offset)")
+        return products.count
+    }
+    
+    
+    func product(at index: Int) -> Product {
+      return products[index]
+    }
     
     func insert()
     {
@@ -23,13 +35,13 @@ struct ViewModel {
         print("End insertToDb")
     }
     
-    mutating func get(){
+    func fetchProducts(){
         print("Begin get")
         let products = dbManager.getData(productId: "", offset: offset)
         if let products = products {
-            self.products = products
+            self.products += products
+            self.offset += products.count
         }
-        print("End get", products)
     }
     
     func download(url: String, progress: ((Float) -> Void)?, completion: ((DownloadStatus)->(Void))?){
@@ -38,6 +50,12 @@ struct ViewModel {
         } completion: { status in
             completion?(status)
         }
+    }
+    
+    private func calculateIndexPathsToReload(from newProducts: [Product]) -> [IndexPath] {
+      let startIndex = newProducts.count - newProducts.count
+      let endIndex = startIndex + newProducts.count
+      return (startIndex..<endIndex).map { IndexPath(row: $0, section: 0) }
     }
     
 }

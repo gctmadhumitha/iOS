@@ -10,9 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     
     let fileUrl =   "https://drive.google.com/uc?export=download&id=1XSrB4N6d6918JRobJ3Fx14JDa_ZsnMAO"
-    //let products = ["one", "two", "three"]
+    var viewModel = ProductsViewModel()
     
-    var viewModel: ViewModel = ViewModel()
+    
    
     
 // MARK: - Views
@@ -56,14 +56,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         layoutUI()
         downloadData(url: fileUrl)
-        viewModel.get()
+        fetchData()
     }
-    
+
 
     func layoutUI()
     {
         progressView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         view.backgroundColor = .white
         view.addSubview(progressView)
         //view.addSubview(button)
@@ -109,13 +110,19 @@ class ViewController: UIViewController {
          ])
        }
     
-    @objc func insertToDb(sender: UIButton){
-        viewModel.insert()
+
+}
+
+
+extension ViewController {
+    
+    func fetchData(isFirst: Bool = true){
+        viewModel.fetchProducts()
+        if !isFirst {
+            self.tableView.reloadData()
+        }
     }
     
-    @objc func getData(sender: UIButton){
-        viewModel.get()
-    }
 }
 
 // Closures for Download Progress
@@ -136,11 +143,11 @@ extension ViewController {
     
     func showDownloadCompletion(status: DownloadStatus){
         print("showDownloadCompletion", status)
-        if case DownloadStatus.completed(let url) = status {
+        if case DownloadStatus.completed(let _) = status {
             self.progressView.fadeOut()
-//            self.tableView.fadeIn()
-//            self.tableView.reloadData()
-            self.viewModel.fileUrl = url
+            self.tableView.fadeIn()
+            self.tableView.reloadData()
+//            self.viewModel.fileUrl = url
         } else{
             self.progressView.fadeOut()
         }
@@ -152,15 +159,42 @@ extension ViewController {
 // Implementation for TableView Delegate methods
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = viewModel.products[indexPath.row].title
+        print("row : \(indexPath.row)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as! ProductCell
+        cell.product = viewModel.products[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("viewModel.products.count : \(viewModel.products.count)")
+        if indexPath.row == viewModel.totalCount - 1 {
+            fetchData(isFirst: false)
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.products.count
+        print("numberOfRowsInSection - \(viewModel.totalCount)")
+        return viewModel.totalCount
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+
+        /// UITableView only moves in one direction, y axis
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        /// Change 10.0 to adjust the distance from bottom
+        if maximumOffset - currentOffset <= 10.0 {
+            fetchProducts()
+        }
+    }
+    
 }
+
 
 
 // Implementation for SearchController Delegate methods
@@ -168,7 +202,5 @@ extension ViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // TODO
     }
-
 }
-
 
