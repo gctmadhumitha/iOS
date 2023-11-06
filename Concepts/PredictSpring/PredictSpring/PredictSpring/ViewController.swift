@@ -189,7 +189,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 
         /// Change 10.0 to adjust the distance from bottom
         if maximumOffset - currentOffset <= 10.0 {
-            fetchProducts()
+            fetchData()
         }
     }
     
