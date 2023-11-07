@@ -17,7 +17,7 @@ class DownloadManager: NSObject {
     
     var downloadComplete: Bool = false {
         didSet {
-            UserDefaults.standard.set(downloadComplete, forKey: "isDownloadComplete")
+            UserDefaults.standard.set(downloadComplete, forKey: Constants.isDownloadComplete)
             if downloadComplete, let fileUrl = fileUrl {
                 self.completionHandler?(.completed((fileUrl)))
             }else{
@@ -67,6 +67,7 @@ class DownloadManager: NSObject {
 }
 
 
+// Delegate methods for URLSession, for downloading file
 extension DownloadManager: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession,
                     downloadTask: URLSessionDownloadTask,
@@ -83,13 +84,9 @@ extension DownloadManager: URLSessionDownloadDelegate {
             print("error")
             return
         }
-        
-        
         let destinationURL = directory.appendingPathComponent(url.lastPathComponent)
         try? FileManager.default.removeItem(at: destinationURL)
-        
         do {
-            
             try FileManager.default.copyItem(at: location, to: destinationURL)
             DispatchQueue.main.async {
                 self.downloadComplete = true
@@ -98,8 +95,8 @@ extension DownloadManager: URLSessionDownloadDelegate {
             print(error)
         }
     }
-    
 }
+
 enum DownloadStatus{
     case completed(URL)
     case error

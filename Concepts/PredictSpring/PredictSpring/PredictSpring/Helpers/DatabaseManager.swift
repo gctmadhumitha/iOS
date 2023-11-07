@@ -10,7 +10,7 @@ import SQLite3
 
 class DatabaseManager {
     
-    let dbName = "myDB.sqlite"
+    let dbName = Constants.db_name
     let filePath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
     
     var db: OpaquePointer?
@@ -19,12 +19,10 @@ class DatabaseManager {
     var total: CGFloat = 1
     var databaseSaveComplete = false {
         didSet {
-            UserDefaults.standard.set(databaseSaveComplete, forKey: "isDatabaseSaveComplete")
+            UserDefaults.standard.set(databaseSaveComplete, forKey: Constants.isDatabaseSaveComplete)
         }
     }
     var noMoreDataInDB = false
-    //var dataFetched = true
-    typealias FinishedSaving = () -> ()
     
     func checkDBExists() -> Bool {
         guard (filePath?.appendingPathComponent(dbName)) != nil else {
@@ -39,7 +37,6 @@ class DatabaseManager {
         let rowInsertString = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         var insertPointer: OpaquePointer?
         sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
-        //sqlite3_commit_hook(db, callback, nil)
         if sqlite3_prepare_v2(db, rowInsertString, -1, &insertPointer, nil) ==
             SQLITE_OK {
             for content in data {
@@ -182,8 +179,6 @@ class DatabaseManager {
             print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
         }
         sqlite3_finalize(getPointer)
-        print("tempResult count", tempResult.count)
-        print("tempResult ", tempResult)
         return tempResult
     }
     
@@ -281,12 +276,6 @@ class DatabaseManager {
         }
     }
     
-//    func callback(){
-//        self.progress += CGFloat(chunkSize)
-//        let progressValue = Float(self.progress)
-//        print("saveDataFromCSV progressValue :: \(progressValue)")
-//        progressHandler?(progressValue)
-//    }
 }
 
 enum DatabaseStatus{

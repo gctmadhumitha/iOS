@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C2057DB92AF596D400051F5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DB82AF596D400051F5F /* AppDelegate.swift */; };
 		C2057DBB2AF596D400051F5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBA2AF596D400051F5F /* SceneDelegate.swift */; };
-		C2057DBD2AF596D400051F5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBC2AF596D400051F5F /* ViewController.swift */; };
+		C2057DBD2AF596D400051F5F /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */; };
 		C2057DC32AF596D400051F5F /* PredictSpring.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2057DC12AF596D400051F5F /* PredictSpring.xcdatamodeld */; };
 		C2057DC52AF596D600051F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2057DC42AF596D600051F5F /* Assets.xcassets */; };
 		C2057DC82AF596D600051F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2057DC62AF596D600051F5F /* LaunchScreen.storyboard */; };
@@ -17,15 +17,16 @@
 		C2057DF52AF60A1200051F5F /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DF42AF60A1100051F5F /* UIView+extension.swift */; };
 		C2057DF72AF6134300051F5F /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DF62AF6134300051F5F /* Product.swift */; };
 		C2057DF92AF613EB00051F5F /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DF82AF613EB00051F5F /* DatabaseManager.swift */; };
-		C2057DFB2AF62A4100051F5F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DFA2AF62A4100051F5F /* ViewModel.swift */; };
+		C2057DFB2AF62A4100051F5F /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DFA2AF62A4100051F5F /* ProductViewModel.swift */; };
 		C2057DFE2AF962D100051F5F /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DFC2AF962D100051F5F /* ProductCell.swift */; };
+		C2057E072AFAAB7900051F5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057E062AFAAB7900051F5F /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C2057DB52AF596D400051F5F /* PredictSpring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PredictSpring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2057DB82AF596D400051F5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2057DBA2AF596D400051F5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2057DBC2AF596D400051F5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
 		C2057DC22AF596D400051F5F /* PredictSpring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PredictSpring.xcdatamodel; sourceTree = "<group>"; };
 		C2057DC42AF596D600051F5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2057DC72AF596D600051F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,8 +35,9 @@
 		C2057DF42AF60A1100051F5F /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		C2057DF62AF6134300051F5F /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		C2057DF82AF613EB00051F5F /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		C2057DFA2AF62A4100051F5F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C2057DFA2AF62A4100051F5F /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		C2057DFC2AF962D100051F5F /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		C2057E062AFAAB7900051F5F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,19 +72,68 @@
 			children = (
 				C2057DB82AF596D400051F5F /* AppDelegate.swift */,
 				C2057DBA2AF596D400051F5F /* SceneDelegate.swift */,
-				C2057DBC2AF596D400051F5F /* ViewController.swift */,
-				C2057DCF2AF5A11200051F5F /* DownloadManager.swift */,
-				C2057DF82AF613EB00051F5F /* DatabaseManager.swift */,
-				C2057DF42AF60A1100051F5F /* UIView+extension.swift */,
-				C2057DF62AF6134300051F5F /* Product.swift */,
+				C2057E052AFAAACD00051F5F /* ViewControllers */,
+				C2057E042AFAAAB900051F5F /* Helpers */,
+				C2057E032AFAAAAB00051F5F /* Extensions */,
+				C2057E002AFAAA7700051F5F /* ViewModels */,
+				C2057E012AFAAA8900051F5F /* Views */,
+				C2057E022AFAAA9400051F5F /* Models */,
 				C2057DC42AF596D600051F5F /* Assets.xcassets */,
 				C2057DC62AF596D600051F5F /* LaunchScreen.storyboard */,
 				C2057DC92AF596D600051F5F /* Info.plist */,
 				C2057DC12AF596D400051F5F /* PredictSpring.xcdatamodeld */,
-				C2057DFA2AF62A4100051F5F /* ViewModel.swift */,
-				C2057DFC2AF962D100051F5F /* ProductCell.swift */,
 			);
 			path = PredictSpring;
+			sourceTree = "<group>";
+		};
+		C2057E002AFAAA7700051F5F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DFA2AF62A4100051F5F /* ProductViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C2057E012AFAAA8900051F5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DFC2AF962D100051F5F /* ProductCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C2057E022AFAAA9400051F5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DF62AF6134300051F5F /* Product.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C2057E032AFAAAAB00051F5F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DF42AF60A1100051F5F /* UIView+extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C2057E042AFAAAB900051F5F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DCF2AF5A11200051F5F /* DownloadManager.swift */,
+				C2057DF82AF613EB00051F5F /* DatabaseManager.swift */,
+				C2057E062AFAAB7900051F5F /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C2057E052AFAAACD00051F5F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +207,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2057DF92AF613EB00051F5F /* DatabaseManager.swift in Sources */,
-				C2057DFB2AF62A4100051F5F /* ViewModel.swift in Sources */,
+				C2057E072AFAAB7900051F5F /* Constants.swift in Sources */,
+				C2057DFB2AF62A4100051F5F /* ProductViewModel.swift in Sources */,
 				C2057DF52AF60A1200051F5F /* UIView+extension.swift in Sources */,
 				C2057DC32AF596D400051F5F /* PredictSpring.xcdatamodeld in Sources */,
 				C2057DD02AF5A11200051F5F /* DownloadManager.swift in Sources */,
-				C2057DBD2AF596D400051F5F /* ViewController.swift in Sources */,
+				C2057DBD2AF596D400051F5F /* ProductsListViewController.swift in Sources */,
 				C2057DB92AF596D400051F5F /* AppDelegate.swift in Sources */,
 				C2057DFE2AF962D100051F5F /* ProductCell.swift in Sources */,
 				C2057DBB2AF596D400051F5F /* SceneDelegate.swift in Sources */,
