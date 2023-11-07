@@ -108,7 +108,7 @@ class ProductsListViewController: UIViewController {
         statusContainer.addArrangedSubview(downloadProgressLabel)
         statusContainer.addArrangedSubview(dbProgressLabel)
         view.addSubview(statusContainer)
-        
+        view.backgroundColor = .white
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
@@ -142,9 +142,10 @@ extension ProductsListViewController {
         viewModel.fetchProducts(id: searchText.trimmingCharacters(in: .whitespacesAndNewlines), isNewSearch : isNewSearch)
         prevSearchText = searchText
         //Reload for pagination
-        if !isFirst || isNewSearch {
+       // if !isFirst || isNewSearch {
+            self.tableView.fadeIn()
             self.tableView.reloadData()
-        }
+       // }
     }
     
     func downloadData(url: String){
@@ -166,51 +167,11 @@ extension ProductsListViewController {
                 }
             }
         } else{
-            //TO DO
-            fetchData()
+            fetchData(isFirst: true)
         }
     }
 }
 
-// Completion Handlers for Download and Save tasks
-extension ProductsListViewController {
-    func showDownloadProgress(value: Float) {
-        self.progressView.progress = value
-    }
-    
-    func showDownloadCompletion(status: DownloadStatus){
-        self.downloadProgressLabel.text = "Download complete"
-        
-        //TODO
-        if case DownloadStatus.completed(let url) = status
-        {
-            if !isDatabaseSaveComplete  {
-                self.insertData(fileUrl: url)
-            }
-        } else {
-            fetchData()
-        }
-    }
-    
-    func showInsertProgress(value: Int) {
-        DispatchQueue.main.async {
-            self.dbProgressLabel.text = " \(value) records saved"
-        }
-    }
-    
-    func showInsertCompletion(status: DatabaseStatus){
-        if case .completed(let value) = status {
-            self.dbProgressLabel.text = "All records saved : \(value)"
-            self.tableView.fadeIn()
-            self.tableView.reloadData()
-            
-        }
-        else {
-            self.dbProgressLabel.text = "Failed to save records to the database"
-        }
-        
-    }
-}
 
 
 // TableView Delegate methods
@@ -261,5 +222,49 @@ extension ProductsListViewController : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchText = ""
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchText = ""
+        fetchData()
+    }
+    
 }
 
+
+// Completion Handlers for Download and Save tasks
+// Could use delegate too 
+extension ProductsListViewController {
+    func showDownloadProgress(value: Float) {
+        self.progressView.progress = value
+    }
+    
+    func showDownloadCompletion(status: DownloadStatus){
+        self.downloadProgressLabel.text = "Download complete"
+        
+        if case DownloadStatus.completed(let url) = status
+        {
+            if !isDatabaseSaveComplete  {
+                self.insertData(fileUrl: url)
+            }
+        }
+        else {
+            downloadProgressLabel.text = "Download error"
+        }
+    }
+    
+    func showInsertProgress(value: Int) {
+        DispatchQueue.main.async {
+            self.dbProgressLabel.text = " \(value) records saved"
+        }
+    }
+    
+    func showInsertCompletion(status: DatabaseStatus){
+        if case .completed(let value) = status {
+            self.dbProgressLabel.text = "All records saved : \(value)"
+            fetchData(isFirst: true)
+        }
+        else {
+            self.dbProgressLabel.text = "Failed to save records to the database"
+        }
+    }
+}

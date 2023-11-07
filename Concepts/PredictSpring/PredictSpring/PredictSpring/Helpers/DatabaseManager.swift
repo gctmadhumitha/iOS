@@ -130,18 +130,14 @@ class DatabaseManager {
         if db == nil {
             openDatabase()
         }
-        var nid = id.trimmingCharacters(in: .whitespacesAndNewlines) as NSString
-        print("id is ::\(nid)::")
         let getDataString = "SELECT * FROM PRODUCTS WHERE productId LIKE '%\(id)%' LIMIT 20 OFFSET \(offset);"
         
         if noMoreDataInDB && !isNewSearch {
             return nil
         }
 
-        //let id = "\(id)" as NSString
         var getPointer: OpaquePointer?
         var tempResult: [Product] = []
-        print("ismainthread", Thread.isMainThread)
         if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
             SQLITE_OK {
             /// productId

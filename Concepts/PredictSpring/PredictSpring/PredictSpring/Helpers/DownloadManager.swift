@@ -19,7 +19,7 @@ class DownloadManager: NSObject {
         didSet {
             UserDefaults.standard.set(downloadComplete, forKey: Constants.isDownloadComplete)
             if downloadComplete, let fileUrl = fileUrl {
-                self.completionHandler?(.completed((fileUrl)))
+                self.completionHandler?(.completed(fileUrl))
             }else{
                 self.completionHandler?(.error)
             }
@@ -47,7 +47,8 @@ class DownloadManager: NSObject {
 
     func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){
         guard let url = URL(string: url) else {
-            preconditionFailure("URL isn't true format!")
+            completionHandler?(.error)
+            return
         }
         
         let fileManager = FileManager.default
@@ -97,7 +98,7 @@ extension DownloadManager: URLSessionDownloadDelegate {
     }
 }
 
-enum DownloadStatus{
+enum DownloadStatus: Equatable {
     case completed(URL)
     case error
 }
