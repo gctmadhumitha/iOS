@@ -33,7 +33,7 @@ class ProductsViewModel {
     }
 
     func fetchProducts(id: String, isNewSearch: Bool = true){
-        print("Begin get")
+        print("Begin fetchProducts")
         let products = dbManager.fetchProducts(withId: id, offset: offset)
         
         if let products = products {
@@ -50,7 +50,7 @@ class ProductsViewModel {
         }
     }
     
-    func insert(url: URL, progressHandler: ((Float) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?)
+    func insert(url: URL, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?)
     {
         self.dbManager.saveDataFromCSV(url: url) { value in
             progressHandler?(value)
@@ -67,7 +67,6 @@ class ProductsViewModel {
             completionHandler?(status)
         }
     }
-    
     
     
     private func calculateIndexPathsToReload(from newProducts: [Product]) -> [IndexPath] {

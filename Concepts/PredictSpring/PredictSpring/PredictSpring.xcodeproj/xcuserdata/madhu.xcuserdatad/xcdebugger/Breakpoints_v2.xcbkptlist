@@ -14,10 +14,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "scrollViewDidEndDragging(_:willDecelerate:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8F7C7E88-720D-450F-9446-0C7D9DC0ADD3 - 3d69a3e142c67076"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.scrollViewDidEndDragging(_: __C.UIScrollView, willDecelerate: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "258"
+                  endingLineNumber = "258"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "8F7C7E88-720D-450F-9446-0C7D9DC0ADD3 - 3d69a3e142c6736f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.scrollViewDidEndDragging(_: __C.UIScrollView, willDecelerate: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235"
+                  offsetFromSymbolStart = "124">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -30,10 +62,10 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "ViewController"
-            landmarkType = "21">
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,10 +78,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "searchBarTextDidEndEditing(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "44709A0A-CF98-4A6A-9A2A-87B14FEDDC6F - cc07f9613ad6da06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.searchBarTextDidEndEditing(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "285"
+                  endingLineNumber = "285"
+                  offsetFromSymbolStart = "255">
+               </Location>
+               <Location
+                  uuid = "44709A0A-CF98-4A6A-9A2A-87B14FEDDC6F - cc07f9613ad6d90d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.searchBarTextDidEndEditing(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "262"
+                  endingLineNumber = "262"
+                  offsetFromSymbolStart = "255">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -174,10 +238,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "fetchData(isFirst:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2108D9C5-AC52-4630-A188-2C42D902D67A - 5838eca8b5a9dc7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "618">
+               </Location>
+               <Location
+                  uuid = "2108D9C5-AC52-4630-A188-2C42D902D67A - 5838eca8b5a9de4f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "618">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -190,10 +286,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "fetchData(isFirst:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A80A63A6-D8BC-4DA4-8852-849ED1C8C586 - 5838eca8b5a9dc58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "570">
+               </Location>
+               <Location
+                  uuid = "A80A63A6-D8BC-4DA4-8852-849ED1C8C586 - 5838eca8b5a9de28"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "570">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -222,10 +350,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "fetchData(isFirst:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D682505-9951-4452-9822-9E5123F74BEB - 5838eca8b5a9dc1a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "514">
+               </Location>
+               <Location
+                  uuid = "8D682505-9951-4452-9822-9E5123F74BEB - 5838eca8b5a9d9ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "514">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -258,6 +418,38 @@
             endingLineNumber = "297"
             landmarkName = "saveDataFromCSV(url:progressHandler:completionHandler:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B6E29A21-DB13-4AA2-930E-127FDAE7B1C0 - 2eec944e2626f9c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.saveDataFromCSV(url: Swift.Optional&lt;Foundation.URL&gt;, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "297"
+                  endingLineNumber = "297"
+                  offsetFromSymbolStart = "488">
+               </Location>
+               <Location
+                  uuid = "B6E29A21-DB13-4AA2-930E-127FDAE7B1C0 - 2eec944e2626f9c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.saveDataFromCSV(url: Swift.Optional&lt;Foundation.URL&gt;, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "297"
+                  endingLineNumber = "297"
+                  offsetFromSymbolStart = "478">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -320,6 +512,36 @@
                   endingLineNumber = "55"
                   offsetFromSymbolStart = "224">
                </Location>
+               <Location
+                  uuid = "9A095F2B-6E20-4A02-BE13-A8AEC171BA72 - f332f6b6ab357bf8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsViewModel.insert(url: Foundation.URL, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "163">
+               </Location>
+               <Location
+                  uuid = "9A095F2B-6E20-4A02-BE13-A8AEC171BA72 - 3e5c7a9540cdbafa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Float) -&gt; () in PredictSpring.ProductsViewModel.insert(url: Foundation.URL, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "81">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -366,6 +588,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
                   endingLineNumber = "74"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "8F2E2A8B-4504-47F2-9766-C2324506A271 - 872efc2548798729"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (PredictSpring.DownloadStatus) -&gt; () in PredictSpring.ProductsViewModel.download(url: Swift.String, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DownloadStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
                   offsetFromSymbolStart = "140">
                </Location>
             </Locations>
@@ -416,6 +653,21 @@
                   endingLineNumber = "73"
                   offsetFromSymbolStart = "78">
                </Location>
+               <Location
+                  uuid = "6B8F35D5-D36E-4705-BA83-156F86D640B7 - 872efc2548798706"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (PredictSpring.DownloadStatus) -&gt; () in PredictSpring.ProductsViewModel.download(url: Swift.String, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DownloadStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "78">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -429,26 +681,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "downloadData(url:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "992A6E38-2F70-4B37-82B4-D71D7F8B035C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PredictSpring/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "showDownloadCompletion(status:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "789CB08B-C54D-4523-B5C9-D73C8E11D285 - 3ae5ed8cac6887ae"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (PredictSpring.DownloadStatus) -&gt; () in PredictSpring.ViewController.downloadData(url: Swift.String) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "74">
+               </Location>
+               <Location
+                  uuid = "789CB08B-C54D-4523-B5C9-D73C8E11D285 - 3ae5ed8cac68855e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (PredictSpring.DownloadStatus) -&gt; () in PredictSpring.ViewController.downloadData(url: Swift.String) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "149"
+                  endingLineNumber = "149"
+                  offsetFromSymbolStart = "74">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -465,6 +733,38 @@
             endingLineNumber = "331"
             landmarkName = "saveDataFromCSV(url:progressHandler:completionHandler:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "66CA4584-EB50-4978-8D22-8DB8ECA04D90 - 2eec944e2626f45e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.saveDataFromCSV(url: Swift.Optional&lt;Foundation.URL&gt;, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "339"
+                  endingLineNumber = "339"
+                  offsetFromSymbolStart = "3417">
+               </Location>
+               <Location
+                  uuid = "66CA4584-EB50-4978-8D22-8DB8ECA04D90 - 2eec944e2626f566"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.saveDataFromCSV(url: Swift.Optional&lt;Foundation.URL&gt;, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "331"
+                  endingLineNumber = "331"
+                  offsetFromSymbolStart = "3407">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -477,10 +777,42 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "ViewController"
-            landmarkType = "21">
+            startingLineNumber = "181"
+            endingLineNumber = "181"
+            landmarkName = "showInsertProgress(value:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3CC7519C-6B39-4653-8915-246C98E4C628 - 90d566c76042c7fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.showInsertProgress(value: Swift.Float) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "3CC7519C-6B39-4653-8915-246C98E4C628 - 90d566c76042c270"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ViewController.showInsertProgress(value: Swift.Float) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "177"
+                  endingLineNumber = "177"
+                  offsetFromSymbolStart = "207">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -493,9 +825,57 @@
             filePath = "PredictSpring/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "downloadData(url:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B18BAD9F-1B3E-47CA-8980-C0B5A275F3AF - f1e92df4fbb0a889"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Float) -&gt; () in PredictSpring.ViewController.downloadData(url: Swift.String) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  uuid = "B18BAD9F-1B3E-47CA-8980-C0B5A275F3AF - f1e92df4fbb0aaf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Float) -&gt; () in PredictSpring.ViewController.downloadData(url: Swift.String) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "77">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0056F79D-B94A-4F96-9585-9C7F012F01B4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PredictSpring/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "layoutConstraints()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

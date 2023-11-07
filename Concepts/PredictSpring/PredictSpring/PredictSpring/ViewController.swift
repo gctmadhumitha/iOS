@@ -18,37 +18,46 @@ class ViewController: UIViewController {
     
     
 // MARK: - Views
+    
+    
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.trackTintColor = .gray
-        progressView.progressTintColor = .blue
+        progressView.progressTintColor = .black
+        progressView.trackTintColor = .clear
+        progressView.clipsToBounds = true
+        progressView.layer.cornerRadius = 5
+        progressView.layer.borderWidth = 1.0
         return progressView
     }()
     
-    private let dbStatusLabel : UILabel = {
+    private let downloadProgressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
+        lbl.font = UIFont.preferredFont(forTextStyle: .body)
         lbl.textAlignment = .left
-        lbl.text = "Database Insert : Not started"
+        lbl.text = "Downloading...."
         return lbl
     }()
     
-    private lazy var button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Insert To Db", for: .normal)
-        button.backgroundColor = .systemBlue
-        return button
+    private let dbProgressLabel : UILabel = {
+        let lbl = UILabel()
+        lbl.textColor = .black
+        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.textAlignment = .left
+        lbl.text = "Insert data to db : Not started"
+        return lbl
     }()
     
-    private lazy var button2: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Get Data", for: .normal)
-        button.backgroundColor = .systemBlue
-        return button
+   
+    
+    private let statusContainer : UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
     }()
+    
     
     private lazy var tableView: UITableView  = {
         let tableView = UITableView()
@@ -90,22 +99,20 @@ class ViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         view.backgroundColor = .white
-        view.addSubview(progressView)
-        view.addSubview(dbStatusLabel)
-        //view.addSubview(button)
-       // button.addTarget(self, action: #selector(insertToDb), for: .touchUpInside)
-        //view.addSubview(button2)
-        //button2.addTarget(self, action: #selector(getData), for: .touchUpInside)
+        
+        statusContainer.addArrangedSubview(progressView)
+        statusContainer.addArrangedSubview(downloadProgressLabel)
+        statusContainer.addArrangedSubview(dbProgressLabel)
+        
+        view.addSubview(statusContainer)
         view.addSubview(tableView)
         layoutConstraints()
         
- 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
         //tableView.isHidden = true
         
-        //searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
@@ -114,32 +121,13 @@ class ViewController: UIViewController {
     }
     
     func layoutConstraints(){
+
+        progressView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 20, enableInsets: false)
         
-        progressView.anchor(top: view.layoutMarginsGuide.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.size.width - 20, height: 25, enableInsets: false)
+        statusContainer.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 0, enableInsets: true)
         
-        dbStatusLabel.anchor(top: progressView.bottomAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: view.frame.size.width - 20, height: 0, enableInsets: false)
+        tableView.anchor(top: statusContainer.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, enableInsets: false)
         
-        tableView.anchor(top: dbStatusLabel.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0, enableInsets: false)
-        
-        
-        
-        
-        
-//          NSLayoutConstraint.activate([
-//               progressView.heightAnchor.constraint(equalToConstant: 25),
-//               progressView.widthAnchor.constraint(equalToConstant: view.frame.size.width - 20),
-//               progressView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//               progressView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
-//               
-//              
-//               
-//               
-//               tableView.topAnchor.constraint(equalTo: progressView.bottomAnchor),
-//               tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//               tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//               tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//               
-//         ])
        }
     
 }
@@ -181,31 +169,29 @@ extension ViewController {
     }
     
     func showDownloadCompletion(status: DownloadStatus){
-        print("showDownloadCompletion", status)
         if case DownloadStatus.completed(let url) = status {
-            self.progressView.fadeOut()
-//            self.tableView.fadeIn()
-//            self.tableView.reloadData()
             self.insertData(fileUrl: url)
         } else{
-            self.progressView.fadeOut()
+            self.downloadProgressLabel.text = "Download complete"
+            self.statusContainer.fadeOut()
         }
     }
     
-    func showInsertProgress(value: Float) {
-        print("showInsertProgress " , value)
+    func showInsertProgress(value: Int) {
         DispatchQueue.main.async {
-            self.dbStatusLabel.text = "Inserted \(value) rows"
+            self.dbProgressLabel.text = " \(value) rows inserted"
         }
     }
     
     func showInsertCompletion(status: DatabaseStatus){
         print("showInsertCompletion ", status)
         if case .completed(let value) = status {
-            self.dbStatusLabel.text = "All rows inserted : \(value)"
+            self.dbProgressLabel.text = "All rows inserted : \(value)"
+            self.tableView.fadeIn()
+            self.tableView.reloadData()
         }
         else {
-            self.dbStatusLabel.text = "Database Insertion failed"
+            self.dbProgressLabel.text = "Database Insertion failed"
         }
         
     }

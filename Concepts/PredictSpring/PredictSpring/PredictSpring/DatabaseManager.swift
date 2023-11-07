@@ -292,7 +292,7 @@ class DatabaseManager {
         }
     }
     
-    func saveDataFromCSV(url: URL?, progressHandler: ((Float) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
+    func saveDataFromCSV(url: URL?, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
         performDBSetupChecks()
         guard let url = url else {
             print("File not found at location")
@@ -334,7 +334,7 @@ class DatabaseManager {
                 DispatchQueue.main.async {
                     self.progress += CGFloat(chunkSize)
                     let progressValue = Float(self.progress)
-                    progressHandler?(progressValue)
+                    progressHandler?(Int(progressValue))
                 }
                 autoreleasepool{
                     saveToDatabaseBatchProcessing(data: lines)
