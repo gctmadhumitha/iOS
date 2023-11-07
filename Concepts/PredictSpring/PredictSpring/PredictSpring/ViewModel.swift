@@ -22,8 +22,8 @@ class ProductsViewModel {
     var progress = 0
     
     var totalCount : Int {
-        print("products count : \(products.count)")
-        print("offset : \(offset)")
+        //print("products count : \(products.count)")
+        //print("offset : \(offset)")
         return products.count
     }
     
@@ -33,8 +33,10 @@ class ProductsViewModel {
     }
 
     func fetchProducts(id: String, isNewSearch: Bool = true){
-        print("Begin fetchProducts")
-        let products = dbManager.fetchProducts(withId: id, offset: offset)
+        if isNewSearch {
+            offset = 0
+        }
+        let products = dbManager.fetchProducts(withId: id, isNewSearch: isNewSearch, offset: offset)
         
         if let products = products {
             if(isNewSearch) {
@@ -58,6 +60,10 @@ class ProductsViewModel {
             completionHandler?(status)
         }
        
+    }
+    
+    func getRowCount() -> Int {
+        return self.dbManager.getRowCount()
     }
     
     func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){

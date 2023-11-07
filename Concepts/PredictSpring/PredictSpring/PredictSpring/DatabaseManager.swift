@@ -17,9 +17,13 @@ class DatabaseManager {
     var result: [Product] = []
     var progress: CGFloat = 0
     var total: CGFloat = 1
-    var databaseSaveComplete = false
+    var databaseSaveComplete = false {
+        didSet {
+            UserDefaults.standard.set(databaseSaveComplete, forKey: "isDatabaseSaveComplete")
+        }
+    }
     var noMoreDataInDB = false
-    var dataFetched = true
+    //var dataFetched = true
     typealias FinishedSaving = () -> ()
     
     func checkDBExists() -> Bool {
@@ -93,7 +97,7 @@ class DatabaseManager {
         var createTableStatement: OpaquePointer?
         
         let createTableString: String = """
-        CREATE TABLE PRODUCTS(productId VARCHAR(255) PRIMARY KEY NOT NULL,
+        CREATE TABLE PRODUCTS(productId TEXT PRIMARY KEY NOT NULL,
         title VARCHAR(255),
         listPrice,
         salesPrice,
@@ -125,40 +129,30 @@ class DatabaseManager {
         }
     }
 
-    func getDataOld(productId: String, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
+    func fetchProducts(withId id: String, isNewSearch: Bool = true, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
         if db == nil {
             openDatabase()
         }
-        let getDataString = """
-        SELECT *
-        FROM PRODUCTS
-        WHERE
-        productId LIKE ?
-        LIMIT ?
-        OFFSET ?;
-        """
+        var nid = id.trimmingCharacters(in: .whitespacesAndNewlines) as NSString
+        print("id is ::\(nid)::")
+        let getDataString = "SELECT * FROM PRODUCTS WHERE productId LIKE '%\(id)%' LIMIT 20 OFFSET \(offset);"
         
-//        let getDataString = """
-//        SELECT *
-//        FROM PRODUCTS
-//        LIMIT ?
-//        """
-        
-        if noMoreDataInDB {
+        if noMoreDataInDB && !isNewSearch {
             return nil
         }
 
-        let id = "'%\(productId)%'" as NSString
+        //let id = "\(id)" as NSString
         var getPointer: OpaquePointer?
         var tempResult: [Product] = []
+        print("ismainthread", Thread.isMainThread)
         if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
             SQLITE_OK {
             /// productId
-            sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
+            //sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
             ///Limit
-            sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
+            //sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
             ///Offset
-            sqlite3_bind_int(getPointer, 3, Int32(offset))
+            //sqlite3_bind_int(getPointer, 3, Int32(offset))
             while(sqlite3_step(getPointer) == SQLITE_ROW) {
                 let id = String(describing: String(cString: sqlite3_column_text(getPointer, 0)))
                 let title = String(describing: String(cString: sqlite3_column_text(getPointer, 1)))
@@ -169,84 +163,21 @@ class DatabaseManager {
                 
                 tempResult.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
                 
+                print("inside tempResult ", tempResult)
+                print("ismainthread", Thread.isMainThread)
+                
             }
-            if tempResult.count != rowsPerBatch {
+            if tempResult.count < rowsPerBatch {
                 DispatchQueue.main.async {
                     self.noMoreDataInDB = true
                 }
             }
             DispatchQueue.main.async {
                 self.result += tempResult
-                self.dataFetched = true
+                //self.dataFetched = true
             }
 
             print(result.count)
-        } else {
-            print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
-        }
-        sqlite3_finalize(getPointer)
-        return tempResult
-    }
-    
-    func fetchProducts(withId id: String, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
-        if db == nil {
-            openDatabase()
-        }
-        var mid = "99000025001002"
-        var nid=id.trimmingCharacters(in: .whitespacesAndNewlines)
-        if (nid==id) {
-            print("THEY ARE EQUAL")
-            
-        }else{
-            print("THEY ARE NOT  EQUAL")
-        }
-        print("id is ::\(nid)::")
-        let getDataString = """
-        SELECT *
-        FROM PRODUCTS
-        WHERE
-        productId LIKE '%\(nid)%'
-        LIMIT \(rowsPerBatch)
-        OFFSET \(offset);
-        """
-        
-        if noMoreDataInDB {
-            return nil
-        }
-
-//        let id = "99000025001002" as NSString
-        var getPointer: OpaquePointer?
-        var tempResult: [Product] = []
-        if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
-            SQLITE_OK {
-//            /// productId
-//            sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
-//            ///Limit
-//            sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
-//            ///Offset
-//            sqlite3_bind_int(getPointer, 3, Int32(offset))
-            while(sqlite3_step(getPointer) == SQLITE_ROW) {
-                let id = String(describing: String(cString: sqlite3_column_text(getPointer, 0)))
-                let title = String(describing: String(cString: sqlite3_column_text(getPointer, 1)))
-                let listPrice = sqlite3_column_double(getPointer, 2)
-                let salesPrice = sqlite3_column_double(getPointer, 3)
-                let color = String(describing: String(cString: sqlite3_column_text(getPointer, 4)))
-                let size = String(describing: String(cString: sqlite3_column_text(getPointer, 5)))
-                
-                tempResult.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
-                
-            }
-            if tempResult.count != rowsPerBatch {
-                DispatchQueue.main.async {
-                    self.noMoreDataInDB = true
-                }
-            }
-//            DispatchQueue.main.async {
-//                self.result += tempResult
-//                self.dataFetched = true
-//            }
-
-//            print(result.count)
         } else {
             print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
         }
@@ -301,7 +232,6 @@ class DatabaseManager {
 
         let path = url.path
         let fileSize = getSizeOfFile(path: path)
-        print("getRowCount() ::", getRowCount())
         if  fileSize == getRowCount() {
             DispatchQueue.main.async {
                 self.databaseSaveComplete = true
@@ -340,7 +270,6 @@ class DatabaseManager {
                     saveToDatabaseBatchProcessing(data: lines)
                     lines = []
                 }
-                
             }
             
         }

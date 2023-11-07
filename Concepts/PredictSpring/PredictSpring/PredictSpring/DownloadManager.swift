@@ -17,6 +17,7 @@ class DownloadManager: NSObject {
     
     var downloadComplete: Bool = false {
         didSet {
+            UserDefaults.standard.set(downloadComplete, forKey: "isDownloadComplete")
             if downloadComplete, let fileUrl = fileUrl {
                 self.completionHandler?(.completed((fileUrl)))
             }else{
@@ -41,7 +42,6 @@ class DownloadManager: NSObject {
     // MARK: - Initialization
     override init() {
         self.configuration = URLSessionConfiguration.background(withIdentifier: "backgroundTasks")
-        
         super.init()
     }
 
@@ -52,14 +52,11 @@ class DownloadManager: NSObject {
         
         let fileManager = FileManager.default
         fileUrl = directory.appendingPathComponent(url.lastPathComponent)
-        print("location.path @@@@ ", fileUrl?.path)
         self.completionHandler = completionHandler
         if let fileUrl = fileUrl, fileManager.fileExists(atPath: fileUrl.path) {
-            print("location.path @@@@ exists")
             self.completionHandler?(.completed(fileUrl))
         }
         else{
-            print("location.path @@doesn't exists")
             self.progressHandler = progressHandler
             self.completionHandler = completionHandler
             let task = session.downloadTask(with: url)

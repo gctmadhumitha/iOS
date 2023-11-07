@@ -17,8 +17,7 @@ class ViewController: UIViewController {
     var isNewSearch = true
     
     
-// MARK: - Views
-    
+    // MARK: - Views
     
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
@@ -34,7 +33,7 @@ class ViewController: UIViewController {
     private let downloadProgressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
         lbl.text = "Downloading...."
         return lbl
@@ -43,13 +42,12 @@ class ViewController: UIViewController {
     private let dbProgressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .body)
+        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
-        lbl.text = "Insert data to db : Not started"
+        lbl.text = "Save records to db : Not initiated"
         return lbl
     }()
     
-   
     
     private let statusContainer : UIStackView = {
         let stackView = UIStackView()
@@ -57,7 +55,6 @@ class ViewController: UIViewController {
         stackView.spacing = 10
         return stackView
     }()
-    
     
     private lazy var tableView: UITableView  = {
         let tableView = UITableView()
@@ -83,18 +80,29 @@ class ViewController: UIViewController {
         return searchController
     }()
     
-// MARK: - Main methods
+    private lazy var isDownloadComplete = UserDefaults.standard.bool(forKey: "isDownloadComplete")
+    private lazy var isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: "isDatabaseSaveComplete")
+    
+    
+    // MARK: - Main methods
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutUI()
-        downloadData(url: fileUrl)
-        fetchData()
+        print("isDownloadComplete" , isDownloadComplete)
+        print("isDatabaseSaveComplete" , isDatabaseSaveComplete)
+        if (isDownloadComplete && isDatabaseSaveComplete){
+            progressView.progress = 1
+            downloadProgressLabel.text = "File downloaded from google drive"
+            dbProgressLabel.text = "Records saved to SQLite database"
+           fetchData()
+        } else {
+            downloadData(url: fileUrl)
+        }
     }
 
 
     func layoutUI()
     {
-
         progressView.translatesAutoresizingMaskIntoConstraints = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
@@ -111,13 +119,14 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.isHidden = true
         
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
+        
+        
     }
     
     func layoutConstraints(){
@@ -155,12 +164,17 @@ extension ViewController {
     }
     
     func insertData(fileUrl: URL){
-        DispatchQueue.global(qos: .background).async {
-            self.viewModel.insert (url: fileUrl){ [weak self] value in
-                self?.showInsertProgress(value: value)
-            } completionHandler: { [weak self]  status in
-                self?.showInsertCompletion(status: status)
+        if !isDatabaseSaveComplete {
+            DispatchQueue.global(qos: .background).async {
+                self.viewModel.insert (url: fileUrl){ [weak self] value in
+                    self?.showInsertProgress(value: value)
+                } completionHandler: { [weak self]  status in
+                    self?.showInsertCompletion(status: status)
+                }
             }
+        } else{
+            //TO DO
+            fetchData()
         }
     }
     
@@ -169,29 +183,34 @@ extension ViewController {
     }
     
     func showDownloadCompletion(status: DownloadStatus){
-        if case DownloadStatus.completed(let url) = status {
-            self.insertData(fileUrl: url)
-        } else{
-            self.downloadProgressLabel.text = "Download complete"
-            self.statusContainer.fadeOut()
+        self.downloadProgressLabel.text = "Download complete"
+        
+        //TODO
+        if case DownloadStatus.completed(let url) = status
+        {
+            if !isDatabaseSaveComplete  {
+                self.insertData(fileUrl: url)
+            }
+        } else {
+            fetchData()
         }
     }
     
     func showInsertProgress(value: Int) {
         DispatchQueue.main.async {
-            self.dbProgressLabel.text = " \(value) rows inserted"
+            self.dbProgressLabel.text = " \(value) records saved"
         }
     }
     
     func showInsertCompletion(status: DatabaseStatus){
-        print("showInsertCompletion ", status)
         if case .completed(let value) = status {
-            self.dbProgressLabel.text = "All rows inserted : \(value)"
+            self.dbProgressLabel.text = "All records saved : \(value)"
             self.tableView.fadeIn()
             self.tableView.reloadData()
+            
         }
         else {
-            self.dbProgressLabel.text = "Database Insertion failed"
+            self.dbProgressLabel.text = "Failed to save records to the database"
         }
         
     }
@@ -201,31 +220,19 @@ extension ViewController {
 // Implementation for TableView Delegate methods
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("row : \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as! ProductCell
-//        if (hasSearchText) {
-//            cell.product = searchedProducts[indexPath.row]
-//        }
-//        else {
-            cell.product = viewModel.products[indexPath.row]
-       // }
+        cell.product = viewModel.products[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        print("willDisplay")
         if indexPath.row == viewModel.totalCount - 1 && !viewModel.hasReachedEndOfProducts {
             fetchData(isFirst: false)
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("numberOfRowsInSection ", viewModel.totalCount)
- //         if (hasSearchText) {
-//           return searchedProducts.count
-//        }
         return viewModel.totalCount
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -248,26 +255,14 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
 
 
 //// Implementation for SearchController Delegate methods
-extension ViewController : UISearchResultsUpdating, UISearchBarDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        isNewSearch = false
-        searchText = searchController.searchBar.searchTextField.text ?? ""
-        print("updateSearchResults searchText is \(searchText)")
-        if searchText.trimmingCharacters(in: .whitespacesAndNewlines).count > 0 {
-            searchedProducts = viewModel.products.filter {
-                $0.title.contains(searchText)
-            }
-        }
-    }
+extension ViewController : UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidEndEditing")
         searchText = searchController.searchBar.searchTextField.text ?? ""
         fetchData()
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("searchBarTextDidBeginEditing")
         searchText = ""
     }
 }

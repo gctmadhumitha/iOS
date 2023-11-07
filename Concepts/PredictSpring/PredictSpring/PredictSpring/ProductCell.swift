@@ -17,8 +17,8 @@ class ProductCell : UITableViewCell {
             productColorLabel.text = product?.color
             productSizeLabel.text = product?.size
             productIdLabel.text = product?.productId
-            productListPriceLabel.text =  String(format: "Tip Amount: $%.02f", product?.listPrice ?? "$0")
-            productSalePriceLabel.text =  String(format: "Tip Amount: $%.02f", product?.salesPrice ?? "$0")
+            productListPriceLabel.text =  String(format: "List Price: $%.02f", product?.listPrice ?? "$0")
+            productSalePriceLabel.text =  String(format: "Sale Price: $%.02f", product?.salesPrice ?? "$0")
         }
     }
     
@@ -49,7 +49,7 @@ class ProductCell : UITableViewCell {
     private let productIdLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .footnote)
+        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
         return lbl
     }()
