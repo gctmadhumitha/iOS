@@ -14,8 +14,12 @@ class ProductsViewModel {
     private let dbManager = DatabaseManager()
     private let productsPerBatch = 20
     private var offset = 0
-    private var reachedEndOfProducts = false
-    private var isFetchInProgress = false
+    
+    //For Read
+    var hasReachedEndOfProducts = false
+    
+    //For BatchInsert
+    var progress = 0
     
     var totalCount : Int {
         print("products count : \(products.count)")
@@ -27,30 +31,44 @@ class ProductsViewModel {
     func product(at index: Int) -> Product {
       return products[index]
     }
-    
-    func insert()
-    {
-        print("Begin insertToDb")
-        dbManager.saveDataFromCSV(url: fileUrl)
-        print("End insertToDb")
-    }
-    
-    func fetchProducts(){
+
+    func fetchProducts(id: String, isNewSearch: Bool = true){
         print("Begin get")
-        let products = dbManager.getData(productId: "", offset: offset)
+        let products = dbManager.fetchProducts(withId: id, offset: offset)
+        
         if let products = products {
-            self.products += products
-            self.offset += products.count
+            if(isNewSearch) {
+                self.products = products
+                self.offset  = products.count
+            } else{
+                self.products += products
+                self.offset += products.count
+            }
+            self.hasReachedEndOfProducts = false
+        } else {
+            self.hasReachedEndOfProducts = true
         }
     }
     
-    func download(url: String, progress: ((Float) -> Void)?, completion: ((DownloadStatus)->(Void))?){
+    func insert(url: URL, progressHandler: ((Float) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?)
+    {
+        self.dbManager.saveDataFromCSV(url: url) { value in
+            progressHandler?(value)
+        } completionHandler: { status in
+            completionHandler?(status)
+        }
+       
+    }
+    
+    func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){
         DownloadManager().download(url: url) {  value in
-            progress?(value)
-        } completion: { status in
-            completion?(status)
+            progressHandler?(value)
+        } completionHandler: { status in
+            completionHandler?(status)
         }
     }
+    
+    
     
     private func calculateIndexPathsToReload(from newProducts: [Product]) -> [IndexPath] {
       let startIndex = newProducts.count - newProducts.count

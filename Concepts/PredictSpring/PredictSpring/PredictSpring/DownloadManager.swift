@@ -45,7 +45,7 @@ class DownloadManager: NSObject {
         super.init()
     }
 
-    func download(url: String, progress: ((Float) -> Void)?, completion: ((DownloadStatus)->(Void))?){
+    func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){
         guard let url = URL(string: url) else {
             preconditionFailure("URL isn't true format!")
         }
@@ -53,22 +53,21 @@ class DownloadManager: NSObject {
         let fileManager = FileManager.default
         fileUrl = directory.appendingPathComponent(url.lastPathComponent)
         print("location.path @@@@ ", fileUrl?.path)
-        self.completionHandler = completion
+        self.completionHandler = completionHandler
         if let fileUrl = fileUrl, fileManager.fileExists(atPath: fileUrl.path) {
             print("location.path @@@@ exists")
             self.completionHandler?(.completed(fileUrl))
         }
         else{
             print("location.path @@doesn't exists")
-            self.progressHandler = progress
-            self.completionHandler = completion
+            self.progressHandler = progressHandler
+            self.completionHandler = completionHandler
             let task = session.downloadTask(with: url)
             task.resume()
         }
     }
 
 }
-
 
 
 extension DownloadManager: URLSessionDownloadDelegate {

@@ -31,9 +31,11 @@ class DatabaseManager {
     }
     
     func saveToDatabaseBatchProcessing(data: [String]) {
+        
         let rowInsertString = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         var insertPointer: OpaquePointer?
         sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
+        //sqlite3_commit_hook(db, callback, nil)
         if sqlite3_prepare_v2(db, rowInsertString, -1, &insertPointer, nil) ==
             SQLITE_OK {
             for content in data {
@@ -146,7 +148,7 @@ class DatabaseManager {
             return nil
         }
 
-        let id = "%\(productId)%" as NSString
+        let id = "'%\(productId)%'" as NSString
         var getPointer: OpaquePointer?
         var tempResult: [Product] = []
         if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
@@ -186,34 +188,43 @@ class DatabaseManager {
         return tempResult
     }
     
-    func getData(productId: String, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
+    func fetchProducts(withId id: String, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
         if db == nil {
             openDatabase()
         }
+        var mid = "99000025001002"
+        var nid=id.trimmingCharacters(in: .whitespacesAndNewlines)
+        if (nid==id) {
+            print("THEY ARE EQUAL")
+            
+        }else{
+            print("THEY ARE NOT  EQUAL")
+        }
+        print("id is ::\(nid)::")
         let getDataString = """
         SELECT *
         FROM PRODUCTS
         WHERE
-        productId LIKE ?
-        LIMIT ?
-        OFFSET ?;
+        productId LIKE '%\(nid)%'
+        LIMIT \(rowsPerBatch)
+        OFFSET \(offset);
         """
         
-//        if noMoreDataInDB {
-//            return nil
-//        }
+        if noMoreDataInDB {
+            return nil
+        }
 
-        let id = "%\(productId)%" as NSString
+//        let id = "99000025001002" as NSString
         var getPointer: OpaquePointer?
         var tempResult: [Product] = []
         if sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil) ==
             SQLITE_OK {
-            /// productId
-            sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
-            ///Limit
-            sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
-            ///Offset
-            sqlite3_bind_int(getPointer, 3, Int32(offset))
+//            /// productId
+//            sqlite3_bind_text(getPointer, 1, id.utf8String, -1, nil)
+//            ///Limit
+//            sqlite3_bind_int(getPointer, 2, Int32(rowsPerBatch))
+//            ///Offset
+//            sqlite3_bind_int(getPointer, 3, Int32(offset))
             while(sqlite3_step(getPointer) == SQLITE_ROW) {
                 let id = String(describing: String(cString: sqlite3_column_text(getPointer, 0)))
                 let title = String(describing: String(cString: sqlite3_column_text(getPointer, 1)))
@@ -225,11 +236,11 @@ class DatabaseManager {
                 tempResult.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
                 
             }
-//            if tempResult.count != rowsPerBatch {
-//                DispatchQueue.main.async {
-//                    self.noMoreDataInDB = true
-//                }
-//            }
+            if tempResult.count != rowsPerBatch {
+                DispatchQueue.main.async {
+                    self.noMoreDataInDB = true
+                }
+            }
 //            DispatchQueue.main.async {
 //                self.result += tempResult
 //                self.dataFetched = true
@@ -240,6 +251,8 @@ class DatabaseManager {
             print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
         }
         sqlite3_finalize(getPointer)
+        print("tempResult count", tempResult.count)
+        print("tempResult ", tempResult)
         return tempResult
     }
     
@@ -279,7 +292,7 @@ class DatabaseManager {
         }
     }
     
-    func saveDataFromCSV(url: URL?) {
+    func saveDataFromCSV(url: URL?, progressHandler: ((Float) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
         performDBSetupChecks()
         guard let url = url else {
             print("File not found at location")
@@ -299,7 +312,6 @@ class DatabaseManager {
             self.total = CGFloat(fileSize)
             self.progress = CGFloat(0)
         }
-        
         
         guard let file = freopen(path, "r", stdin) else {
             print("Cannot read file")
@@ -321,36 +333,34 @@ class DatabaseManager {
             if ((lineCounter % chunkSize) == 0) {
                 DispatchQueue.main.async {
                     self.progress += CGFloat(chunkSize)
+                    let progressValue = Float(self.progress)
+                    progressHandler?(progressValue)
                 }
                 autoreleasepool{
                     saveToDatabaseBatchProcessing(data: lines)
                     lines = []
                 }
+                
             }
+            
         }
         saveToDatabaseBatchProcessing(data: lines)
         DispatchQueue.main.async {
             self.databaseSaveComplete = true
+            let progressValue = Int(self.progress)
+            completionHandler?(.completed(progressValue))
         }
     }
     
-    func loadNext(id: String, inputString: String) {
-        if dataFetched {
-            let loadWhenItemsLeft = 5
-            if id == "" || id == result[result.count - loadWhenItemsLeft].id {
-                dataFetched = false
-                DispatchQueue.global().async {
-                    self.getData(productId: inputString, offset: 0)
-                }
-            }
-        }
-    }
-    
-    func newSearch(id: String, inputString: String) {
-        result = []
-        noMoreDataInDB = false
-        dataFetched = true
-        loadNext(id: "", inputString: inputString)
-    }
-    
+//    func callback(){
+//        self.progress += CGFloat(chunkSize)
+//        let progressValue = Float(self.progress)
+//        print("saveDataFromCSV progressValue :: \(progressValue)")
+//        progressHandler?(progressValue)
+//    }
+}
+
+enum DatabaseStatus{
+    case completed(Int)
+    case error
 }
