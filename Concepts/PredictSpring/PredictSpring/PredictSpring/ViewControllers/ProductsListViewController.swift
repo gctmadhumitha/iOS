@@ -11,11 +11,10 @@ import UIKit
 class ProductsListViewController: UIViewController {
     
     let fileUrl =   Constants.file_url
-    var viewModel = ProductsViewModel()
-    var searchedProducts = [Product]()
-    var searchText = ""
-    var prevSearchText = ""
-    var isNewSearch = true
+    private var viewModel = ProductsViewModel()
+    private var searchText = ""
+    private var prevSearchText = ""
+    private var isNewSearch = true
     
     // MARK: - Views
     private lazy var progressView: UIProgressView = {
@@ -29,7 +28,7 @@ class ProductsListViewController: UIViewController {
         return progressView
     }()
     
-    private let downloadProgressLabel : UILabel = {
+    private lazy var downloadProgressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor(hex: "#008080ff")
         lbl.font = UIFont.subheadline.with(weight: .bold)
@@ -38,7 +37,7 @@ class ProductsListViewController: UIViewController {
         return lbl
     }()
     
-    private let dbProgressLabel : UILabel = {
+    private lazy var dbProgressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor(hex: "#008080ff")
         lbl.font = UIFont.subheadline.with(weight: .bold)
@@ -48,7 +47,7 @@ class ProductsListViewController: UIViewController {
     }()
     
     
-    private let statusContainer : UIStackView = {
+    private lazy var statusContainer : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -95,14 +94,6 @@ class ProductsListViewController: UIViewController {
             default:
                 downloadData(url: fileUrl)
         }
-//        if (isDownloadComplete && isDatabaseSaveComplete){
-//            progressView.progress = 1.0
-//            downloadProgressLabel.text = "File downloaded from google drive"
-//            dbProgressLabel.text = "Records saved to SQLite database"
-//            fetchData()
-//        } else {
-//            downloadData(url: fileUrl)
-//        }
     }
     
     // Lays out UI components in the view
@@ -123,16 +114,13 @@ class ProductsListViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         view.addSubview(tableView)
-        
         layoutConstraints()
     }
     
     // Defines auto layout constraints
     func layoutConstraints(){
         progressView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 20, enableInsets: false)
-        
         statusContainer.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 0, enableInsets: true)
-        
         tableView.anchor(top: statusContainer.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, enableInsets: false)
     }
     
@@ -149,7 +137,6 @@ extension ProductsListViewController {
         //Reload for pagination
         self.tableView.fadeIn()
         self.tableView.reloadData()
-        
     }
     
     func downloadData(url: String){
@@ -173,7 +160,6 @@ extension ProductsListViewController {
         } else{
             fetchData(isFirst: true)
         }
-        
     }
 }
 
@@ -204,7 +190,6 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
         /// UITableView only moves in one direction, y axis
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
@@ -222,7 +207,7 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
 extension ProductsListViewController : UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-            searchText = ""
+        searchText = ""
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -253,14 +238,12 @@ extension ProductsListViewController {
     
     func showDownloadCompletion(status: DownloadStatus){
         self.downloadProgressLabel.text = "Download complete"
-        
-        if case DownloadStatus.completed(let url) = status
-        {
-            if !isDatabaseSaveComplete  {
+        if case DownloadStatus.completed(let url) = status {
+           if !isDatabaseSaveComplete  {
                 self.insertData(fileUrl: url)
             }
         }
-        else {
+        else{
             downloadProgressLabel.text = "Download error"
         }
     }
