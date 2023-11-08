@@ -2,20 +2,20 @@
 //  DownloadManager.swift
 //  PredictSpring
 //
-//  Created by Madhumitha Loganathan on 03/11/23.
+//  Created by Madhumitha Loganathan on 05/11/23.
 //
 
 import Foundation
-
+import UIKit
 
 class DownloadManager: NSObject {
-    var progress: Float = 0 {
+    private var progress: Float = 0 {
         didSet {
             self.progressHandler?(progress)
         }
     }
-    
-    var downloadComplete: Bool = false {
+    // UserDefaults updated as soon as the download is complete
+    private var downloadComplete: Bool = false {
         didSet {
             UserDefaults.standard.set(downloadComplete, forKey: Constants.isDownloadComplete)
             if downloadComplete, let fileUrl = fileUrl {
@@ -26,10 +26,10 @@ class DownloadManager: NSObject {
         }
     }
    
-    var fileUrl : URL?
-    var progressHandler: ((Float) -> Void)?
-    var completionHandler: ((DownloadStatus) -> Void)?
-    let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    private var fileUrl : URL?
+    private var progressHandler: ((Float) -> Void)?
+    private var completionHandler: ((DownloadStatus) -> Void)?
+    private let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
     
     // MARK: - Properties
     private var configuration: URLSessionConfiguration
@@ -45,8 +45,14 @@ class DownloadManager: NSObject {
         super.init()
     }
 
+    // Method to download file
     func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){
         guard let url = URL(string: url) else {
+            completionHandler?(.error)
+            return
+        }
+        
+        guard UIApplication.shared.canOpenURL(url as URL) else {
             completionHandler?(.error)
             return
         }

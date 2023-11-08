@@ -2,7 +2,7 @@
 //  ViewModel.swift
 //  PredictSpring
 //
-//  Created by Madhumitha Loganathan on 04/11/23.
+//  Created by Madhumitha Loganathan on 05/11/23.
 //
 
 import Foundation
@@ -54,7 +54,7 @@ class ProductsViewModel {
     
     func insert(url: URL, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?)
     {
-        self.dbManager.saveDataFromCSV(url: url) { value in
+        self.dbManager.importDataFromFile(url: url) { value in
             progressHandler?(value)
         } completionHandler: { status in
             completionHandler?(status)

@@ -2,7 +2,7 @@
 //  DatabaseManager.swift
 //  PredictSpring
 //
-//  Created by Madhumitha Loganathan on 03/11/23.
+//  Created by Madhumitha Loganathan on 05/11/23.
 //
 
 import Foundation
@@ -10,15 +10,9 @@ import SQLite3
 
 class DatabaseManager {
     
-    private var dbName = Constants.db_name
-    init(dbName: String = Constants.db_name){
-        self.dbName = dbName
-    }
+    private var dbName = Constants.databaseName
     private let filePath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-    
-    var db: OpaquePointer?
-    //private var result: [Product] = []
-    private var progress: CGFloat = 0
+    private var linesRead : CGFloat = 0
     private var total: CGFloat = 1
     private var databaseSaveComplete = false {
         didSet {
@@ -26,6 +20,11 @@ class DatabaseManager {
         }
     }
     private var allRecordsFetched = false
+    var databasePointer: OpaquePointer?
+    
+    init(dbName: String = Constants.databaseName){
+        self.dbName = dbName
+    }
     
     // Method to Open SQLite Database
     func openDatabase() {
@@ -33,7 +32,7 @@ class DatabaseManager {
             print("Database does not exist")
             return
         }
-        if sqlite3_open(databasePath.path, &db) == SQLITE_OK {
+        if sqlite3_open(databasePath.path, &databasePointer) == SQLITE_OK {
             print("Database connection successful")
         } else {
             print("Not able to open database")
@@ -52,9 +51,10 @@ class DatabaseManager {
     
     // Lookup for Table
     func checkTableExists() -> Bool {
+        
         var tablePointer: OpaquePointer?
         let tableExistString = "SELECT name FROM sqlite_master WHERE type='table' AND name='PRODUCTS';"
-        if sqlite3_prepare_v2(db, tableExistString, -1, &tablePointer, nil) == SQLITE_OK {
+        if sqlite3_prepare_v2(databasePointer, tableExistString, -1, &tablePointer, nil) == SQLITE_OK {
             if sqlite3_step(tablePointer) == SQLITE_ROW {
                 sqlite3_finalize(tablePointer)
                 return true
@@ -67,6 +67,7 @@ class DatabaseManager {
     // Creating Products Table
     func createTable() {
         var createTablePointer: OpaquePointer?
+        
         let createTableQuery: String = """
         CREATE TABLE PRODUCTS(productId TEXT PRIMARY KEY NOT NULL,
         title VARCHAR(255),
@@ -75,7 +76,8 @@ class DatabaseManager {
         color VARCHAR(255),
         size VARCHAR(255));
         """
-        if sqlite3_prepare_v2(db, createTableQuery, -1, &createTablePointer, nil) == SQLITE_OK {
+        
+        if sqlite3_prepare_v2(databasePointer, createTableQuery, -1, &createTablePointer, nil) == SQLITE_OK {
             if sqlite3_step(createTablePointer) == SQLITE_DONE {
                 print("\n PRODUCTS table created")
             } else {
@@ -89,10 +91,12 @@ class DatabaseManager {
 
     // Insert data to Table
     func insertProducts(data: [String]) {
+        
         var insertPointer: OpaquePointer?
         let insertQuery = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
-        sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
-        if sqlite3_prepare_v2(db, insertQuery, -1, &insertPointer, nil) ==
+        
+        sqlite3_exec(databasePointer, "BEGIN TRANSACTION", nil, nil, nil);
+        if sqlite3_prepare_v2(databasePointer, insertQuery, -1, &insertPointer, nil) ==
             SQLITE_OK {
             for content in data {
                 let columns = content.split(separator: ",")
@@ -114,25 +118,28 @@ class DatabaseManager {
                 sqlite3_reset(insertPointer)
             }
         } else {
-            print(sqlite3_prepare_v2(db, insertQuery, -1, &insertPointer, nil))
+            print(sqlite3_prepare_v2(databasePointer, insertQuery, -1, &insertPointer, nil))
         }
-        sqlite3_exec(db, "COMMIT TRANSACTION", nil, nil, nil);
+        sqlite3_exec(databasePointer, "COMMIT TRANSACTION", nil, nil, nil);
         sqlite3_finalize(insertPointer)
     }
     
     
     // Queries PRODUCTS table for records containing 'id' string and returns the matching products
     func fetchProducts(withId id: String, isNewSearch: Bool = true, offset: Int = 0, rowsPerBatch: Int = 20) -> [Product]? {
-        if db == nil {
+        
+        if databasePointer == nil {
             openDatabase()
         }
+        
         if allRecordsFetched && !isNewSearch {
             return nil
         }
+        
         var fetchPointer: OpaquePointer?
         let fetchProductsQuery = "SELECT * FROM PRODUCTS WHERE productId LIKE '%\(id)%' LIMIT 20 OFFSET \(offset);"
         var products: [Product] = []
-        if sqlite3_prepare_v2(db, fetchProductsQuery, -1, &fetchPointer, nil) ==
+        if sqlite3_prepare_v2(databasePointer, fetchProductsQuery, -1, &fetchPointer, nil) ==
             SQLITE_OK {
             while(sqlite3_step(fetchPointer) == SQLITE_ROW) {
                 let id = String(describing: String(cString: sqlite3_column_text(fetchPointer, 0)))
@@ -144,36 +151,32 @@ class DatabaseManager {
                 
                 products.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
             }
-
             DispatchQueue.main.async{
-                //self.result += products
                 if products.count < rowsPerBatch {
                     self.allRecordsFetched = true
                 }
             }
         } else {
-            print(sqlite3_prepare_v2(db, fetchProductsQuery, -1, &fetchPointer, nil))
+            print(sqlite3_prepare_v2(databasePointer, fetchProductsQuery, -1, &fetchPointer, nil))
         }
         sqlite3_finalize(fetchPointer)
         return products
     }
     
-    
+    // Deletes matching records from DB
     func deleteProducts(withId id: String) -> Bool {
         if id.count < 1 {
             return false
         }
-        if db == nil {
+        if databasePointer == nil {
             openDatabase()
         }
         var deletePointer: OpaquePointer?
-        let deleteDataQuery = "DELETE FROM PRODUCTS WHERE productId LIKE ?;"
-        let id =  "'%\(id)%'" as NSString
+        let deleteDataQuery = "DELETE FROM PRODUCTS WHERE productId LIKE '%\(id)%';"
         var isDeleteSuccessful = false
-        if sqlite3_prepare_v2(db, deleteDataQuery, -1, &deletePointer, nil) ==
+        
+        if sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil) ==
             SQLITE_OK {
-            /// productId
-            sqlite3_bind_text(deletePointer, 1, id.utf8String, -1, nil)
             if sqlite3_step(deletePointer) == SQLITE_DONE {
                 isDeleteSuccessful = true
                 print("Successfully deleted rows.")
@@ -181,7 +184,7 @@ class DatabaseManager {
                 print("Could not delete rows.")
             }
         } else {
-            print(sqlite3_prepare_v2(db, deleteDataQuery, -1, &deletePointer, nil))
+            print(sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil))
         }
         sqlite3_finalize(deletePointer)
         return isDeleteSuccessful
@@ -192,12 +195,71 @@ class DatabaseManager {
         var count = 0
         var countPointer: OpaquePointer?
         let countQuery = "SELECT count(*) from PRODUCTS;"
-        if sqlite3_prepare(db, countQuery, -1, &countPointer, nil) == SQLITE_OK{
+        if sqlite3_prepare(databasePointer, countQuery, -1, &countPointer, nil) == SQLITE_OK{
               while(sqlite3_step(countPointer) == SQLITE_ROW){
                    count = Int(sqlite3_column_int(countPointer, 0))
               }
         }
         return count
+    }
+    
+    func importDataFromFile(url: URL?, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
+        if databasePointer == nil {
+            openDatabase()
+        }
+        if !checkTableExists() {
+            createTable()
+        }
+        guard let url = url else {
+            print("File not found at location")
+            return
+        }
+        let path = url.path
+        let fileSize = getSizeOfFile(path: path)
+        let rowCount = getRowCount()
+        
+        DispatchQueue.main.async {
+            if fileSize == rowCount {
+                self.databaseSaveComplete = true
+            }
+            self.total = CGFloat(fileSize)
+            self.linesRead = CGFloat(0)
+        }
+        
+        guard let file = freopen(path, "r", stdin) else {
+            print("Cannot read file")
+            return
+        }
+        defer {
+            fclose(file)
+        }
+        
+        // Skip first line
+        _ = readLine()
+        
+        var lines: [String] = []
+        var lineCounter = 0
+        let linesPerBlock = 5000
+        while let line = readLine() {
+            lines.append(line)
+            lineCounter += 1
+            if ((lineCounter % linesPerBlock) == 0) {
+                DispatchQueue.main.async {
+                    self.linesRead += CGFloat(linesPerBlock)
+                    progressHandler?(Int(self.linesRead))
+                }
+                autoreleasepool{
+                    insertProducts(data: lines)
+                    lines = []
+                }
+            }
+            
+        }
+        insertProducts(data: lines)
+        DispatchQueue.main.async {
+            self.databaseSaveComplete = true
+            completionHandler?(.completed(Int(self.linesRead)))
+        }
     }
     
     func getSizeOfFile(path: String) -> Int {
@@ -224,71 +286,6 @@ class DatabaseManager {
         }
         UserDefaults.standard.set(lines, forKey: key)
         return lines
-    }
-    
-    func performDBSetupChecks() {
-        if db == nil {
-            openDatabase()
-        }
-        if !checkTableExists() {
-            createTable()
-        }
-    }
-    
-    func saveDataFromCSV(url: URL?, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
-        performDBSetupChecks()
-        guard let url = url else {
-            print("File not found at location")
-            return
-        }
-        let path = url.path
-        let fileSize = getSizeOfFile(path: path)
-        if  fileSize == getRowCount() {
-            DispatchQueue.main.async {
-                self.databaseSaveComplete = true
-            }
-            return
-        }
-        DispatchQueue.main.async {
-            self.total = CGFloat(fileSize)
-            self.progress = CGFloat(0)
-        }
-        guard let file = freopen(path, "r", stdin) else {
-            print("Cannot read file")
-            return
-        }
-        defer {
-            fclose(file)
-        }
-        
-        // Skip first line
-        _ = readLine()
-        
-        var lines: [String] = []
-        var lineCounter = 0
-        let chunkSize = 5000
-        while let line = readLine() {
-            lines.append(line)
-            lineCounter += 1
-            if ((lineCounter % chunkSize) == 0) {
-                DispatchQueue.main.async {
-                    self.progress += CGFloat(chunkSize)
-                    let progressValue = Float(self.progress)
-                    progressHandler?(Int(progressValue))
-                }
-                autoreleasepool{
-                    insertProducts(data: lines)
-                    lines = []
-                }
-            }
-            
-        }
-        insertProducts(data: lines)
-        DispatchQueue.main.async {
-            self.databaseSaveComplete = true
-            let progressValue = Int(self.progress)
-            completionHandler?(.completed(progressValue))
-        }
     }
     
 }

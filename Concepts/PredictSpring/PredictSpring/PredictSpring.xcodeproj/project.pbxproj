@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C2057DB92AF596D400051F5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DB82AF596D400051F5F /* AppDelegate.swift */; };
 		C2057DBB2AF596D400051F5F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBA2AF596D400051F5F /* SceneDelegate.swift */; };
-		C2057DBD2AF596D400051F5F /* ProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */; };
+		C2057DBD2AF596D400051F5F /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057DBC2AF596D400051F5F /* ProductsViewController.swift */; };
 		C2057DC32AF596D400051F5F /* PredictSpring.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2057DC12AF596D400051F5F /* PredictSpring.xcdatamodeld */; };
 		C2057DC52AF596D600051F5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2057DC42AF596D600051F5F /* Assets.xcassets */; };
 		C2057DC82AF596D600051F5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2057DC62AF596D600051F5F /* LaunchScreen.storyboard */; };
@@ -42,7 +42,7 @@
 		C2057DB52AF596D400051F5F /* PredictSpring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PredictSpring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2057DB82AF596D400051F5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2057DBA2AF596D400051F5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsListViewController.swift; sourceTree = "<group>"; };
+		C2057DBC2AF596D400051F5F /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		C2057DC22AF596D400051F5F /* PredictSpring.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PredictSpring.xcdatamodel; sourceTree = "<group>"; };
 		C2057DC42AF596D600051F5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2057DC72AF596D600051F5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		C2057E052AFAAACD00051F5F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C2057DBC2AF596D400051F5F /* ProductsListViewController.swift */,
+				C2057DBC2AF596D400051F5F /* ProductsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -291,7 +291,7 @@
 				C2057DC32AF596D400051F5F /* PredictSpring.xcdatamodeld in Sources */,
 				C2057E222AFB505A00051F5F /* UIColor+extension.swift in Sources */,
 				C2057DD02AF5A11200051F5F /* DownloadManager.swift in Sources */,
-				C2057DBD2AF596D400051F5F /* ProductsListViewController.swift in Sources */,
+				C2057DBD2AF596D400051F5F /* ProductsViewController.swift in Sources */,
 				C2057DB92AF596D400051F5F /* AppDelegate.swift in Sources */,
 				C2057DFE2AF962D100051F5F /* ProductCell.swift in Sources */,
 				C2057DBB2AF596D400051F5F /* SceneDelegate.swift in Sources */,
@@ -456,12 +456,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredictSpring/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,12 +484,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PredictSpring/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projects.PredictSpringTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,6 +530,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.projects.PredictSpringTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  PredictSpring
 //
-//  Created by Madhumitha Loganathan on 03/11/23.
+//  Created by Madhumitha Loganathan on 05/11/23.
 //
 
 import UIKit
@@ -18,10 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let scene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: scene)
-        self.window?.rootViewController = UINavigationController(rootViewController: ProductsListViewController())
+        self.window?.rootViewController = UINavigationController(rootViewController: ProductsViewController())
         self.window?.makeKeyAndVisible()
-        
-            }
+  }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

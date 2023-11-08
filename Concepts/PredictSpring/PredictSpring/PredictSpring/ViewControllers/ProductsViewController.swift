@@ -1,16 +1,17 @@
 //
-//  ViewController.swift
+//  ProductsViewController.swift
 //  PredictSpring
 //
-//  Created by Madhumitha Loganathan on 03/11/23.
+//  Created by Madhumitha Loganathan on 05/11/23.
 //
 
 import UIKit
 
+
 // Main ViewController to display the records from the file and to lookup by product Id
-class ProductsListViewController: UIViewController {
+class ProductsViewController: UIViewController {
     
-    let fileUrl =   Constants.file_url
+    private let fileUrl =   Constants.fileUrl
     private var viewModel = ProductsViewModel()
     private var searchText = ""
     private var prevSearchText = ""
@@ -78,15 +79,15 @@ class ProductsListViewController: UIViewController {
     
     
     // MARK: - Main methods
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         layoutUI()
         switch (isDownloadComplete, isDatabaseSaveComplete)
         {
             case (true, true):
                 progressView.progress = 1.0
-                downloadProgressLabel.text = "File downloaded from google drive"
-                dbProgressLabel.text = "Records saved to SQLite database"
+                downloadProgressLabel.text = "File already downloaded from google drive"
+                dbProgressLabel.text = "Records already saved to SQLite database"
                 fetchData()
             case (true, false):
                 progressView.progress = 1.0
@@ -97,23 +98,22 @@ class ProductsListViewController: UIViewController {
     }
     
     // Lays out UI components in the view
-    func layoutUI()
-    {
+    func layoutUI(){
         statusContainer.addArrangedSubview(progressView)
         statusContainer.addArrangedSubview(downloadProgressLabel)
         statusContainer.addArrangedSubview(dbProgressLabel)
         view.addSubview(statusContainer)
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        toggleSearchBar()
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
         view.addSubview(tableView)
+        toggleSearchBar()
         layoutConstraints()
     }
     
@@ -128,7 +128,7 @@ class ProductsListViewController: UIViewController {
 
 
 // Methods to perform Download and Database operations
-extension ProductsListViewController {
+extension ProductsViewController {
     
     func fetchData(isFirst: Bool = true){
         let isNewSearch  = ( prevSearchText != searchText ) ? true : false
@@ -166,7 +166,7 @@ extension ProductsListViewController {
 
 
 // TableView Delegate methods
-extension ProductsListViewController : UITableViewDelegate, UITableViewDataSource {
+extension ProductsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductCell.reuseIdentifier, for: indexPath) as! ProductCell
         cell.product = viewModel.products[indexPath.row]
@@ -174,6 +174,7 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        /// Pagination logic
         if indexPath.row == viewModel.totalCount - 1 && !viewModel.hasReachedEndOfProducts {
             fetchData(isFirst: false)
         }
@@ -181,6 +182,7 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let totalCount = viewModel.totalCount
+        /// Empty state for tableview
         tableView.backgroundView = (totalCount == 0 && isDatabaseSaveComplete) ? EmptyView(frame: tableView.bounds) : nil
         return totalCount
     }
@@ -189,6 +191,7 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
         return UITableView.automaticDimension
     }
     
+    /// Delegate method for Pagination
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         /// UITableView only moves in one direction, y axis
         let currentOffset = scrollView.contentOffset.y
@@ -204,7 +207,7 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
 
 
 // SearchBar Delegate methods
-extension ProductsListViewController : UISearchBarDelegate {
+extension ProductsViewController : UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchText = ""
@@ -220,8 +223,8 @@ extension ProductsListViewController : UISearchBarDelegate {
         fetchData()
     }
     
-    func toggleSearchBar()
-    {
+    func toggleSearchBar(){
+        /// Enable Search bar after records are inserted into database
         isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
         searchController.searchBar.isUserInteractionEnabled = isDatabaseSaveComplete
     }
@@ -231,11 +234,14 @@ extension ProductsListViewController : UISearchBarDelegate {
 
 // Completion Handlers for Download and Save tasks
 // Could use protocols/delegates too
-extension ProductsListViewController {
+extension ProductsViewController {
+    
+    /// Progress handler to update the progress view bar
     func showDownloadProgress(value: Float) {
         self.progressView.progress = value
     }
     
+    /// Completion Handler for download Completion
     func showDownloadCompletion(status: DownloadStatus){
         self.downloadProgressLabel.text = "Download complete"
         if case DownloadStatus.completed(let url) = status {
@@ -248,12 +254,14 @@ extension ProductsListViewController {
         }
     }
     
+    /// Progress hander to update UI with the number of records saved in the database
     func showInsertProgress(value: Int) {
         DispatchQueue.main.async {
             self.dbProgressLabel.text = "\(value) records saved"
         }
     }
     
+    /// Completion Handler called after all records are saved
     func showInsertCompletion(status: DatabaseStatus){
         if case .completed(let value) = status {
             self.dbProgressLabel.text = "All records saved : \(value)"

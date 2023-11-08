@@ -16,15 +16,15 @@ final class DatabaseManagerTests: XCTestCase {
     override func setUpWithError() throws {
         dbManager = DatabaseManager(dbName: "DB-test")
         dbManager.openDatabase()
-        XCTAssertNotNil(dbManager.db)
+        XCTAssertNotNil(dbManager.databasePointer)
         if (!dbManager.checkTableExists()){
             dbManager.createTable()
         }
     }
     
-    func test_UnitTestDatabaseTask_invalid() {
+    func testDatabaseTaskValid() {
         dbManager.openDatabase()
-        XCTAssertNotNil(dbManager.db)
+        XCTAssertNotNil(dbManager.databasePointer)
         if (!dbManager.checkTableExists()){
             dbManager.createTable()
         }
@@ -33,31 +33,31 @@ final class DatabaseManagerTests: XCTestCase {
         // Call method to insert records from test file
         if let filePath = Bundle(for: DownloadManagerTests.self).path(forResource: "test", ofType: "csv") {
             let fileUrl = URL(fileURLWithPath: filePath)
-            dbManager.saveDataFromCSV(url: fileUrl, progressHandler: nil,completionHandler: nil)
+            dbManager.importDataFromFile(url: fileUrl, progressHandler: nil,completionHandler: nil)
         }else{
             XCTFail("Test file not found")
         }
         
         // Check for inserted records
-        var insertedProducts = dbManager.fetchProducts(withId: "TEST", isNewSearch: true, offset: 0)
-        XCTAssertNotNil(insertedProducts)
-        XCTAssertEqual(insertedProducts!.count, 4)
-        
-        var rowCount = dbManager.getRowCount()
-        XCTAssertEqual(rowCount, 4)
+        var fetchedProducts = dbManager.fetchProducts(withId: "TEST", isNewSearch: true, offset: 0)
+        XCTAssertNotNil(fetchedProducts)
+        XCTAssertEqual(fetchedProducts!.count, 4)
+        XCTAssertEqual(dbManager.getRowCount(), 4)
         
         // Delete the inserted records
-        let deletedProducts = dbManager.deleteProducts(withId: "TEST")
+        let deleteStatus = dbManager.deleteProducts(withId: "TEST")
+        XCTAssertTrue(deleteStatus)
         
         // Check for the same records
-        insertedProducts = dbManager.fetchProducts(withId: "TEST", isNewSearch: true, offset: 0)
-        XCTAssertNotNil(insertedProducts)
-        XCTAssertEqual(insertedProducts!.count, 0)
+        fetchedProducts = dbManager.fetchProducts(withId: "TEST", isNewSearch: true, offset: 0)
+        XCTAssertNotNil(fetchedProducts)
+        XCTAssertEqual(fetchedProducts!.count, 0)
        
     }
 
     override func tearDownWithError() throws {
         dbManager = nil
+        UserDefaults.standard.setValue(false, forKey: Constants.isDatabaseSaveComplete)
     }
     
 }

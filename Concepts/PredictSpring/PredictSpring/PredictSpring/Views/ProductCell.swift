@@ -24,7 +24,6 @@ class ProductCell : UITableViewCell {
     
     private let productTitleLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .title3)
         lbl.textAlignment = .left
         return lbl
@@ -32,7 +31,6 @@ class ProductCell : UITableViewCell {
     
     private let productColorLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .body)
         lbl.textAlignment = .left
         return lbl
@@ -40,7 +38,6 @@ class ProductCell : UITableViewCell {
     
     private let productSizeLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .body)
         lbl.textAlignment = .left
         return lbl
@@ -48,7 +45,6 @@ class ProductCell : UITableViewCell {
     
     private let productIdLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
         return lbl
@@ -56,7 +52,6 @@ class ProductCell : UITableViewCell {
     
     private let productListPriceLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
         return lbl
@@ -64,7 +59,6 @@ class ProductCell : UITableViewCell {
     
     private let productSalePriceLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
         lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
         lbl.textAlignment = .left
         return lbl
