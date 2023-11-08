@@ -36,7 +36,6 @@ class DatabaseManager {
     }
     
     func saveToDatabaseBatchProcessing(data: [String]) {
-        print("saveToDatabaseBatchProcessing data ", data)
         let rowInsertString = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         var insertPointer: OpaquePointer?
         sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
@@ -160,9 +159,6 @@ class DatabaseManager {
                 
                 tempResult.append(Product(productId: id, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size))
                 
-                print("inside tempResult ", tempResult)
-                print("ismainthread", Thread.isMainThread)
-                
             }
             if tempResult.count < rowsPerBatch {
                 DispatchQueue.main.async {
@@ -174,7 +170,6 @@ class DatabaseManager {
                 //self.dataFetched = true
             }
 
-            print(result.count)
         } else {
             print(sqlite3_prepare_v2(db, getDataString, -1, &getPointer, nil))
         }
@@ -184,6 +179,7 @@ class DatabaseManager {
     
     
     func deleteProducts(withId id: String) -> Bool {
+        
         if id.count < 1 {
             return false
         }

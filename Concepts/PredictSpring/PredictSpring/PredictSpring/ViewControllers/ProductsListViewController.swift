@@ -62,48 +62,47 @@ class ProductsListViewController: UIViewController {
         return tableView
     }()
     
-    private lazy var searchBar : UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        searchBar.isUserInteractionEnabled = false
-        searchBar.alpha = 0.75
-        return searchBar
-    }()
-    
-    private lazy var searchButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Search", for: .normal)
-        return button
-    }()
-    
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.placeholder = "Enter product name"
+        searchController.searchBar.isUserInteractionEnabled = false
         searchController.searchBar.searchBarStyle = .minimal
         return searchController
     }()
     
-    private lazy var isDownloadComplete = UserDefaults.standard.bool(forKey: Constants.isDownloadComplete)
-    private lazy var isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete) {
-        didSet {
-            searchBar.isUserInteractionEnabled = isDatabaseSaveComplete
-            searchBar.alpha = isDatabaseSaveComplete ? 0 : 1
-        }
-    }
+    private lazy var isDownloadComplete : Bool = {
+       return UserDefaults.standard.bool(forKey: Constants.isDownloadComplete)
+    }()
+    private lazy var isDatabaseSaveComplete : Bool = {
+        return UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
+    }()
     
     
     // MARK: - Main methods
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutUI()
-        if (isDownloadComplete && isDatabaseSaveComplete){
-            progressView.progress = 1
-            downloadProgressLabel.text = "File downloaded from google drive"
-            dbProgressLabel.text = "Records saved to SQLite database"
-            fetchData()
-        } else {
-            downloadData(url: fileUrl)
+        switch (isDownloadComplete, isDatabaseSaveComplete)
+        {
+            case (true, true):
+                progressView.progress = 1.0
+                downloadProgressLabel.text = "File downloaded from google drive"
+                dbProgressLabel.text = "Records saved to SQLite database"
+                fetchData()
+            case (true, false):
+                progressView.progress = 1.0
+                downloadProgressLabel.text = "File downloaded from google drive"
+            default:
+                downloadData(url: fileUrl)
         }
+//        if (isDownloadComplete && isDatabaseSaveComplete){
+//            progressView.progress = 1.0
+//            downloadProgressLabel.text = "File downloaded from google drive"
+//            dbProgressLabel.text = "Records saved to SQLite database"
+//            fetchData()
+//        } else {
+//            downloadData(url: fileUrl)
+//        }
     }
     
     // Lays out UI components in the view
@@ -119,6 +118,7 @@ class ProductsListViewController: UIViewController {
         tableView.dataSource = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
+        toggleSearchBar()
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
@@ -173,6 +173,7 @@ extension ProductsListViewController {
         } else{
             fetchData(isFirst: true)
         }
+        
     }
 }
 
@@ -234,11 +235,17 @@ extension ProductsListViewController : UISearchBarDelegate {
         fetchData()
     }
     
+    func toggleSearchBar()
+    {
+        isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
+        searchController.searchBar.isUserInteractionEnabled = isDatabaseSaveComplete
+    }
+    
 }
 
 
 // Completion Handlers for Download and Save tasks
-// Could use delegate too
+// Could use protocols/delegates too
 extension ProductsListViewController {
     func showDownloadProgress(value: Float) {
         self.progressView.progress = value
@@ -267,6 +274,7 @@ extension ProductsListViewController {
     func showInsertCompletion(status: DatabaseStatus){
         if case .completed(let value) = status {
             self.dbProgressLabel.text = "All records saved : \(value)"
+            self.toggleSearchBar()
             fetchData(isFirst: true)
         }
         else {
