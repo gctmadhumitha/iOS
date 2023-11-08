@@ -10,7 +10,10 @@ import SQLite3
 
 class DatabaseManager {
     
-    let dbName = Constants.db_name
+    var dbName = Constants.db_name
+    init(dbName: String = Constants.db_name){
+        self.dbName = dbName
+    }
     let filePath = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
     
     var db: OpaquePointer?
@@ -33,7 +36,7 @@ class DatabaseManager {
     }
     
     func saveToDatabaseBatchProcessing(data: [String]) {
-        
+        print("saveToDatabaseBatchProcessing data ", data)
         let rowInsertString = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         var insertPointer: OpaquePointer?
         sqlite3_exec(db, "BEGIN TRANSACTION", nil, nil, nil);
@@ -118,6 +121,7 @@ class DatabaseManager {
             print("DB path not available")
             return
         }
+        print("DB path :\(dBPath)")
         if sqlite3_open(dBPath.path, &db) == SQLITE_OK {
             print("Successfully connected to the DB")
         } else {
@@ -176,6 +180,35 @@ class DatabaseManager {
         }
         sqlite3_finalize(getPointer)
         return tempResult
+    }
+    
+    
+    func deleteProducts(withId id: String) -> Bool {
+        if id.count < 1 {
+            return false
+        }
+        if db == nil {
+            openDatabase()
+        }
+        let deleteDataString = "DELETE FROM PRODUCTS WHERE productId LIKE ?;"
+        var deletePointer: OpaquePointer?
+        let id =  "'%\(id)%'" as NSString
+        var isDeleteSuccessful = false
+        if sqlite3_prepare_v2(db, deleteDataString, -1, &deletePointer, nil) ==
+            SQLITE_OK {
+            /// productId
+            sqlite3_bind_text(deletePointer, 1, id.utf8String, -1, nil)
+            if sqlite3_step(deletePointer) == SQLITE_DONE {
+                isDeleteSuccessful = true
+                print("Successfully deleted row.")
+            } else {
+                print("Could not delete row.")
+            }
+        } else {
+            print(sqlite3_prepare_v2(db, deleteDataString, -1, &deletePointer, nil))
+        }
+        sqlite3_finalize(deletePointer)
+        return isDeleteSuccessful
     }
     
     func getSizeOfFile(path: String) -> Int {

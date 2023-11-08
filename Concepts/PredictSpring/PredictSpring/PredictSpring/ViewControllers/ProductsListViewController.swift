@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Main ViewController to display the records from the file and to lookup by product Id
 class ProductsListViewController: UIViewController {
     
     let fileUrl =   Constants.file_url
@@ -16,14 +17,11 @@ class ProductsListViewController: UIViewController {
     var prevSearchText = ""
     var isNewSearch = true
     
-    
     // MARK: - Views
-    
     private lazy var progressView: UIProgressView = {
         let progressView = UIProgressView(progressViewStyle: .bar)
-        progressView.trackTintColor = .gray
-        progressView.progressTintColor = .black
         progressView.trackTintColor = .clear
+        progressView.progressTintColor = .gray
         progressView.clipsToBounds = true
         progressView.layer.cornerRadius = 5
         progressView.layer.borderWidth = 1.0
@@ -33,8 +31,8 @@ class ProductsListViewController: UIViewController {
     
     private let downloadProgressLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
+        lbl.textColor = UIColor(hex: "#008080ff")
+        lbl.font = UIFont.subheadline.with(weight: .bold)
         lbl.textAlignment = .left
         lbl.text = "Downloading...."
         return lbl
@@ -42,10 +40,10 @@ class ProductsListViewController: UIViewController {
     
     private let dbProgressLabel : UILabel = {
         let lbl = UILabel()
-        lbl.textColor = .black
-        lbl.font = UIFont.preferredFont(forTextStyle: .caption1)
+        lbl.textColor = UIColor(hex: "#008080ff")
+        lbl.font = UIFont.subheadline.with(weight: .bold)
         lbl.textAlignment = .left
-        lbl.text = "Save records to db : Not initiated"
+        lbl.text = "No records saved to database"
         return lbl
     }()
     
@@ -67,6 +65,8 @@ class ProductsListViewController: UIViewController {
     private lazy var searchBar : UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
+        searchBar.isUserInteractionEnabled = false
+        searchBar.alpha = 0.75
         return searchBar
     }()
     
@@ -84,7 +84,12 @@ class ProductsListViewController: UIViewController {
     }()
     
     private lazy var isDownloadComplete = UserDefaults.standard.bool(forKey: Constants.isDownloadComplete)
-    private lazy var isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
+    private lazy var isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete) {
+        didSet {
+            searchBar.isUserInteractionEnabled = isDatabaseSaveComplete
+            searchBar.alpha = isDatabaseSaveComplete ? 0 : 1
+        }
+    }
     
     
     // MARK: - Main methods
@@ -121,7 +126,7 @@ class ProductsListViewController: UIViewController {
         
         layoutConstraints()
     }
-   
+    
     // Defines auto layout constraints
     func layoutConstraints(){
         progressView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 20, enableInsets: false)
@@ -142,10 +147,9 @@ extension ProductsListViewController {
         viewModel.fetchProducts(id: searchText.trimmingCharacters(in: .whitespacesAndNewlines), isNewSearch : isNewSearch)
         prevSearchText = searchText
         //Reload for pagination
-       // if !isFirst || isNewSearch {
-            self.tableView.fadeIn()
-            self.tableView.reloadData()
-       // }
+        self.tableView.fadeIn()
+        self.tableView.reloadData()
+        
     }
     
     func downloadData(url: String){
@@ -189,7 +193,9 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.totalCount
+        let totalCount = viewModel.totalCount
+        tableView.backgroundView = (totalCount == 0 && isDatabaseSaveComplete) ? EmptyView(frame: tableView.bounds) : nil
+        return totalCount
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -214,13 +220,8 @@ extension ProductsListViewController : UITableViewDelegate, UITableViewDataSourc
 // SearchBar Delegate methods
 extension ProductsListViewController : UISearchBarDelegate {
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchText = searchController.searchBar.searchTextField.text ?? ""
-        fetchData()
-    }
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchText = ""
+            searchText = ""
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -228,11 +229,16 @@ extension ProductsListViewController : UISearchBarDelegate {
         fetchData()
     }
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        fetchData()
+    }
+    
 }
 
 
 // Completion Handlers for Download and Save tasks
-// Could use delegate too 
+// Could use delegate too
 extension ProductsListViewController {
     func showDownloadProgress(value: Float) {
         self.progressView.progress = value
@@ -254,7 +260,7 @@ extension ProductsListViewController {
     
     func showInsertProgress(value: Int) {
         DispatchQueue.main.async {
-            self.dbProgressLabel.text = " \(value) records saved"
+            self.dbProgressLabel.text = "\(value) records saved"
         }
     }
     

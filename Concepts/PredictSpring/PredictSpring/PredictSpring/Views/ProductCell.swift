@@ -93,8 +93,8 @@ class ProductCell : UITableViewCell {
         bottomStackView.spacing = 5
         addSubview(bottomStackView)
         
-        topStackView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 15, paddingLeft: 5, paddingBottom: 15, paddingRight: 10, width: 0, height: 0, enableInsets: false)
-        bottomStackView.anchor(top: topStackView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 5, paddingBottom: 15, paddingRight: 10, width: 0, height: 0, enableInsets: false)
+        topStackView.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 15, paddingRight: 0, width: 0, height: 0, enableInsets: false)
+        bottomStackView.anchor(top: topStackView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 0, paddingBottom: 15, paddingRight: 0, width: 0, height: 0, enableInsets: false)
         
     }
     

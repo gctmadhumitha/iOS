@@ -7,47 +7,92 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "60E773FB-817C-4B75-9C1B-DA11B5A8406E"
+            uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PredictSpring/ViewControllers/ProductsListViewController.swift"
+            filePath = "PredictSpring/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
-            landmarkName = "fetchData(isFirst:)"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "deleteProducts(withId:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "60E773FB-817C-4B75-9C1B-DA11B5A8406E - 29ee5831edf15597"
+                  uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC - 4c845a5db095ea07"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PredictSpring.ProductsListViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String, isNewSearch: Swift.Bool, offset: Swift.Int, limit: Swift.Int) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
                   moduleName = "PredictSpring"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "145"
-                  endingLineNumber = "145"
-                  offsetFromSymbolStart = "606">
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "403">
                </Location>
                <Location
-                  uuid = "60E773FB-817C-4B75-9C1B-DA11B5A8406E - 29ee5831edf155f6"
+                  uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC - 1df4c3b97254f045"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PredictSpring.ProductsListViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
                   moduleName = "PredictSpring"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "146"
-                  endingLineNumber = "146"
-                  offsetFromSymbolStart = "648">
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC - 1df4c3b97254f045"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "598">
+               </Location>
+               <Location
+                  uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC - 1df4c3b97254f045"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "196"
+                  endingLineNumber = "196"
+                  offsetFromSymbolStart = "579">
+               </Location>
+               <Location
+                  uuid = "9B003B99-749E-4FD0-8448-9F951B0A51BC - 53818cb32f1988a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "195"
+                  endingLineNumber = "195"
+                  offsetFromSymbolStart = "366">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,47 +100,77 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F684D0AD-0B85-485A-B9CC-C132BC78AC84"
+            uuid = "67A6849E-DA8E-41E8-A14E-EBF960B3B777"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PredictSpring/ViewControllers/ProductsListViewController.swift"
+            filePath = "PredictSpring/Helpers/DatabaseManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "fetchData(isFirst:)"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "deleteProducts(withId:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F684D0AD-0B85-485A-B9CC-C132BC78AC84 - 29ee5831edf15549"
+                  uuid = "67A6849E-DA8E-41E8-A14E-EBF960B3B777 - 1df4c3b97254f320"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PredictSpring.ProductsListViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
                   moduleName = "PredictSpring"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "550">
+                  startingLineNumber = "201"
+                  endingLineNumber = "201"
+                  offsetFromSymbolStart = "1495">
                </Location>
                <Location
-                  uuid = "F684D0AD-0B85-485A-B9CC-C132BC78AC84 - 29ee5831edf15549"
+                  uuid = "67A6849E-DA8E-41E8-A14E-EBF960B3B777 - 1df4c3b97254f30f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "PredictSpring.ProductsListViewController.fetchData(isFirst: Swift.Bool) -&gt; ()"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
                   moduleName = "PredictSpring"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "589">
+                  startingLineNumber = "202"
+                  endingLineNumber = "202"
+                  offsetFromSymbolStart = "1392">
+               </Location>
+               <Location
+                  uuid = "67A6849E-DA8E-41E8-A14E-EBF960B3B777 - 1df4c3b97254f3c9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "208"
+                  endingLineNumber = "208"
+                  offsetFromSymbolStart = "1411">
+               </Location>
+               <Location
+                  uuid = "67A6849E-DA8E-41E8-A14E-EBF960B3B777 - 53818cb32f198804"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.DatabaseManager.deleteProducts(withId: Swift.String) -&gt; Swift.Bool"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Helpers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
+                  offsetFromSymbolStart = "1459">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -103,33 +178,145 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CB302AE7-56F0-4842-A755-0ED5703A79AD"
+            uuid = "089E5028-1044-477F-8ACD-E9D7A5B430EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PredictSpring/ViewControllers/ProductsListViewController.swift"
+            filePath = "PredictSpring/Views/EmptyView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "showDownloadCompletion(status:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "init(frame:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "089E5028-1044-477F-8ACD-E9D7A5B430EA - 18ed17e82ed06663"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.EmptyView.init(frame: __C.CGRect) -&gt; PredictSpring.EmptyView"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Views/EmptyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "201">
+               </Location>
+               <Location
+                  uuid = "089E5028-1044-477F-8ACD-E9D7A5B430EA - 18ed17e82ed079ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.EmptyView.init(frame: __C.CGRect) -&gt; PredictSpring.EmptyView"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/Views/EmptyView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2615027C-0DD6-47A6-8A9D-A7F43331019C"
+            uuid = "C4A0FE50-FE02-484D-8807-AFF9ED012DA3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PredictSpring/ViewControllers/ProductsListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "showDownloadCompletion(status:)"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
+            landmarkName = "searchBarTextDidBeginEditing(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C4A0FE50-FE02-484D-8807-AFF9ED012DA3 - 320cae9405cd49db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsListViewController.searchBarTextDidBeginEditing(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "C4A0FE50-FE02-484D-8807-AFF9ED012DA3 - 320cae9405cd49db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsListViewController.searchBarTextDidBeginEditing(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "174F5DA0-0BD2-4457-8DC9-2EA42F1539C6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PredictSpring/ViewControllers/ProductsListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "searchBarCancelButtonClicked(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "174F5DA0-0BD2-4457-8DC9-2EA42F1539C6 - 277ba9c61b568c65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsListViewController.searchBarCancelButtonClicked(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  uuid = "174F5DA0-0BD2-4457-8DC9-2EA42F1539C6 - 277ba9c61b568c65"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsListViewController.searchBarCancelButtonClicked(__C.UISearchBar) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpring/PredictSpring/PredictSpring/ViewControllers/ProductsListViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -74,7 +74,6 @@ class ProductsViewModel {
         }
     }
     
-    
     private func calculateIndexPathsToReload(from newProducts: [Product]) -> [IndexPath] {
       let startIndex = newProducts.count - newProducts.count
       let endIndex = startIndex + newProducts.count
