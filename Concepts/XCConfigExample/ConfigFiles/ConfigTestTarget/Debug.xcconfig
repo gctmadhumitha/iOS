@@ -1,0 +1,22 @@
+//
+//  Debug.xcconfig
+//  ConfigTest
+//
+//  Created by Anand Nigam on 05/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Base.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER).debug
+BUNDLE_DISPLAY_NAME = $(inherited)Debug
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon-Debug
+
+//MARK: - API Keys
+FIREBASE_KEY = acnkdjkbvjfbvfibvfj
+
+//MARK: - Server URLs
+BASE_URL = https:/$()/www.linkedin.com/in/anand2nigam/

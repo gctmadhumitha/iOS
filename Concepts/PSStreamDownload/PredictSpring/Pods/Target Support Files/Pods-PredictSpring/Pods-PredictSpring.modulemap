@@ -1,0 +1,6 @@
+framework module Pods_PredictSpring {
+  umbrella header "Pods-PredictSpring-umbrella.h"
+
+  export *
+  module * { export * }
+}

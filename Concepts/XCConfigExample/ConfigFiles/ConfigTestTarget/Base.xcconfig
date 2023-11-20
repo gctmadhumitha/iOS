@@ -1,0 +1,16 @@
+//
+//  Base.xcconfig
+//  ConfigTest
+//
+//  Created by Anand Nigam on 05/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+//MARK: - App Settings
+BASE_BUNDLE_IDENTIFIER = com.anandnigam.ConfigTest
+BUNDLE_DISPLAY_NAME = ConfigTest
+
+//MARK: - Conditional Checks
+ONLY_ACTIVE_ARCH[config=Debug][sdk=*][arch=*] = YES

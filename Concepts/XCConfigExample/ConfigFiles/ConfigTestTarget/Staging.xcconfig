@@ -1,0 +1,27 @@
+//
+//  Staging.xcconfig
+//  ConfigTest
+//
+//  Created by Anand Nigam on 05/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Base.xcconfig"
+
+//MARK: - App Settings
+
+// to use any value defined in inherited file
+PRODUCT_BUNDLE_IDENTIFIER = $(BASE_BUNDLE_IDENTIFIER).staging
+
+// to inherit the value from the included config file
+BUNDLE_DISPLAY_NAME = $(inherited)Staging
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon-Debug
+
+//MARK: - API Keys
+FIREBASE_KEY = acnkdjkbvjfbvfibvfj
+
+//MARK: - Server URLs
+BASE_URL = https:/$()/anand2nigam.medium.com

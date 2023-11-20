@@ -387,12 +387,13 @@ func reconstructDigits(str: String ) {
     }
     var result = [String]()
     for i in 0..<count.count {
-        print("count\(i)" , count[i])
+        let cnt = count[i]
+        print("\(i)\(cnt)")
         var valCount = count[i]
-        while valCount > 0 {
-            result.append("\(i)")
-            valCount -= 1
-        }
+//        while valCount > 0 {
+//            result.append("\(i)")
+//            valCount -= 1
+//        }
     }
     print("Result is" , result)
 }
@@ -444,5 +445,60 @@ func countBinaryStrings(str: String) -> Int {
     
 }
 
+struct Product: Codable, Identifiable {
+    var productId: String
+    var title: String
+    var listPrice: String
+    var salesPrice: String
+    var color: String
+    var size: String
+    var id: String { productId }
+}
 
-print(countBinaryStrings(str: "110011"))
+//print(countBinaryStrings(str: "110011"))
+
+let str = "99000025001003,NK XY Core Vent Comp Shor,14.97,14.97,Black,LG\n99000025001002,NK XY Core Vent Comp Shor,14.97,14.97,Black,MD"
+let lines = str.split(separator: "\n")
+let fields = lines[0].split(separator: ",")
+let productId = String(describing: fields[0])
+let title = String(describing:fields[1])
+let listPrice = String(describing:fields[2])
+let salesPrice = String(describing:fields[3])
+let color = String(describing:fields[4])
+let size = String(describing:fields[5])
+let product = Product(productId: productId, title: title, listPrice: listPrice, salesPrice: salesPrice, color: color, size: size)
+print("lines ", lines)
+print("fields ", fields)
+print("id ", productId)
+print("product ", product)
+
+
+let lin = "99000490400005,NK Performance Polo-BLU 5,49.99,49.99,400,5XL"
+
+
+
+func isPartialLine(line: String, numberOfFields: Int) -> Bool {
+    let fields = line.split(separator:",")
+    print("fields.count ", fields.count)
+    if fields.count != numberOfFields {
+        return true
+    }
+
+    if fields[0].count != 14 || !fields[0].starts(with: "99"){
+        return true
+    }
+    
+    return false
+}
+
+
+print("Line is partial" ,isPartialLine(line: lin, numberOfFields: 6))
+
+
+var productString = "99299188630003,NK Newell Ridge Mid React,189.99,189.99,630,9"
+let fields1 = productString.split(separator:",")
+if !productString.starts(with: "99") || (fields1.count > 0 && fields1[0].count != 14) {
+    print("Matched")
+}else{
+    print("Not matched")
+}

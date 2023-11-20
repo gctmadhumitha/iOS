@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "EDE2717F-E9BF-4598-81C2-C5306B088409"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8DE866E-68D9-47D2-8A07-7FCE838F4A9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PredictSpring/ViewModels/ProductViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "insertStream(products:progressHandler:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B8DE866E-68D9-47D2-8A07-7FCE838F4A9A - 6075e68f323c49bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PredictSpring.ProductsViewModel.insertStream(products: Swift.Array&lt;Swift.String&gt;, progressHandler: Swift.Optional&lt;(Swift.Int) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpringExtension/PredictSpring/PredictSpring/ViewModels/ProductViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  uuid = "B8DE866E-68D9-47D2-8A07-7FCE838F4A9A - 7d2be95d4ba79b76"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in PredictSpring.ProductsViewModel.insertStream(products: Swift.Array&lt;Swift.String&gt;, progressHandler: Swift.Optional&lt;(Swift.Int) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DatabaseStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpringExtension/PredictSpring/PredictSpring/ViewModels/ProductViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "78">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "64E7F497-4F0B-40BB-A0F9-DD6ACB5C4213"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PredictSpring/ViewModels/ProductViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "downloadStreamAndInsert(url:progressHandler:completionHandler:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "64E7F497-4F0B-40BB-A0F9-DD6ACB5C4213 - e1f3c8085a79cf5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataStreamRequest.Stream&lt;Swift.String, Swift.Never&gt;) -&gt; () in PredictSpring.ProductsViewModel.downloadStreamAndInsert(url: Swift.String, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DownloadStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpringExtension/PredictSpring/PredictSpring/ViewModels/ProductViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "1470">
+               </Location>
+               <Location
+                  uuid = "64E7F497-4F0B-40BB-A0F9-DD6ACB5C4213 - 2f60c1fcba8f1a8f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in closure #1 (Alamofire.DataStreamRequest.Stream&lt;Swift.String, Swift.Never&gt;) -&gt; () in PredictSpring.ProductsViewModel.downloadStreamAndInsert(url: Swift.String, progressHandler: Swift.Optional&lt;(Swift.Float) -&gt; ()&gt;, completionHandler: Swift.Optional&lt;(PredictSpring.DownloadStatus) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "PredictSpring"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/madhu/Desktop/Dev/Code/Github/iOS/Concepts/PredictSpringExtension/PredictSpring/PredictSpring/ViewModels/ProductViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -1,0 +1,13 @@
+//
+//  WidgetStaging.xcconfig
+//  ConfigTest
+//
+//  Created by Anand Nigam on 12/02/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "ConfigFiles/ConfigTestTarget/Staging.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(inherited).ConfigTestWidget
