@@ -23,6 +23,10 @@ final class DatabaseManagerTests: XCTestCase {
     }
     
     func testDatabaseTaskValid() {
+        let data = ["TEST111,NK XY Core Vent Comp Shor,14.97,14.97,Black,MD",
+                    "TEST222,NK XY Core Vent Comp Shor,14.97,14.97,Black,MD",
+                    "TEST333,NK XY Core Vent Comp Shor,14.97,14.97,Black,MD",
+                    "TEST444,NK XY Core Vent Comp Shor,14.97,14.97,Black,MD"]
         dbManager.openDatabase()
         XCTAssertNotNil(dbManager.databasePointer)
         if (!dbManager.checkTableExists()){
@@ -31,13 +35,8 @@ final class DatabaseManagerTests: XCTestCase {
         XCTAssertTrue(dbManager.checkTableExists())
         
         // Call method to insert records from test file
-        if let filePath = Bundle(for: DownloadManagerTests.self).path(forResource: "test", ofType: "csv") {
-            let fileUrl = URL(fileURLWithPath: filePath)
-            dbManager.importDataFromFile(url: fileUrl, progressHandler: nil,completionHandler: nil)
-        }else{
-            XCTFail("Test file not found")
-        }
         
+        dbManager.insertProducts(data: data)
         // Check for inserted records
         var fetchedProducts = dbManager.fetchProducts(withId: "TEST", isNewSearch: true, offset: 0)
         XCTAssertNotNil(fetchedProducts)
@@ -57,7 +56,7 @@ final class DatabaseManagerTests: XCTestCase {
 
     override func tearDownWithError() throws {
         dbManager = nil
-        UserDefaults.standard.setValue(false, forKey: Constants.isDatabaseSaveComplete)
+        UserDefaults.standard.setValue(false, forKey: Constants.isProcessingDone)
     }
     
 }

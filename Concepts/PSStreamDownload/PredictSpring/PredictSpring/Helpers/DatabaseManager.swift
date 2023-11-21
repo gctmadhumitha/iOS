@@ -16,7 +16,7 @@ class DatabaseManager {
     private var total: CGFloat = 1
     private var databaseSaveComplete = false {
         didSet {
-            UserDefaults.standard.set(databaseSaveComplete, forKey: Constants.isDatabaseSaveComplete)
+            UserDefaults.standard.set(databaseSaveComplete, forKey: Constants.isProcessingDone)
         }
     }
     private var allRecordsFetched = false
@@ -96,7 +96,6 @@ class DatabaseManager {
         var insertPointer: OpaquePointer?
         let insertQuery = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         
-        //let returned = sqlite3_exec(databasePointer, "BEGIN TRANSACTION", nil, nil, nil);
         if sqlite3_prepare_v2(databasePointer, insertQuery, -1, &insertPointer, nil) ==
             SQLITE_OK {
             let columns = data.split(separator: ",")
@@ -117,14 +116,10 @@ class DatabaseManager {
                     print("inserted", data)
                 }
             }
-           // sqlite3_reset(insertPointer)
-            
         }
         else {
             print("insert not prepared")
-            //print(sqlite3_prepare_v2(databasePointer, insertQuery, -1, &insertPointer, nil))
         }
-        //sqlite3_exec(databasePointer, "COMMIT ", nil, nil, nil);
         sqlite3_finalize(insertPointer)
     }
     
@@ -134,7 +129,7 @@ class DatabaseManager {
         var insertPointer: OpaquePointer?
         let insertQuery = "INSERT INTO PRODUCTS VALUES(?,?,?,?,?,?);"
         
-        let returned = sqlite3_exec(databasePointer, "BEGIN TRANSACTION", nil, nil, nil);
+        sqlite3_exec(databasePointer, "BEGIN TRANSACTION", nil, nil, nil);
         if sqlite3_prepare_v2(databasePointer, insertQuery, -1, &insertPointer, nil) ==
             SQLITE_OK {
             for content in data {
@@ -153,7 +148,7 @@ class DatabaseManager {
                     if !(sqlite3_step(insertPointer) == SQLITE_DONE) {
                         //print("Could not insert row")
                     }else{
-                       //    print("inserted ", content)
+                        //print("inserted ", content)
                     }
                 }
                 sqlite3_reset(insertPointer)
@@ -230,6 +225,33 @@ class DatabaseManager {
         return isDeleteSuccessful
     }
     
+    // Delete all rows from table
+    func deleteAll(table: String) -> Bool{
+        if table.count < 1 {
+            return false
+        }
+        if databasePointer == nil {
+            openDatabase()
+        }
+        var deletePointer: OpaquePointer?
+        let deleteDataQuery = "DELETE FROM \(table);"
+        var isDeleteSuccessful = false
+        
+        if sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil) ==
+            SQLITE_OK {
+            if sqlite3_step(deletePointer) == SQLITE_DONE {
+                isDeleteSuccessful = true
+                print("Successfully deleted rows.")
+            } else {
+                print("Could not delete rows.")
+            }
+        } else {
+            print(sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil))
+        }
+        sqlite3_finalize(deletePointer)
+        return isDeleteSuccessful
+    }
+    
     // Records count of Products Table
     func getRowCount() -> Int {
         var count = 0
@@ -243,90 +265,6 @@ class DatabaseManager {
         return count
     }
     
-    func importDataFromFile(url: URL?, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
-        if databasePointer == nil {
-            openDatabase()
-        }
-        if !checkTableExists() {
-            createTable()
-        }
-        guard let url = url else {
-            print("File not found at location")
-            return
-        }
-        let path = url.path
-        let fileSize = getSizeOfFile(path: path)
-        let rowCount = getRowCount()
-        
-        DispatchQueue.main.async {
-            if fileSize == rowCount {
-                self.databaseSaveComplete = true
-            }
-            self.total = CGFloat(fileSize)
-            self.linesRead = CGFloat(0)
-        }
-        
-        guard let file = freopen(path, "r", stdin) else {
-            print("Cannot read file")
-            return
-        }
-        defer {
-            fclose(file)
-        }
-        
-        // Skip first line
-        _ = readLine()
-        
-        var lines: [String] = []
-        var lineCounter = 0
-        let linesPerBlock = 5000
-        while let line = readLine() {
-            lines.append(line)
-            lineCounter += 1
-            if ((lineCounter % linesPerBlock) == 0) {
-                DispatchQueue.main.async {
-                    self.linesRead += CGFloat(linesPerBlock)
-                    progressHandler?(Int(self.linesRead))
-                }
-                    insertProducts(data: lines)
-                    lines = []
-                
-            }
-            
-        }
-        insertProducts(data: lines)
-        DispatchQueue.main.async {
-            self.databaseSaveComplete = true
-            completionHandler?(.completed(Int(self.linesRead)))
-        }
-    }
-    
-    func getSizeOfFile(path: String) -> Int {
-        let key = "FileSize"
-        let size = UserDefaults.standard.integer(forKey: key)
-        if size != 0 {
-            return size
-        }
-        guard let file = freopen(path, "r", stdin) else {
-            print("Cannot read file")
-            exit(0)
-        }
-        defer {
-            fclose(file)
-        }
-        var lines = 0
-        _ = readLine()
-        while readLine() != nil {
-            lines += 1
-        }
-        if lines == 0 {
-            print("No items in file")
-            exit(0)
-        }
-        UserDefaults.standard.set(lines, forKey: key)
-        return lines
-    }
-    
     func importDataFromStream(products: [String], progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?) {
         if databasePointer == nil {
             openDatabase()
@@ -334,32 +272,6 @@ class DatabaseManager {
         if !checkTableExists() {
             createTable()
         }
-//        guard let url = url else {
-//            print("File not found at location")
-//            return
-//        }
-//        let path = url.path
-//        let fileSize = getSizeOfFile(path: path)
-//        let rowCount = getRowCount()
-        
-//        DispatchQueue.main.async {
-//            if fileSize == rowCount {
-//                self.databaseSaveComplete = true
-//            }
-//            self.total = CGFloat(fileSize)
-//            self.linesRead = CGFloat(0)
-//        }
-        
-//        guard let file = freopen(path, "r", stdin) else {
-//            print("Cannot read file")
-//            return
-////        }
-//        defer {
-//            fclose(file)
-//        }
-        
-        // Skip first line
-//        _ = readLine()
         insertProducts(data: products)
        // DispatchQueue.main.async {
             self.databaseSaveComplete = true

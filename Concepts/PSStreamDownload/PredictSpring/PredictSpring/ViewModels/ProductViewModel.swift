@@ -24,8 +24,6 @@ class ProductsViewModel {
     var progress = 0
     
     var totalCount : Int {
-        //print("products count : \(products.count)")
-        //print("offset : \(offset)")
         return products.count
     }
     
@@ -54,15 +52,6 @@ class ProductsViewModel {
         }
     }
     
-    func insert(url: URL, progressHandler: ((Int) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?)
-    {
-        self.dbManager.importDataFromFile(url: url) { value in
-            progressHandler?(value)
-        } completionHandler: { status in
-            completionHandler?(status)
-        }
-       
-    }
     
     func insertStream(products: [String], progressHandler: ((Int) -> Void)? = nil, completionHandler: ((DatabaseStatus)->(Void))?)
     {
@@ -79,13 +68,6 @@ class ProductsViewModel {
         return self.dbManager.getRowCount()
     }
     
-    func download(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DownloadStatus)->(Void))?){
-        DownloadManager().download(url: url) {  value in
-            progressHandler?(value)
-        } completionHandler: { status in
-            completionHandler?(status)
-        }
-    }
     
     private func calculateIndexPathsToReload(from newProducts: [Product]) -> [IndexPath] {
       let startIndex = newProducts.count - newProducts.count
@@ -96,16 +78,7 @@ class ProductsViewModel {
     
     func downloadStreamAndInsert(url: String, progressHandler: ((Float) -> Void)?, completionHandler: ((DatabaseStatus)->(Void))?){
         
-        print("downloadStreamAndInsert")
-        var fileUrl = "https://drive.google.com/uc?export=download&id=16jxfVYEM04175AMneRlT0EKtaDhhdrrv"
-        //x`
-        //overriding with 500 file/
-        //fileUrl = "https://drive.google.com/uc?export=download&id=1AMm2LVQ58lgA9G48qbt_KQw-OI-Ye80N"
-        
-        //5000
-        //fileUrl = "https://drive.google.com/uc?export=download&id=1Za1GbXO8jDG8Q6eFdceZVI2A_UuZpYP9"
-        
-        guard let url = URL(string: fileUrl) else {
+        guard let url = URL(string: url) else {
             return
         }
         var productsInAStream = [String]()
@@ -207,6 +180,12 @@ class ProductsViewModel {
         return Product(productId: productId, title: title, listPrice: Double(listPrice) ?? 0,  salesPrice: Double(salesPrice) ?? 0, color: color, size: size)
     }
     
+    func deleteAllProducts() -> Bool {
+        let delete =  dbManager.deleteAll(table: "PRODUCTS")
+        products = []
+        return delete
+    }
+    
     func isPartialLine(line: String, numberOfFields: Int) -> Bool {
         let fields = line.split(separator:",")
         if fields.count != numberOfFields {
@@ -215,13 +194,8 @@ class ProductsViewModel {
         if fields[0].count != 14 || !fields[0].starts(with: "99"){
             return true
         }
-        
         return false
     }
     
     
-}
-
-extension String{
-
 }

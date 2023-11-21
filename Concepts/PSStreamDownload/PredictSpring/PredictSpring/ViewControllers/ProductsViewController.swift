@@ -11,34 +11,12 @@ import UIKit
 // Main ViewController to display the records from the file and to lookup by product Id
 class ProductsViewController: UIViewController {
     
-    private let fileUrl =   Constants.fileUrl
     private var viewModel = ProductsViewModel()
     private var searchText = ""
     private var prevSearchText = ""
     private var isNewSearch = true
     
-    // MARK: - Views
-    private lazy var progressView: UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .bar)
-        progressView.trackTintColor = .clear
-        progressView.progressTintColor = .gray
-        progressView.clipsToBounds = true
-        progressView.layer.cornerRadius = 5
-        progressView.layer.borderWidth = 1.0
-        progressView.translatesAutoresizingMaskIntoConstraints = false
-        return progressView
-    }()
-    
-    private lazy var downloadProgressLabel : UILabel = {
-        let lbl = UILabel()
-        lbl.textColor = UIColor(hex: "#008080ff")
-        lbl.font = UIFont.subheadline.with(weight: .bold)
-        lbl.textAlignment = .left
-        lbl.text = "Download not started"
-        return lbl
-    }()
-    
-    private lazy var dbProgressLabel : UILabel = {
+    private lazy var progressLabel : UILabel = {
         let lbl = UILabel()
         lbl.textColor = UIColor(hex: "#008080ff")
         lbl.font = UIFont.subheadline.with(weight: .bold)
@@ -64,17 +42,16 @@ class ProductsViewController: UIViewController {
     
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "Enter product id"
+        searchController.searchBar.placeholder = "Enter Product Id"
         searchController.searchBar.isUserInteractionEnabled = true
         searchController.searchBar.searchBarStyle = .minimal
         return searchController
+
     }()
     
-    private lazy var isDownloadComplete : Bool = {
-       return UserDefaults.standard.bool(forKey: Constants.isDownloadComplete)
-    }()
-    private lazy var isDatabaseSaveComplete : Bool = {
-        return UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
+
+    private lazy var isProcessingDone : Bool = {
+       return UserDefaults.standard.bool(forKey: Constants.isProcessingDone)
     }()
     
     private var startTime : Date?
@@ -82,28 +59,19 @@ class ProductsViewController: UIViewController {
     override func viewDidLoad(){
         super.viewDidLoad()
         startTime = Date()
-        print("Start Time is \(startTime)")
+        print("Start Time is", startTime)
         layoutUI()
-        switch (isDownloadComplete, isDatabaseSaveComplete)
-        {
-            case (true, true):
-                progressView.progress = 1.0
-                downloadProgressLabel.text = "File already downloaded from google drive"
-                dbProgressLabel.text = "Records already saved to SQLite database"
-                fetchData()
-            case (true, false):
-                progressView.progress = 1.0
-                downloadProgressLabel.text = "File downloaded from google drive"
-            default:
-                downloadData(url: fileUrl)
+        if isProcessingDone {
+            progressLabel.text = "Records already saved to SQLite database"
+            fetchData()
+        } else {
+            downloadData(url: Constants.fileUrl)
         }
     }
     
     // Lays out UI components in the view
     func layoutUI(){
-        statusContainer.addArrangedSubview(progressView)
-        statusContainer.addArrangedSubview(downloadProgressLabel)
-        statusContainer.addArrangedSubview(dbProgressLabel)
+        statusContainer.addArrangedSubview(progressLabel)
         view.addSubview(statusContainer)
         view.backgroundColor = .systemBackground
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
@@ -111,17 +79,29 @@ class ProductsViewController: UIViewController {
         tableView.dataSource = self
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(reload))
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        self.title = "PredictSpring"
         definesPresentationContext = true
         view.addSubview(tableView)
         toggleSearchBar()
         layoutConstraints()
     }
     
+    @objc func reload(){
+        print("Reload ")
+        let isDeleteSuccessful = self.viewModel.deleteAllProducts()
+        tableView.reloadData()
+        print("isDeleteSuccessful")
+        if isDeleteSuccessful {
+            downloadData(url: Constants.fileUrl)
+        }
+    }
+    
     // Defines auto layout constraints
     func layoutConstraints(){
-        progressView.anchor(top: nil, left: nil, bottom: nil, right: nil, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 20, enableInsets: false)
+
         statusContainer.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 0, enableInsets: true)
         tableView.anchor(top: statusContainer.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, enableInsets: false)
     }
@@ -145,27 +125,11 @@ extension ProductsViewController {
         /// load downloadTask
         startTime = Date()
         viewModel.downloadStreamAndInsert(url: url) {  [weak self] value in
-            self?.showDownloadProgress(value: value)
-            self?.downloadProgressLabel.text = "Processed \(Int(value))"
-            self?.dbProgressLabel.text = String(self?.viewModel.getRowCount() ?? 0)
+            self?.showProgress(value: self?.viewModel.getRowCount() ?? 0)
         } completionHandler: { [weak self]  status in
-            self?.showInsertCompletion(status: status)
-            self?.dbProgressLabel.text = String(self?.viewModel.getRowCount() ?? 0)
+            self?.showCompletion(status: status)
+            self?.progressLabel.text = String(self?.viewModel.getRowCount() ?? 0)
             self?.fetchData(isFirst: true)
-        }
-    }
-    
-    func insertData(fileUrl: URL){
-        if !isDatabaseSaveComplete {
-            DispatchQueue.global(qos: .userInitiated).async {
-                self.viewModel.insert(url: fileUrl){ [weak self] value in
-                    self?.showInsertProgress(value: value)
-                } completionHandler: { [weak self]  status in
-                    self?.showInsertCompletion(status: status)
-                }
-            }
-        } else{
-            fetchData(isFirst: true)
         }
     }
 }
@@ -190,7 +154,9 @@ extension ProductsViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let totalCount = viewModel.totalCount
         /// Empty state for tableview
-        tableView.backgroundView = (totalCount == 0 && isDatabaseSaveComplete) ? EmptyView(frame: tableView.bounds) : nil
+        let emptyView = EmptyView(frame: tableView.bounds)
+        emptyView.headerTitle.text = searchText.count > 0 ? "No matching records ": ""
+        tableView.backgroundView = (totalCount == 0 && isProcessingDone) ? emptyView : nil
         return totalCount
     }
     
@@ -232,61 +198,71 @@ extension ProductsViewController : UISearchBarDelegate {
     
     func toggleSearchBar(){
         /// Enable Search bar after records are inserted into database
-        isDatabaseSaveComplete = UserDefaults.standard.bool(forKey: Constants.isDatabaseSaveComplete)
-        //searchController.searchBar.isUserInteractionEnabled = isDatabaseSaveComplete
+        isProcessingDone = UserDefaults.standard.bool(forKey: Constants.isProcessingDone)
     }
     
 }
 
 
-// Completion Handlers for Download and Save tasks
+// Completion Handlers
 // Could use protocols/delegates too
 extension ProductsViewController {
     
-    /// Progress handler to update the progress view bar
-    func showDownloadProgress(value: Float) {
-        self.downloadProgressLabel.text = "Downloading..."
-        self.progressView.progress = value
-    }
-    
-    /// Completion Handler for download Completion
-    func showDownloadCompletion(status: DownloadStatus){
-        if let startTime = startTime {
-            let downloadTime = Date().timeIntervalSince(startTime)
-            print("Download Time is \(Int(downloadTime)) seconds")
-        }
-        print("Start Time is \(startTime)")
-        self.downloadProgressLabel.text = "Download complete"
-        if case DownloadStatus.completed(let url) = status {
-           if !isDatabaseSaveComplete  {
-                self.insertData(fileUrl: url)
-            }
-        }
-        else{
-            downloadProgressLabel.text = "Download error"
-        }
-    }
-    
-    /// Progress hander to update UI with the number of records saved in the database
-    func showInsertProgress(value: Int) {
+    /// Progress hander to update UI with the number of records processed
+    func showProgress(value: Int) {
         DispatchQueue.main.async {
-            self.dbProgressLabel.text = "\(value) records saved"
+            self.progressLabel.text = "\(value) records downloaded and saved"
         }
     }
     
     /// Completion Handler called after all records are saved
-    func showInsertCompletion(status: DatabaseStatus){
+    func showCompletion(status: DatabaseStatus){
         if let startTime = startTime {
             let totalTime = Date().timeIntervalSince(startTime)
             print("Total Time is \(Int(totalTime)) seconds")
         }
         if case .completed(let value) = status {
-            self.dbProgressLabel.text = "All records saved : \(value)"
+            self.progressLabel.text = "All records saved : \(value)"
             self.toggleSearchBar()
             fetchData(isFirst: true)
         }
         else {
-            self.dbProgressLabel.text = "Failed to save records to the database"
+            self.progressLabel.text = "Failed to save records to the database"
         }
+    }
+}
+
+
+extension UISearchController {
+    func cancelButton() -> UIButton? {
+        if #available(iOS 13.0, *) {
+            return findCancelButton13()
+        }
+        return findCancelButtonOld()
+    }
+
+    func findCancelButtonOld() -> UIButton? {
+        for subView in searchBar.subviews {
+            for v in subView.subviews {
+                if let button = v as? UIButton {
+                    return button
+                }
+            }
+        }
+        return nil
+    }
+
+    @available(iOS 13.0, *)
+    func findCancelButton13() -> UIButton? {
+        for subView in searchBar.subviews {
+            for v in subView.subviews {
+                for b in v.subviews {
+                    if let button = b as? UIButton {
+                        return button
+                    }
+                }
+            }
+        }
+        return nil
     }
 }
