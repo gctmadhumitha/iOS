@@ -7,6 +7,15 @@ Structure:
 * Follow SOLID principles
 * Project architecture 
 
+Coding Practices: 
+* Prefer using Higher Order Functions
+* Avoid singletons
+* Make sure that the dependencies are being injected
+* Check for the corner cases. Example -  Error Handling (what if the backend doesn’t send an error message).
+* No need to add explicit init for structs if using only the default initialiser.
+* Use extensions to implement protocols
+* Create Protocols and extend them using Protocol Extensions to provide default method implementations. 
+
 Declaration: 
 * Avoid Type Inference - to minimise compile & build time
 * Explicit (unneeded) use of self should be avoided because it makes the capturing semantics of self stand out more in closures, and prevents verbosity elsewhere
@@ -17,14 +26,6 @@ Declaration:
 * Single source of truth - don’t preserve the same information in multiple places in the code
 * Prefer static constants over computed properties.
     * Prefer: static let language: String = “swift”. Over: static var language: String { return “swift” }
-
-Coding Practices: 
-* Prefer using Higher Order Functions
-* Avoid singletons, Make sure that the dependencies are being injected
-* Check for the corner cases. Example -  Error Handling (what if the backend doesn’t send an error message).
-* No need to add explicit init for structs if using only the default initialiser.
-* Use extensions to implement protocols
-* Create Protocols and extend them using Protocol Extensions to provide default method implementations. 
 
 Conditional checks: 
 * Make sure that there are no force unwraps
@@ -39,6 +40,7 @@ Conditional checks:
 Performance : 
 * Main thread, heavy operation shall not be done on main thread
 * Make sure that there are no retain cycles, Closures  should be weak self, delegates should be weak
+* Protocols to conform to AnyObject to declare it as weak.
 * instantiate DateFormatter only once
 * reuse cells
 * use image caching
