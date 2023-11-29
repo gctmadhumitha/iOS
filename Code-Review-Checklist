@@ -17,7 +17,7 @@ Declaration:
 * Single source of truth - don’t preserve the same information in multiple places in the code
 
 Coding Practices: 
-*  Prefer using Higher Order Functions
+* Prefer using Higher Order Functions
 * Avoid singletons, Make sure that the dependencies are being injected
 * Check for the corner cases. Example -  Error Handling (what if the backend doesn’t send an error message).
 * No need to add explicit init for structs if using only the default initialiser.
