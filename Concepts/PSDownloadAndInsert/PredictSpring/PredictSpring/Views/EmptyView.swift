@@ -10,7 +10,7 @@ import UIKit
 class EmptyView: UIView {
     
     
-    private lazy var headerTitle: UILabel = {
+    lazy var headerTitle: UILabel = {
         let headerTitle = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
         headerTitle.font = UIFont.preferredFont(forTextStyle: .body)
         headerTitle.textColor = .darkGray

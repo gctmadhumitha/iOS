@@ -27,7 +27,6 @@
 		C2057E202AFB4A7F00051F5F /* UIFont+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057E1F2AFB4A7F00051F5F /* UIFont+extension.swift */; };
 		C2057E222AFB505A00051F5F /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057E212AFB505A00051F5F /* UIColor+extension.swift */; };
 		C205D8BE2B086A7B0085B749 /* FileStreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205D8BD2B086A7B0085B749 /* FileStreamReader.swift */; };
-		C205D8C02B0939950085B749 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C205D8BF2B0939950085B749 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		C2057E1F2AFB4A7F00051F5F /* UIFont+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+extension.swift"; sourceTree = "<group>"; };
 		C2057E212AFB505A00051F5F /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		C205D8BD2B086A7B0085B749 /* FileStreamReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileStreamReader.swift; sourceTree = "<group>"; };
-		C205D8BF2B0939950085B749 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +170,6 @@
 			isa = PBXGroup;
 			children = (
 				C2057DBC2AF596D400051F5F /* ProductsViewController.swift */,
-				C205D8BF2B0939950085B749 /* TestViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,7 +287,6 @@
 			files = (
 				C2057DF92AF613EB00051F5F /* DatabaseManager.swift in Sources */,
 				C2057E072AFAAB7900051F5F /* Constants.swift in Sources */,
-				C205D8C02B0939950085B749 /* TestViewController.swift in Sources */,
 				C2057DFB2AF62A4100051F5F /* ProductViewModel.swift in Sources */,
 				C2057E202AFB4A7F00051F5F /* UIFont+extension.swift in Sources */,
 				C2057DF52AF60A1200051F5F /* UIView+extension.swift in Sources */,

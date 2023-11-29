@@ -59,8 +59,15 @@ class ProductsViewModel {
         } completionHandler: { status in
             completionHandler?(status)
         }
-       
     }
+    
+    
+    func deleteAllProducts() -> Bool {
+        let delete =  dbManager.deleteAll(table: "PRODUCTS")
+        products = []
+        return delete
+    }
+    
     
     func getRowCount() -> Int {
         return self.dbManager.getRowCount()

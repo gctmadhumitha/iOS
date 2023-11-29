@@ -81,14 +81,16 @@ class ProductsViewModel {
         guard let url = URL(string: url) else {
             return
         }
-        var productsInAStream = [String]()
+       // var productsInAStream = [String]()
         var isHeaderLine = true
         var partialString = ""
+        self.total = 0
         let group = DispatchGroup()
-        AF.streamRequest(url).responseStreamString { stream in
+        let serial = DispatchQueue(label: "com.ps.serial-queue")
+        AF.streamRequest(url).responseStreamString(on: serial) { stream in
             switch stream.event {
             case let .stream(result):
-                productsInAStream = []
+                var productsInAStream = [String]()
                 switch result {
                 case let .success(string):
                     let lines = string.split(separator: "\n")
@@ -121,6 +123,7 @@ class ProductsViewModel {
                                     let partialStringfields = productString.split(separator:",")
                                     if partialString.starts(with: "99") && partialStringfields.count == 6 && partialStringfields[0].count == 14 {
                                         productsInAStream.append(String(partialString))
+                                        self.total +=  1
                                         partialString = ""
                                     }
                                     else {
@@ -135,24 +138,23 @@ class ProductsViewModel {
                                 partialString = String(line)
                                 continue
                         }
-                        self.total +=  1
+                       
                         // case : When the buffer has just one line this case happens
                         let fields = productString.split(separator: ",")
                         if fields.count == 6 {
                             productsInAStream.append(String(productString))
+                            self.total +=  1
                         }else{
                             partialString = String(productString)
                         }
                     }
                 }
                 
-                group.enter()
+                //group.enter()
                 self.insertStream(products: productsInAStream, completionHandler: { status in
                     switch status {
                     case .completed:
-                        self.total += productsInAStream.count
-                        progressHandler?(Float(self.total))
-                        group.leave()
+                        //group.leave()
                         progressHandler?(Float(self.total))
                     default:
                         print("status is" , status)
@@ -162,10 +164,11 @@ class ProductsViewModel {
                 print("Total products " , self.total)
                 if partialString.count != 0 {
                     self.dbManager.insertProduct(data: partialString)
+                    self.total += 1
                 }
-                group.notify(queue: DispatchQueue.main) {
+                //group.notify(queue: DispatchQueue.main) {
                     completionHandler?(.completed(self.total))
-                }
+                //}
             }
         }
     }

@@ -189,6 +189,35 @@ class DatabaseManager {
         return isDeleteSuccessful
     }
     
+    // Delete all rows from table
+    func deleteAll(table: String) -> Bool{
+        if table.count < 1 {
+            return false
+        }
+        if databasePointer == nil {
+            openDatabase()
+        }
+        var deletePointer: OpaquePointer?
+        let deleteDataQuery = "DELETE FROM \(table);"
+        var isDeleteSuccessful = false
+        
+        if sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil) ==
+            SQLITE_OK {
+            if sqlite3_step(deletePointer) == SQLITE_DONE {
+                isDeleteSuccessful = true
+                
+                print("Successfully deleted rows.")
+            } else {
+                print("Could not delete rows.")
+            }
+        } else {
+            print(sqlite3_prepare_v2(databasePointer, deleteDataQuery, -1, &deletePointer, nil))
+        }
+        sqlite3_finalize(deletePointer)
+        return isDeleteSuccessful
+    }
+    
+    
     // Records count of Products Table
     func getRowCount() -> Int {
         var count = 0
@@ -238,7 +267,7 @@ class DatabaseManager {
         
         var lines: [String] = []
         var lineCounter = 0
-        let linesPerBlock = 5000
+        let linesPerBlock = 1000
         while let line = readLine() {
             lines.append(line)
             lineCounter += 1

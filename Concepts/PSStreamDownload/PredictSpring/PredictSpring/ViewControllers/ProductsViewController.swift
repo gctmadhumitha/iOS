@@ -29,7 +29,6 @@ class ProductsViewController: UIViewController {
     private lazy var statusContainer : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -54,6 +53,8 @@ class ProductsViewController: UIViewController {
        return UserDefaults.standard.bool(forKey: Constants.isProcessingDone)
     }()
     
+    private var statusHeightAnchor : NSLayoutConstraint?
+    
     private var startTime : Date?
     // MARK: - Main methods
     override func viewDidLoad(){
@@ -61,8 +62,10 @@ class ProductsViewController: UIViewController {
         startTime = Date()
         print("Start Time is", startTime)
         layoutUI()
+        isProcessingDone = UserDefaults.standard.bool(forKey: Constants.isProcessingDone)
         if isProcessingDone {
-            progressLabel.text = "Records already saved to SQLite database"
+            statusHeightAnchor?.constant = 0
+            progressLabel.text = ""
             fetchData()
         } else {
             downloadData(url: Constants.fileUrl)
@@ -72,6 +75,8 @@ class ProductsViewController: UIViewController {
     // Lays out UI components in the view
     func layoutUI(){
         statusContainer.addArrangedSubview(progressLabel)
+        statusHeightAnchor = statusContainer.heightAnchor.constraint(equalToConstant: 80)
+        statusHeightAnchor?.isActive = true
         view.addSubview(statusContainer)
         view.backgroundColor = .systemBackground
         tableView.register(ProductCell.self, forCellReuseIdentifier: ProductCell.reuseIdentifier)
@@ -89,20 +94,12 @@ class ProductsViewController: UIViewController {
         layoutConstraints()
     }
     
-    @objc func reload(){
-        print("Reload ")
-        let isDeleteSuccessful = self.viewModel.deleteAllProducts()
-        tableView.reloadData()
-        print("isDeleteSuccessful")
-        if isDeleteSuccessful {
-            downloadData(url: Constants.fileUrl)
-        }
-    }
+    
     
     // Defines auto layout constraints
     func layoutConstraints(){
 
-        statusContainer.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: view.frame.size.width - 20, height: 0, enableInsets: true)
+        statusContainer.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: tableView.topAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: view.frame.size.width - 20, height: 0, enableInsets: true)
         tableView.anchor(top: statusContainer.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 10, width: 0, height: 0, enableInsets: false)
     }
     
@@ -111,6 +108,20 @@ class ProductsViewController: UIViewController {
 
 // Methods to perform Download and Database operations
 extension ProductsViewController {
+    
+    @objc func reload(){
+        print("Reload ")
+        let isDeleteSuccessful = self.viewModel.deleteAllProducts()
+        self.statusHeightAnchor?.constant = 80
+        UIView.animate(withDuration: 0.3, animations:{
+            self.statusContainer.layoutIfNeeded()
+        })
+        tableView.reloadData()
+        print("isDeleteSuccessful")
+        if isDeleteSuccessful {
+            downloadData(url: Constants.fileUrl)
+        }
+    }
     
     func fetchData(isFirst: Bool = true){
         let isNewSearch  = ( prevSearchText != searchText ) ? true : false
@@ -125,11 +136,11 @@ extension ProductsViewController {
         /// load downloadTask
         startTime = Date()
         viewModel.downloadStreamAndInsert(url: url) {  [weak self] value in
-            self?.showProgress(value: self?.viewModel.getRowCount() ?? 0)
+            //print("I m in progress handler", self?.viewModel.getRowCount())
+            self?.showProgress(value: Int(value))
         } completionHandler: { [weak self]  status in
             self?.showCompletion(status: status)
-            self?.progressLabel.text = String(self?.viewModel.getRowCount() ?? 0)
-            self?.fetchData(isFirst: true)
+            //self?.fetchData(isFirst: true)
         }
     }
 }
@@ -211,7 +222,7 @@ extension ProductsViewController {
     /// Progress hander to update UI with the number of records processed
     func showProgress(value: Int) {
         DispatchQueue.main.async {
-            self.progressLabel.text = "\(value) records downloaded and saved"
+            self.progressLabel.text = "\(value) records"
         }
     }
     
@@ -221,48 +232,29 @@ extension ProductsViewController {
             let totalTime = Date().timeIntervalSince(startTime)
             print("Total Time is \(Int(totalTime)) seconds")
         }
-        if case .completed(let value) = status {
-            self.progressLabel.text = "All records saved : \(value)"
-            self.toggleSearchBar()
-            fetchData(isFirst: true)
-        }
-        else {
-            self.progressLabel.text = "Failed to save records to the database"
-        }
-    }
-}
-
-
-extension UISearchController {
-    func cancelButton() -> UIButton? {
-        if #available(iOS 13.0, *) {
-            return findCancelButton13()
-        }
-        return findCancelButtonOld()
-    }
-
-    func findCancelButtonOld() -> UIButton? {
-        for subView in searchBar.subviews {
-            for v in subView.subviews {
-                if let button = v as? UIButton {
-                    return button
-                }
+        DispatchQueue.main.async {
+            let val = String(self.viewModel.getRowCount() ?? 0)
+            if case .completed(let value) = status {
+                self.progressLabel.text = "\(val) records"
+                self.toggleSearchBar()
+                self.statusHeightAnchor?.constant = 0
+                UIView.animate(withDuration: 0.3, animations:{
+                    self.statusContainer.layoutIfNeeded()
+                })
+                print("self.viewModel.getRowCount() ", self.viewModel.getRowCount())
+                self.fetchData(isFirst: true)
             }
-        }
-        return nil
-    }
-
-    @available(iOS 13.0, *)
-    func findCancelButton13() -> UIButton? {
-        for subView in searchBar.subviews {
-            for v in subView.subviews {
-                for b in v.subviews {
-                    if let button = b as? UIButton {
-                        return button
-                    }
-                }
+            else {
+                self.progressLabel.text = "Failed to save records to the database"
             }
+            // create the alert
+            let alert = UIAlertController(title: "Download complete", message: "\(val) records saved.", preferredStyle: UIAlertController.Style.alert)
+
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
         }
-        return nil
     }
 }

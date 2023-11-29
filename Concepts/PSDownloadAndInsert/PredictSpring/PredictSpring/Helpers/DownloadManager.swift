@@ -71,7 +71,6 @@ class DownloadManager: NSObject {
             task.resume()
         }
     }
-
 }
 
 
