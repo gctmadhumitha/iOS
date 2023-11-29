@@ -1,27 +1,100 @@
 iOS Code Review Checklist
 
-Avoid Type Inference
-Prefer using Higher Order Functions
-Write DRY code (Don’t Repeat Yourself)
-Make sure that there are no force unwraps
-Make sure that there are no retain cycles
-Check if any deprecated API is being used
-Check if any hardcoded checks (generally strings) can be changed to enum.
-Prefer enum, switch over if else. 
-Avoid nested structures (loops, if/else)
-Check if there’s any API provided by Apple which can make things simple. 
-Naming of the variables (eg- Booleans should be interrogative)
-Check for typos. 
-Wherever accessing the values from an Array is involved, check if there’s any possibility of Index Out Of Bound Exception.
-YAGNI principle is being followed (You Aren’t Gonna Need It)
-Check if there are any unintended changes in the PR
-Make sure that the dependencies are being injected
-Follow Boy Scout Rule (see if any existing bad code can be improvised - though it is not written by the developer who raised the PR).
-Check for the corner cases. Example -  Error Handling (what if the backend doesn’t send an error message).
-If there’s any complex logic involved, check if there’s a comment to explain it. 
-Indentations
-Test Cases - Code Coverage of the new code
-Fonts, Colors etc shouldn’t be accessed randomly. There should be a separate file for them. 
-Make sure that the directory structure is being followed.
-See if the guidelines set by the team is being followed - SwiftLint
-Keep It Simple, Stupid (KISS)
+
+Structure: 
+* Make sure that the directory structure is being followed.
+* File not more than certain number of lines, 
+* Follow SOLID principles
+* Project architecture 
+
+Declaration: 
+* Avoid Type Inference - to minimise compile & build time
+* Explicit (unneeded) use of self should be avoided because it makes the capturing semantics of self stand out more in closures, and prevents verbosity elsewhere
+* Check if public variable or function can be private or private(set)?
+* Should we mark the class final, mark class or static keyword for a function/variable.
+* Prefer composition with protocols over inheritance.
+* Prefer enums; If a class won’t be ever instantiated - use enum instead.
+* Single source of truth - don’t preserve the same information in multiple places in the code
+
+Coding Practices: 
+*  Prefer using Higher Order Functions
+* Avoid singletons, Make sure that the dependencies are being injected
+* Check for the corner cases. Example -  Error Handling (what if the backend doesn’t send an error message).
+* No need to add explicit init for structs if using only the default initialiser.
+* Use extensions to implement protocols
+* Create Protocols and extend them using Protocol Extensions to provide default method implementations. 
+
+Conditional checks: 
+* Make sure that there are no force unwraps
+* Check if early return from functions (eg. guard) can be used
+* Prefer switch over if else. 
+* Avoid nested structures (loops, if/else)
+* use strings concatenation with /() instead of +
+* use isEmpty instead of == nil
+* use ! instead of == false
+* Check for any possibility of Index Out Of Bound Exception.
+
+Performance : 
+* Main thread, heavy operation shall not be done on main thread
+* Make sure that there are no retain cycles, Closures  should be weak self, delegates should be weak
+* instantiate DateFormatter only once
+* reuse cells
+* use image caching
+* use background threads where needed
+* Remove observers/invalidate timer on view dismissing.
+*  Debug memory graph - To determine if you have any strong reference cycle, please debug the memory graph and make sure we don’t have any memory leak
+
+Security Vulnerabilities: 
+* Passwords or other secrets should not be stored as plain text
+* No logging sensitive data
+
+API: 
+* Check if any deprecated API is being used
+* Check if there’s any API provided by Apple which can make things simple. 
+* Use @available/ #available for specifying version check
+
+Dependencies: 
+* Third party dependency version, please make sure to add the dependency version.
+
+UI: 
+* Main thread, heavy operation shall not be done on main thread, main thread is designed mainly for UI operations
+* To determine if you have any UI issue or overlapping views, please debug view hierarchy.
+* Check for screen sizes
+* Empty states 
+
+Constants : 
+* Fonts, Colors etc shouldn’t be accessed randomly. There should be a separate file for them. 
+
+Naming: 
+* Meaningful naming
+* Check for typos. 
+* Booleans names should be interrogative, they should start with is, can, should, will.
+* UpperCamelCase for types and protocols, lowerCamelCase for everything else
+
+Logging
+* Every important event in the app should be logged.
+* The logs should contain enough information (class, function, parameters, severity).
+* Repeating information can pollute the log.
+
+Error Handling 
+* Check for any possibility of Index Out Of Bound Exception.
+
+Comment: 
+* Comments for every class, method, file, for any complex logic involved
+* Well-documented 
+* Update README if required
+
+Cleanup: 
+* Write DRY code (Don’t Repeat Yourself)
+* YAGNI principle is being followed (You Aren’t Gonna Need It)
+* Check if there are any unintended changes in the PR
+* Follow Boy Scout Rule (see if any existing bad code can be improvised - though it is not written by the developer who raised the PR).
+
+Testing: 
+* Test Cases - Code Coverage of the new code
+
+General Guidelines
+* Indentations
+* See if the guidelines set by the team is being followed - SwiftLint
+* Keep It Simple, Stupid (KISS)
+
