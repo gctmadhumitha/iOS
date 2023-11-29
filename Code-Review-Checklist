@@ -53,7 +53,19 @@ Security Vulnerabilities:
 API: 
 * Check if any deprecated API is being used
 * Check if there’s any API provided by Apple which can make things simple. 
-* Use @available/ #available for specifying version check
+* Use @available/ #available for specifying version check; example below:
+if #available(iOS 15, *) {
+      let appearance = UINavigationBarAppearance()
+      appearance.configureWithOpaqueBackground()
+      appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+      appearance.backgroundColor = UIColor(red: 37/255.0, green: 37/255.0, blue: 37.0/255.0, alpha: 1.0)
+      UINavigationBar.appearance().standardAppearance = appearance
+      UINavigationBar.appearance().scrollEdgeAppearance = appearance
+  } else {
+      UINavigationBar.appearance().barTintColor = .black
+      UINavigationBar.appearance().tintColor = .white
+      UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+  }
 
 Dependencies: 
 * Third party dependency version, please make sure to add the dependency version.
