@@ -1,4 +1,4 @@
-iOS Code Review Checklist
+# iOS Code Review Checklist
 
 
 Structure: 
@@ -15,6 +15,8 @@ Declaration:
 * Prefer composition with protocols over inheritance.
 * Prefer enums; If a class won’t be ever instantiated - use enum instead.
 * Single source of truth - don’t preserve the same information in multiple places in the code
+* Prefer static constants over computed properties.
+    * Prefer: static let language: String = “swift”. Over: static var language: String { return “swift” }
 
 Coding Practices: 
 * Prefer using Higher Order Functions
@@ -78,6 +80,7 @@ Logging
 
 Error Handling 
 * Check for any possibility of Index Out Of Bound Exception.
+* eg. server down, no internet connection, slow internet connection.
 
 Comment: 
 * Comments for every class, method, file, for any complex logic involved
@@ -97,4 +100,21 @@ General Guidelines
 * Indentations
 * See if the guidelines set by the team is being followed - SwiftLint
 * Keep It Simple, Stupid (KISS)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
